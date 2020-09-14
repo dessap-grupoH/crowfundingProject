@@ -1,9 +1,10 @@
 language: java
 dist: trusty
-sudo: required
 jdk:
   - oraclejdk8
 before_install:
-   - cd Backend && chmod +x gradlew
+  - cd Backend && chmod +x gradlew
 install:
-   - ./gradlew clean build 
+  - ./gradlew clean build
+script:
+  - ./gradlew check
