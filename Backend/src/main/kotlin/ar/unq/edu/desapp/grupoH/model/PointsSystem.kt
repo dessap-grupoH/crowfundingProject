@@ -1,5 +1,7 @@
 package ar.unq.edu.desapp.grupoH.model
 
+import ar.unq.edu.desapp.grupoH.model.user.DonorUser
+
 object PointsSystem {
 
     private fun pointValueAccordingToAmount(amount: Int) : Int{
@@ -18,19 +20,18 @@ object PointsSystem {
         return pointValue
     }
 
-    private fun pointValueAccordintToProjectsParticipations(user: User): Int{
+    private fun pointValueAccordintToProjectsParticipations(donorUser: DonorUser): Int{
         var pointValue = 0
-        if (user.moreThanOneProjectParticipation()){
-            pointValue = 500
+        if (donorUser.moreThanOneDonationThisMont()){
+            pointValue += 500
         }
         return pointValue
     }
 
-    fun pointGenerator(user: User, amount: Int, project: CrowdfundingProject): Int {
+    fun pointGenerator(donorUser: DonorUser, amount: Int, project: CrowdfundingProject): Int {
         return  pointValueAccordingToAmount(amount) +
                 pointValueAccordingToPopulation(project.placeToConnect!!, amount) +
-                pointValueAccordintToProjectsParticipations(user)
-
+                pointValueAccordintToProjectsParticipations(donorUser)
 
     }
 

@@ -3,7 +3,7 @@ package ar.unq.edu.desapp.grupoH.modelTesting
 import ar.unq.edu.desapp.grupoH.model.CrowdfundingProject
 import ar.unq.edu.desapp.grupoH.model.Donation
 import ar.unq.edu.desapp.grupoH.model.Town
-import ar.unq.edu.desapp.grupoH.model.User
+import ar.unq.edu.desapp.grupoH.model.user.DonorUser
 import ar.unq.edu.desapp.grupoH.model.errors.PercentageToCompleteProjectOutOfRange
 import ar.unq.edu.desapp.grupoH.model.errors.PricePerHabitantOutOfRange
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
@@ -21,16 +21,20 @@ class CrowdfundingTest {
     private val startDateMock: LocalDate = mock(LocalDate::class.java)
     private val finishDateMock: LocalDate = mock(LocalDate::class.java)
     private val donationMock: Donation = mock(Donation::class.java)
-    private val userMock: User = mock(User::class.java)
-    private var project1 = CrowdfundingProject("project1", townMock, startDateMock, finishDateMock )
+    private val donorUserMock: DonorUser = mock(DonorUser::class.java)
+    private var project1 = CrowdfundingProject("Project1", townMock, startDateMock, finishDateMock )
 
 
     @BeforeEach
     fun settingMockedData(){
         Mockito.`when`(townMock.population).thenReturn(3500)
-        Mockito.`when`(donationMock.from).thenReturn(userMock)
-        Mockito.`when`(userMock.nick).thenReturn("Bill Gates")
+        Mockito.`when`(townMock.name).thenReturn("Pergamino")
+        Mockito.`when`(donationMock.from).thenReturn(donorUserMock)
+        Mockito.`when`(donorUserMock.nick).thenReturn("Bill Gates")
         Mockito.`when`(donationMock.amount).thenReturn(350000)
+        Mockito.`when`(startDateMock.dayOfMonth).thenReturn(14)
+        Mockito.`when`(finishDateMock.dayOfMonth).thenReturn(18)
+
     }
 
     @Test
@@ -74,9 +78,36 @@ class CrowdfundingTest {
     }
 
     @Test
-    fun actualState(){
+    fun actualStateTest(){
         Assert.assertEquals(ProjectState.Opened, project1.projectState)
+    }
 
+    @Test
+    fun placeToConnectTest(){
+        Assert.assertEquals("Pergamino", project1.placeToConnect!!.name)
+    }
+
+    @Test
+    fun projectNameTest(){
+        Assert.assertEquals("Project1", project1.name)
+    }
+
+    @Test
+    fun changePricePerHabitantTest(){
+        project1.changePricePerHabitant(30000)
+        Assert.assertEquals(30000,project1.pricePerHabitant)
+    }
+
+    @Test
+    fun changePercentageToCompleteTest(){
+        project1.changePercentageNeeded(70)
+        Assert.assertEquals(70,project1.percentageNeeded)
+    }
+
+    @Test
+    fun datesProjectTest(){
+        Assert.assertEquals(14, project1.startDate!!.dayOfMonth)
+        Assert.assertEquals(18, project1.estimatedFinishDate!!.dayOfMonth)
     }
 
 
