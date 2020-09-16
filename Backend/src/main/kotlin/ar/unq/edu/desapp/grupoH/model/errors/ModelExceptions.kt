@@ -4,6 +4,9 @@ open class PricePerHabitantOutOfRange(val exMessage: String): Exception(exMessag
 
 open class PercentageToCompleteProjectOutOfRange(val exMessage: String): Exception(exMessage)
 
-open class ProjectNotFound(val exMessage: String) : Exception(exMessage)
+open class InvalidAmountForDonation(val exMessage: String) : Exception(exMessage)
+
+
+
 
 

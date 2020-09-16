@@ -5,7 +5,6 @@ import ar.unq.edu.desapp.grupoH.model.errors.PercentageToCompleteProjectOutOfRan
 import ar.unq.edu.desapp.grupoH.model.errors.PricePerHabitantOutOfRange
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
 import java.time.LocalDate
-import java.util.*
 
 class CrowdfundingProject {
 
@@ -17,13 +16,13 @@ class CrowdfundingProject {
     var estimatedFinishDate: LocalDate? = null
     var moneyCollected: Int = 0
     var projectState: ProjectState = ProjectState.Opened
+    var donorList: MutableList<String> = emptyList<String>().toMutableList()
 
     constructor(name: String, placeToConnect: Town, startDate: LocalDate, estimatedFinishDate: LocalDate){
         this.name = name
         this.placeToConnect = placeToConnect
         this.startDate = startDate
         this.estimatedFinishDate = estimatedFinishDate
-        ProjectSearcher.addProject(this)
     }
 
     fun changePricePerHabitant(newPrice: Int){
@@ -35,7 +34,7 @@ class CrowdfundingProject {
     }
 
     fun moneyRequiredToCompleteProject(): Int{
-        return (this.placeToConnect!!.population!! * this.percentageNeeded / 100) * this.pricePerHabitant
+        return (this.placeToConnect!!.population * this.percentageNeeded / 100) * this.pricePerHabitant
     }
 
     fun pricePerHabitanteCheck(price: Int): Int {
@@ -55,15 +54,13 @@ class CrowdfundingProject {
     }
 
     fun recieveDonation(donation: Donation){
-        this.placeToConnect!!.addDonor(donation.from)
+        this.donorList.add(donation.from.nick)
         this.moneyCollected += donation.amount
     }
 
     fun actualPercentageCompleted(): Int{
         return (this.moneyCollected * 100) / this.moneyRequiredToCompleteProject()
     }
-
-
 
 
 }

@@ -1,35 +1,38 @@
 package ar.unq.edu.desapp.grupoH.model
 
+import ar.unq.edu.desapp.grupoH.model.errors.InvalidAmountForDonation
+import ar.unq.edu.desapp.grupoH.model.errors.ModelMessages
 import java.time.LocalDate
 
 class User(val username: String, val password: String, var email: String, var nick: String) {
 
-    var pointList: MutableList<Point> = emptyList<Point>().toMutableList()
+    var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
-    fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: Town, comment: String){
-        var projectTo : CrowdfundingProject = ProjectSearcher.findProject(to)
+    fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String){
+        if(amount > 0){
+            val newDonation = Donation(LocalDate.now(), paymentMethod, amount,to ,this, comment)
+            this.donationList.add(newDonation)
+            to.recieveDonation(newDonation)
+        }else{
+            throw InvalidAmountForDonation(ModelMessages.invalidAmountDonate)
+        }
 
-        val newDonation = Donation(LocalDate.now(), paymentMethod, amount,to ,this.nick, comment)
-
-        projectTo.recieveDonation(newDonation)
-
-        pointList.add(PointsSystem.pointGenerator(this,comment,amount,to, LocalDate.now(), projectTo))
     }
 
     fun moreThanOneProjectParticipation(): Boolean{
         var multiProjectDonor = false
-        if(pointList.isNotEmpty()){
-            val firstPointProject = pointList.first().project.name
-            multiProjectDonor = pointList.find { it.project.name != firstPointProject } != null
+        if(donationList.isNotEmpty()){
+            val firstPointProject = donationList.first().projectTo.name
+            multiProjectDonor = donationList.find { it.projectTo.name != firstPointProject } != null
         }
         return multiProjectDonor
     }
 
-    fun totalPointsValue(): Int{
+    fun totalPoints(): Int{
         var pointsValue = 0
 
-        for (p in this.pointList){
-            pointsValue += p.value
+        for (d in this.donationList){
+            pointsValue += PointsSystem.pointGenerator(this, d.amount, d.projectTo)
         }
 
         return pointsValue

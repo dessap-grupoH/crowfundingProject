@@ -15,6 +15,7 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -31,6 +32,7 @@ dependencies {
 	}
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("junit:junit:4.12")
+	testImplementation ("org.mockito:mockito-inline:2.13.0")
 }
 
 tasks.withType<Test> {
