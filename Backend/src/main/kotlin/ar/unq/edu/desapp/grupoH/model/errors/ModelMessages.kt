@@ -1,6 +1,6 @@
 package ar.unq.edu.desapp.grupoH.model.errors
 
-class ModelMessages {
+object ModelMessages {
 
     val pricePerHabitantOutOfRange = "El monto por habitante excede el limite aceptado"
 

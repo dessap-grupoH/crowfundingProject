@@ -15,7 +15,7 @@ object ProjectSearcher{
         try {
             return this.existentProject(placeToSearch)
         }catch (ex: Exception){
-            throw ProjectNotFound(ModelMessages().projectNotFound)
+            throw ProjectNotFound(ModelMessages.projectNotFound)
         }
     }
 

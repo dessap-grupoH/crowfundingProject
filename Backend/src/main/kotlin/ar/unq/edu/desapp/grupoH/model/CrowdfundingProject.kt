@@ -14,14 +14,15 @@ class CrowdfundingProject {
     var pricePerHabitant: Int = 1000
     var placeToConnect: Town? = null
     var startDate: LocalDate? = null
-    var finishDate: LocalDate? = null
+    var estimatedFinishDate: LocalDate? = null
     var moneyCollected: Int = 0
     var projectState: ProjectState = ProjectState.Opened
 
-    constructor(name: String, placeToConnect: Town){
+    constructor(name: String, placeToConnect: Town, startDate: LocalDate, estimatedFinishDate: LocalDate){
         this.name = name
-        this.startDate = LocalDate.now()
         this.placeToConnect = placeToConnect
+        this.startDate = startDate
+        this.estimatedFinishDate = estimatedFinishDate
         ProjectSearcher.addProject(this)
     }
 
@@ -41,7 +42,7 @@ class CrowdfundingProject {
         if (price in 0..100000){
             return price
         }else{
-            throw PricePerHabitantOutOfRange(ModelMessages().pricePerHabitantOutOfRange)
+            throw PricePerHabitantOutOfRange(ModelMessages.pricePerHabitantOutOfRange)
         }
     }
 
@@ -49,7 +50,7 @@ class CrowdfundingProject {
         if (percentage in 50..100){
             return percentage
         }else{
-            throw PercentageToCompleteProjectOutOfRange(ModelMessages().percentageToCompleteProjectOutOfRange)
+            throw PercentageToCompleteProjectOutOfRange(ModelMessages.percentageToCompleteProjectOutOfRange)
         }
     }
 

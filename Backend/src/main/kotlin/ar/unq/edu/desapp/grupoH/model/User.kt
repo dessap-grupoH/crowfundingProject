@@ -1,16 +1,10 @@
 package ar.unq.edu.desapp.grupoH.model
 
-import ar.unq.edu.desapp.grupoH.model.registerMethods.ManualRegister
-import ar.unq.edu.desapp.grupoH.model.registerMethods.RegisterMethod
 import java.time.LocalDate
 
-class User(var registerMethod: ManualRegister) {
-
-    //TODO (registerMethod deberia ser de la clase abstracta)
+class User(val username: String, val password: String, var email: String, var nick: String) {
 
     var pointList: MutableList<Point> = emptyList<Point>().toMutableList()
-    var username: String = this.registerMethod.username
-    var nick: String = this.registerMethod.nick
 
     fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: Town, comment: String){
         var projectTo : CrowdfundingProject = ProjectSearcher.findProject(to)

@@ -8,6 +8,4 @@ class ModelDataTesting{
 
     var users = UserData()
 
-    var registerMethods = RegisterMethodData()
-
 }
