@@ -5,7 +5,7 @@ import ar.unq.edu.desapp.grupoH.model.Donation
 import ar.unq.edu.desapp.grupoH.model.Town
 import ar.unq.edu.desapp.grupoH.model.user.DonorUser
 import ar.unq.edu.desapp.grupoH.model.errors.PercentageToCompleteProjectOutOfRange
-import ar.unq.edu.desapp.grupoH.model.errors.PricePerHabitantOutOfRange
+import ar.unq.edu.desapp.grupoH.model.errors.PricePerInhabitantOutOfRange
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
 import org.junit.Assert
 import org.junit.jupiter.api.BeforeEach
@@ -38,11 +38,11 @@ class CrowdfundingTest {
     }
 
     @Test
-    fun projectWithInvalidPricePerHabitantTest(){
+    fun projectWithInvalidPricePerInhabitantTest(){
         try{
-            project1.changePricePerHabitant(200000)
+            project1.changePricePerInhabitant(200000)
             fail("was expected an error about price out of range")
-        }catch (ex: PricePerHabitantOutOfRange){
+        }catch (ex: PricePerInhabitantOutOfRange){
             Assert.assertEquals("El monto por habitante excede el limite aceptado.", ex.exMessage)
         }
     }
@@ -64,7 +64,7 @@ class CrowdfundingTest {
 
     @Test
     fun receiveDonationTest(){
-        project1.recieveDonation(donationMock)
+        project1.receiveDonation(donationMock)
 
         Assert.assertEquals("Bill Gates",project1.donorList.first())
         Assert.assertEquals(350000, project1.moneyCollected)
@@ -72,7 +72,7 @@ class CrowdfundingTest {
 
     @Test
     fun actualPercentageCompletedTest(){
-        project1.recieveDonation(donationMock)
+        project1.receiveDonation(donationMock)
 
         Assert.assertEquals(10,project1.actualPercentageCompleted())
     }
@@ -93,9 +93,9 @@ class CrowdfundingTest {
     }
 
     @Test
-    fun changePricePerHabitantTest(){
-        project1.changePricePerHabitant(30000)
-        Assert.assertEquals(30000,project1.pricePerHabitant)
+    fun changePricePerInhabitantTest(){
+        project1.changePricePerInhabitant(30000)
+        Assert.assertEquals(30000,project1.pricePerInhabitant)
     }
 
     @Test

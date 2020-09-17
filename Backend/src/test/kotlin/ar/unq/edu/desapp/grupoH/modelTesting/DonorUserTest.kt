@@ -32,15 +32,21 @@ class DonorUserTest {
 
 
     @Test
-    fun makeDonnationTest(){
+    fun makeValidDonationTest(){
         user1.makeDonation(PaymentMethod.DebitCard,1500,projectMock,"Donacion de 1500$")
-        Assert.assertEquals(4500, user1.totalPoints())
-//        user1.makeDonation(PaymentMethod.DebitCard,200,projectMock,"Donacion de 100$")
-//        Assert.assertEquals(5200, user1.totalPoints()) //TODO(algo raro pasa aca)
+        Assert.assertEquals(4500, user1.actualPoints)
     }
 
     @Test
-    fun makeDonnationWithInvalidAmount(){
+    fun makeTwoValidDonationInSameMonthTest(){
+        user1.makeDonation(PaymentMethod.DebitCard,1500,projectMock,"Donacion de 1500$")
+        user1.makeDonation(PaymentMethod.DebitCard,200,projectMock,"Donacion de 200$")
+        Assert.assertEquals(5400, user1.actualPoints)
+    }
+
+
+    @Test
+    fun makeDonationWithInvalidAmount(){
         try{
         user1
                 .makeDonation(PaymentMethod.DebitCard,-100,projectMock,"Donacion de -100$")
@@ -51,18 +57,20 @@ class DonorUserTest {
     }
 
     @Test
-    fun moreThanOneProjectParticipationTest(){
-        Assert.assertEquals(false, user1.moreThanOneDonationThisMont())
+    fun isSecondMonthlyDonation(){
+        Assert.assertEquals(false, user1.isSecondMonthlyDonation())
 
         user1.makeDonation(PaymentMethod.DebitCard,1500,projectMock,"Donacion de 1500$")
 
-        Assert.assertEquals(false, user1.moreThanOneDonationThisMont())
+        Assert.assertFalse(user1.isSecondMonthlyDonation())
 
         user1.makeDonation(PaymentMethod.DebitCard,200,project2Mock,"Donacion de 200$")
 
-        Assert.assertTrue(user1.moreThanOneDonationThisMont())
+        Assert.assertTrue(user1.isSecondMonthlyDonation())
+
+        user1.makeDonation(PaymentMethod.DebitCard,500,project2Mock,"Donacion de 500$")
+
+        Assert.assertFalse(user1.isSecondMonthlyDonation())
     }
-
-
 
 }

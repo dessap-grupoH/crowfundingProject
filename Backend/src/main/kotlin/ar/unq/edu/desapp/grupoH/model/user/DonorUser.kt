@@ -13,30 +13,19 @@ class DonorUser(username: String, password: String, email: String, var nick: Str
 
     var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
+    var actualPoints : Int = 0
+
     fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String){
         if(amount > 0){
             val newDonation = Donation(LocalDate.now(), paymentMethod, amount, to, this, comment)
             this.donationList.add(newDonation)
-            to.recieveDonation(newDonation)
+            to.receiveDonation(newDonation)
+            actualPoints += PointsSystem.pointGenerator(this, amount, to)
         }else{
             throw InvalidAmountForDonation(ModelMessages.invalidAmountDonate)
         }
     }
 
-    fun moreThanOneDonationThisMont(): Boolean{
-         return donationList.filter { it.date!!.monthValue == LocalDate.now().monthValue }.size > 1
-    }
-
-    fun totalPoints(): Int{
-        var pointsValue = 0
-
-        for (d in this.donationList){
-            pointsValue += PointsSystem.pointGenerator(this, d.amount, d.projectTo)
-        }
-
-        return pointsValue
-    }
-
-
+    fun isSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date!!.monthValue == LocalDate.now().monthValue }.size == 2
 
 }
