@@ -13,5 +13,5 @@ after_success:
 deploy:
   - provider: heroku
     skip_cleanup: true
-    api_key: f930a8d0-6b33-4610-b6f7-c9d3b1f57eb6 
+    api_key: $HEROKU_DEPLOY_KEY 
     app: crowdfunding-project
