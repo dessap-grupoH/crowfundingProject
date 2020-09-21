@@ -18,6 +18,8 @@ repositories {
 	jcenter()
 }
 
+val staging: Configuration by configurations.creating
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -33,6 +35,9 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("junit:junit:4.12")
 	testImplementation ("org.mockito:mockito-inline:2.13.0")
+
+	// heroku app runner
+	staging("com.heroku:webapp-runner-main:9.0.36.1")
 }
 
 tasks.withType<Test> {
@@ -61,4 +66,15 @@ jacoco {
 	reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
-
+// Heroku
+tasks {
+	val copyToLib by registering(Copy::class) {
+		into("$buildDir/server")
+		from(staging) {
+			include("webapp-runner*")
+		}
+	}
+	val stage by registering {
+		dependsOn("build", copyToLib)
+	}
+}
