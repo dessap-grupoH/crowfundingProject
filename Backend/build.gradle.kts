@@ -74,7 +74,8 @@ tasks {
 			include("webapp-runner*")
 		}
 	}
-	val stage by registering {
-		dependsOn("build", copyToLib)
+
+    build {
+		dependsOn(copyToLib)
 	}
 }
