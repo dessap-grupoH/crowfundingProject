@@ -7,10 +7,17 @@ import ar.unq.edu.desapp.grupoH.model.PointsSystem
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidAmountForDonation
 import ar.unq.edu.desapp.grupoH.model.errors.ModelMessages
 import java.time.LocalDate
+import javax.persistence.*
 
+@Entity
 class DonorUser(username: String, password: String, email: String, var nick: String):
         User(username,password,email) {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int? = null
+
+    @OneToMany(mappedBy = "id", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
     var actualPoints : Int = 0

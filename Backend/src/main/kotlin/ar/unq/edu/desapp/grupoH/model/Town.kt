@@ -1,8 +1,17 @@
 package ar.unq.edu.desapp.grupoH.model
 
 import ar.unq.edu.desapp.grupoH.model.states.ConnectionState
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
 
-class Town(val id: Int, val name: String, val province: String, val population: Int) {
+@Entity
+class Town(val name: String, val province: String, val population: Int) {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int? = null
 
     var connectionState: ConnectionState = ConnectionState.Disconnected
 

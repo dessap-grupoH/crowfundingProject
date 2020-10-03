@@ -2,5 +2,20 @@ package ar.unq.edu.desapp.grupoH.model
 
 import ar.unq.edu.desapp.grupoH.model.user.DonorUser
 import java.time.LocalDate
+import javax.persistence.*
 
-class Donation(val date: LocalDate?, val paymentMethod: PaymentMethod, val amount: Int, val projectTo: CrowdfundingProject, val from: DonorUser, val comment: String)
+@Entity
+class Donation(
+        var date: LocalDate?,
+        var paymentMethod: PaymentMethod,
+        var amount: Int,
+        @ManyToOne
+        var projectTo: CrowdfundingProject,
+        @ManyToOne
+        var from: DonorUser,
+        var comment: String
+){
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int? = null
+}
