@@ -3,6 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.3.3.RELEASE"
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
+	id("org.jetbrains.kotlin.plugin.jpa") version "1.3.72"
+	id("org.jetbrains.kotlin.plugin.noarg") version "1.3.71"
+	id("org.jetbrains.kotlin.plugin.allopen") version "1.3.71"
 	war
 	jacoco
 	kotlin("jvm") version "1.3.72"
@@ -23,6 +26,10 @@ val staging: Configuration by configurations.creating
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("com.h2database:h2:1.4.200")
+	implementation("org.hibernate:hibernate-core")
+	implementation("org.hibernate:hibernate-testing:jar:5.4.22.Final")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
