@@ -10,13 +10,13 @@ abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int? = null
+    open var id: Int? = null
 
-    lateinit var username: String
+    open lateinit var username: String
 
-    lateinit var password: String
+    open lateinit var password: String
 
-    lateinit var email: String
+    open lateinit var email: String
 
     constructor()
 
