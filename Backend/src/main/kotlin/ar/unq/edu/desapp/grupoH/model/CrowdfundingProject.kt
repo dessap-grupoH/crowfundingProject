@@ -7,26 +7,35 @@ import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
-class CrowdfundingProject(name: String, placeToConnect: Town, startDate: LocalDate, estimatedFinishDate: LocalDate) {
+class CrowdfundingProject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int? = null
 
-    var name: String? = name
+    var name: String? = null
     var percentageNeeded: Int = 100
     var pricePerInhabitant: Int = 1000
 
-    @OneToOne(mappedBy = "id", cascade = [CascadeType.ALL])
-    var placeToConnect: Town? = placeToConnect
+    @OneToOne
+    var placeToConnect: Town? = null
 
-    var startDate: LocalDate? = startDate
-    var estimatedFinishDate: LocalDate? = estimatedFinishDate
+    var startDate: LocalDate? = null
+    var estimatedFinishDate: LocalDate? = null
     var moneyCollected: Int = 0
     var projectState: ProjectState = ProjectState.Opened
 
     @OneToMany(mappedBy = "nick", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var donorList: MutableList<DonorUser> = emptyList<DonorUser>().toMutableList()
+
+    constructor()
+
+    constructor(name: String, placeToConnect: Town, startDate: LocalDate, estimatedFinishDate: LocalDate) {
+        this.name = name
+        this.placeToConnect = placeToConnect
+        this.startDate = startDate
+        this.estimatedFinishDate = estimatedFinishDate
+    }
 
     fun changePricePerInhabitant(newPrice: Int){
         this.pricePerInhabitant = pricePerInhabitantCheck(newPrice)

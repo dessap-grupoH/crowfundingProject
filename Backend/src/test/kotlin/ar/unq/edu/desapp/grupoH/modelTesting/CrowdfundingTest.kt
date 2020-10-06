@@ -66,7 +66,7 @@ class CrowdfundingTest {
     fun receiveDonationTest(){
         project1.receiveDonation(donationMock)
 
-        Assert.assertEquals("Bill Gates",project1.donorList.first())
+        Assert.assertEquals("Bill Gates",project1.donorList.first().nick)
         Assert.assertEquals(350000, project1.moneyCollected)
     }
 

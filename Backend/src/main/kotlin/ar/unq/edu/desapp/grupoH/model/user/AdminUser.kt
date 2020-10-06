@@ -6,11 +6,11 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class AdminUser(username: String, password: String, email: String):
-        User(username,password,email){
+class AdminUser : User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null
+    constructor()
+
+    constructor(username: String, password: String, email: String) : super(username, password, email)
+
 }
 

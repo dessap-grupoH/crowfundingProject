@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class TownTest{
 
-    private var town = Town(112,"Pergamino","Buenos Aires", 6000)
+    private var town = Town("Pergamino","Buenos Aires", 6000)
 
     @Test
     fun connectionStatesTest(){

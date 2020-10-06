@@ -10,17 +10,20 @@ import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
-class DonorUser(username: String, password: String, email: String, var nick: String):
-        User(username,password,email) {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null
+class DonorUser : User {
 
     @OneToMany(mappedBy = "id", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
     var actualPoints : Int = 0
+
+    lateinit var nick: String
+
+    constructor()
+
+    constructor(username : String, password: String, email: String, nick: String) : super(username, password, email) {
+        this.nick = nick
+    }
 
     fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String){
         if(amount > 0){
@@ -33,6 +36,6 @@ class DonorUser(username: String, password: String, email: String, var nick: Str
         }
     }
 
-    fun isSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date!!.monthValue == LocalDate.now().monthValue }.size == 2
+    fun isSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date.monthValue == LocalDate.now().monthValue }.size == 2
 
 }

@@ -7,13 +7,27 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Town(val name: String, val province: String, val population: Int) {
+class Town {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int? = null
 
+    lateinit var name: String
+
+    lateinit var province: String
+
+    var population: Int = 0
+
     var connectionState: ConnectionState = ConnectionState.Disconnected
+
+    constructor()
+
+    constructor(name: String, province: String, population: Int) {
+        this.name = name
+        this.province = province
+        this.population = population
+    }
 
     fun setConnectedState() {
         this.connectionState = ConnectionState.Connected
