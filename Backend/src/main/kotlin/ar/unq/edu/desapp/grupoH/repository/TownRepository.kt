@@ -1,0 +1,8 @@
+package ar.unq.edu.desapp.grupoH.repository
+
+import ar.unq.edu.desapp.grupoH.model.Town
+import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface TownRepository  : CrudRepository<Town, Int>
