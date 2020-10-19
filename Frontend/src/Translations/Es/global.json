@@ -1,5 +1,12 @@
 {
   "header": {
-    "crowdfunding-project": "Proyecto solidario"
+    "crowdfunding-project": "Proyecto solidario",
+    "project-description": "Este es un proyecto donde podras hacer donaciones a distintos barrios del pais que no posean internet hasta el momento, de esta forma podremos darle una oportunidad de crecimiento importante."
+  },
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "donate": "Donar",
+    "my-donations": "Mis donaciones"
   }
 }

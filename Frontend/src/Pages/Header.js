@@ -24,10 +24,8 @@ const Header = () => {
             <div className="banner-text">
                <h1 className="responsive-headline"> {t("header.crowdfunding-project")} </h1>
                <h3>
-                  Este es un proyecto donde podras hacer donaciones a distintos barrios
-                  del pais que no posean internet hasta el momento, de esta forma podremos darle
-                  una oportunidad de crecimiento importante.
-            </h3>
+                  {t("header.project-description")}
+               </h3>
                <hr />
             </div>
          </div>

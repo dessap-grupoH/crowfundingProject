@@ -1,5 +1,12 @@
 {
   "header": {
-    "crowdfunding-project": "Crowdfunding project"
+    "crowdfunding-project": "Crowdfunding project",
+    "project-description": "This is a project where you can make donations to different neighborhoods of the country that do not have internet so far, in this way we can give you an important growth opportunity."
+  },
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "donate": "Donate",
+    "my-donations": "My donations"
   }
 }
