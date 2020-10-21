@@ -1,5 +1,5 @@
 {
-  "name": "crowdFundingProject",
+  "name": "crowdfundingproject",
   "version": "0.1.0",
   "homepage": "./",
   "private": true,
@@ -7,7 +7,6 @@
     "@material-ui/core": "^4.11.0",
     "axios": "^0.20.0",
     "i18next": "^19.8.2",
-    "jquery": "^3.2.1",
     "particles-bg": "^2.3.12",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

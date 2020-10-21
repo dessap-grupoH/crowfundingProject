@@ -28,9 +28,8 @@ class DonationService {
     fun makeDonation(donationRequest: DonationRequest): CrowdfundingProject {
         val user = userRepository.findById(donationRequest.donatorId).get() as DonorUser
         val project = projectRepository.findById(donationRequest.projectId).get()
-        user.makeDonation(donationRequest.paymentMethod, donationRequest.amount, project, donationRequest.comment)
-        userRepository.save(user)
-        projectRepository.save(project)
+        val donation = user.makeDonation(donationRequest.paymentMethod, donationRequest.amount, project, donationRequest.comment)
+        donationRepository.save(donation)
         return project
     }
 

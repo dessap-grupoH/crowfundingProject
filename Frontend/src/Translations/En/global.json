@@ -1,12 +1,18 @@
 {
   "header": {
     "crowdfunding-project": "Crowdfunding project",
-    "project-description": "This is a project where you can make donations to different neighborhoods of the country that do not have internet so far, in this way we can give you an important growth opportunity."
+    "project-description": "In this non-profit project you can donate to different neighborhoods from the country that do not have internet so far, this way you can give them a big growth opportunity."
   },
   "navbar": {
     "home": "Home",
     "projects": "Projects",
     "donate": "Donate",
     "my-donations": "My donations"
+  },
+  "projects-headers" : {
+    "name": "Project Name",
+    "city": "City to link up",
+    "start-date": "Start date",
+    "raised": "Raised"
   }
 }

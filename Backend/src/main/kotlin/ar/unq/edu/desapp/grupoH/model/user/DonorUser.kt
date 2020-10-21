@@ -6,13 +6,16 @@ import ar.unq.edu.desapp.grupoH.model.PaymentMethod
 import ar.unq.edu.desapp.grupoH.model.PointsSystem
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidAmountForDonation
 import ar.unq.edu.desapp.grupoH.model.errors.ModelMessages
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
+@DiscriminatorValue(value = "DonorUser")
 class DonorUser : User {
 
-    @OneToMany(mappedBy = "id", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("from")
+    @OneToMany(mappedBy = "from", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
     var actualPoints : Int = 0
@@ -25,12 +28,13 @@ class DonorUser : User {
         this.nick = nick
     }
 
-    fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String){
+    fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String) : Donation{
         if(amount > 0){
             val newDonation = Donation(LocalDate.now(), paymentMethod, amount, to, this, comment)
             this.donationList.add(newDonation)
             to.receiveDonation(newDonation)
-            actualPoints += PointsSystem.pointGenerator(this, amount, to)
+            this.actualPoints += PointsSystem.pointGenerator(this, amount, to)
+            return newDonation
         }else{
             throw InvalidAmountForDonation(ModelMessages.invalidAmountDonate)
         }

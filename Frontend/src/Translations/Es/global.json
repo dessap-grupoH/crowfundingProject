@@ -1,12 +1,18 @@
 {
   "header": {
     "crowdfunding-project": "Proyecto solidario",
-    "project-description": "Este es un proyecto donde podras hacer donaciones a distintos barrios del pais que no posean internet hasta el momento, de esta forma podremos darle una oportunidad de crecimiento importante."
+    "project-description": "Este es un proyecto sin fines de lucro donde podrás hacer donaciones a distintos barrios del pais que no posean internet hasta el momento, de esta forma puedes darles una gran oportunidad de crecimiento."
   },
   "navbar": {
     "home": "Inicio",
     "projects": "Proyectos",
     "donate": "Donar",
     "my-donations": "Mis donaciones"
+  },
+  "projects-headers" : {
+    "name": "Nombre del proyecto",
+    "city": "Ciudad a conectar",
+    "start-date": "Fecha de inicio",
+    "raised": "Recaudado"
   }
 }

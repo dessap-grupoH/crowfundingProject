@@ -1,10 +1,11 @@
 package ar.unq.edu.desapp.grupoH.model
 
 import ar.unq.edu.desapp.grupoH.model.user.DonorUser
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
 import javax.persistence.*
 
-@Entity
+@Entity(name = "Donation")
 class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,13 +13,16 @@ class Donation {
 
     lateinit var date: LocalDate
 
+    @Enumerated(EnumType.STRING)
     lateinit var paymentMethod: PaymentMethod
 
     var amount: Int = 0
 
+    @JsonIgnoreProperties("donors", "donationList")
     @ManyToOne
     lateinit var projectTo: CrowdfundingProject
 
+    @JsonIgnoreProperties("donationList")
     @ManyToOne
     lateinit var from: DonorUser
 

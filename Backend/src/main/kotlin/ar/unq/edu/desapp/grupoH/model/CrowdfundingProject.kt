@@ -3,10 +3,12 @@ package ar.unq.edu.desapp.grupoH.model
 import ar.unq.edu.desapp.grupoH.model.errors.*
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
 import ar.unq.edu.desapp.grupoH.model.user.DonorUser
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
 import javax.persistence.*
 
-@Entity
+@Entity(name = "Crowdfunding_Project")
 class CrowdfundingProject {
 
     @Id
@@ -23,10 +25,12 @@ class CrowdfundingProject {
     var startDate: LocalDate? = null
     var estimatedFinishDate: LocalDate? = null
     var moneyCollected: Int = 0
+    @Enumerated(EnumType.STRING)
     var projectState: ProjectState = ProjectState.Opened
 
-    @OneToMany(mappedBy = "nick", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    var donorList: MutableList<DonorUser> = emptyList<DonorUser>().toMutableList()
+    @JsonIgnore
+    @OneToMany(mappedBy = "projectTo", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
     constructor()
 
@@ -65,8 +69,11 @@ class CrowdfundingProject {
         }
     }
 
+    @JsonIgnoreProperties("donationList")
+    fun getDonors() : List<DonorUser> = this.donationList.map { d -> d.from }.toSet().toList()
+
     fun receiveDonation(donation: Donation){
-        this.donorList.add(donation.from)
+        this.donationList.add(donation)
         this.moneyCollected += donation.amount
     }
 

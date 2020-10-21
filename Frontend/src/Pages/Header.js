@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 
 const Header = () => {
 
-   const [t, i18n] = useTranslation("global");
+   const [t] = useTranslation("global");
 
    return (
       <header id="intro">

@@ -1,12 +1,9 @@
 package ar.unq.edu.desapp.grupoH.model
 
 import ar.unq.edu.desapp.grupoH.model.states.ConnectionState
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
-@Entity
+@Entity(name = "Town")
 class Town {
 
     @Id
@@ -19,6 +16,7 @@ class Town {
 
     var population: Int = 0
 
+    @Enumerated(EnumType.STRING)
     var connectionState: ConnectionState = ConnectionState.Disconnected
 
     constructor()

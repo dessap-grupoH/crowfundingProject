@@ -20,7 +20,7 @@ class DonationController {
 
     @PostMapping
     @Throws(Exception::class)
-    fun findDetailsOf(@RequestBody donationRequest: DonationRequest): ResponseEntity<CrowdfundingProject> {
+    fun donate(@RequestBody donationRequest: DonationRequest): ResponseEntity<CrowdfundingProject> {
         var response: CrowdfundingProject
         try {
             response = service.makeDonation(donationRequest)
