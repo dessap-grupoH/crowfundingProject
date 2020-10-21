@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS  `town`
 
 CREATE TABLE IF NOT EXISTS  `user`
 (
-    `user_id` INT PRIMARY KEY NOT NULL,
+    `id` INT PRIMARY KEY NOT NULL,
     `email` VARCHAR(45) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
     `username` VARCHAR(45) NOT NULL,
@@ -52,7 +52,7 @@ ALTER TABLE donation
 
 ALTER TABLE donation
     ADD FOREIGN KEY (from_id)
-        REFERENCES `user`(`user_id`);
+        REFERENCES `user`(`id`);
 
 INSERT INTO `town`(`id`, `name`, `province`, `population`, `connection_state`) VALUES (1, 'Pergamino', 'Buenos Aires', 4000, 'Disconnected');
 INSERT INTO `town`(`id`, `name`, `province`, `population`, `connection_state`) VALUES (2, 'Carmen de Patagones', 'Buenos Aires', 11000, 'Disconnected');
@@ -62,9 +62,9 @@ INSERT INTO `town`(`id`, `name`, `province`, `population`, `connection_state`) V
 INSERT INTO `town`(`id`, `name`, `province`, `population`, `connection_state`) VALUES (6, 'Sierra Leona', 'Cordoba', 22000, 'Disconnected');
 INSERT INTO `town`(`id`, `name`, `province`, `population`, `connection_state`) VALUES (7, 'El Malantial', 'Chaco', 22000, 'Disconnected');
 
-INSERT INTO `user` (`user_id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (1, 'ricardo@gmail.com', '123', 'ricardo', '250', 'ricX');
-INSERT INTO `user` (`user_id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (2, 'lucas@gmail.com', '123', 'lucas', '100', 'randomize');
-INSERT INTO `user` (`user_id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (3, 'rodrigo@gmail.com', '123', 'rodrigo', '1250', 'rodx1');
+INSERT INTO `user` (`id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (1, 'ricardo@gmail.com', '123', 'ricardo', '250', 'ricX');
+INSERT INTO `user` (`id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (2, 'lucas@gmail.com', '123', 'lucas', '100', 'randomize');
+INSERT INTO `user` (`id`, `email`, `password`, `username`, `actual_points`, `nick`) VALUES (3, 'rodrigo@gmail.com', '123', 'rodrigo', '1250', 'rodx1');
 
 
 INSERT INTO `crowdFundingProject`(`id`, `estimated_finish_date`, `money_collected`, `name`, `percentage_needed`,
