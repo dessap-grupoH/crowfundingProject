@@ -1,6 +1,7 @@
 .projects-container {
    margin-left: -1%;
-   background: #12162f;
+   background: #1f2447;
+   padding-bottom: 2%;
  }
 
  .individualProject-container{
@@ -10,17 +11,41 @@
    margin-right: 1%; 
    border: none;
    border-radius: 40px 10px;
-   background-color: #4a4d61;
+   background-color: #8a8c9b;
+ }
+
+ .individualProject-container:hover{
+  box-shadow: 0px 4px 8px rgb(211, 211, 211), 0px 4px 8px rgb(211, 211, 211);
  }
 
  .headerProject-container{
+   padding-top: 1%;
    margin-top: 1%;
    margin-bottom: 1%;
-   margin-left: 1%; 
+   margin-left: 2%; 
    margin-right: 1%; 
    border: solid black;
    border-radius: 40px 10px;
-   background-color: #ffffff;
+   background-color: #0e0c0c55;
+   font-weight: bold;
+   color: rgb(228, 228, 228);
+   -webkit-text-stroke: 0.2px black;
+   font-size: large;
+   font-family: 'librebaskerville-regular', serif;
+   text-align: center;
+   height: 30px;
+ }
+
+ .individualProject-text{
+   color: black;
+   font-size: large;
+   font-family: 'librebaskerville-regular', serif;
+   text-align: center;
+ }
+
+ .info-icon{
+   margin-left: 10%;
+   cursor: pointer;
  }
 
 

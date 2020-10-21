@@ -10,7 +10,6 @@ const Header = () => {
 
    return (
       <header id="intro">
-         <ParticlesBg type="cobweb" bg={true} />
 
          <Navbar
             refIntro="#intro"
