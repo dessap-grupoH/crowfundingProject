@@ -1,5 +1,4 @@
 import React from 'react';
-import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
 import "../Pages/Header.css"
 import { useTranslation } from "react-i18next"
@@ -10,7 +9,6 @@ const Header = () => {
 
    return (
       <header id="intro">
-
          <Navbar
             refIntro="#intro"
             refProjects="#currentProjects"
