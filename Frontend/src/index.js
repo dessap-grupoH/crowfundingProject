@@ -25,7 +25,6 @@ i18next.init({
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
     <Routes />
-    <App />
   </I18nextProvider>,
   document.getElementById('root')
 );
