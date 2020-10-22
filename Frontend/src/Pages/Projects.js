@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import "../Pages/Projects.css";
 import { Grid, LinearProgress } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
@@ -12,6 +13,7 @@ const Projects = () => {
    const [t] = useTranslation("global");
    const [projects, setProjects] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
+   const history = useHistory();
 
    useEffect(() => {
       if (isLoading) {
@@ -31,7 +33,10 @@ const Projects = () => {
                <div className="individualProject-container">
                   <Grid container spacing={2}>
                      <Grid item xs={1}>
-                        <Info className="info-icon" />
+                        <Info
+                           className="info-icon"
+                           onClick={() => history.push(`/project/${project.id}`)}
+                        />
                      </Grid>
                      <Grid item xs={3}>
                         <div className="individualProject-text">
