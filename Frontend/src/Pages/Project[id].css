@@ -1,51 +1,37 @@
-.projects-container {
-  margin-left: -1%;
-  background: #1f2447;
-  padding-bottom: 2%;
+.section-one {
+  background-color: #363b61;
+  padding: 50px 0 0;
+  margin-top: -1%;
 }
 
-.individualProject-container{
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 1%; 
-  margin-right: 1%; 
-  border: none;
-  border-radius: 40px 10px;
-  background-color: #8a8c9b;
+.section-two{
+  background-color: #363b61;
+  bottom: -4px;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
-.individualProject-container:hover{
- box-shadow: 0px 4px 8px rgb(211, 211, 211), 0px 4px 8px rgb(211, 211, 211);
+.projectDetails-cont{
+  margin-top: 3%;
+  margin-left: 5%;
 }
 
-.headerProject-container{
-  padding-top: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 2%; 
-  margin-right: 1%; 
-  border: solid black;
-  border-radius: 40px 10px;
-  background-color: #0e0c0c55;
-  font-weight: bold;
-  color: rgb(228, 228, 228);
-  -webkit-text-stroke: 0.2px black;
-  font-size: large;
-  font-family: 'librebaskerville-regular', serif;
-  text-align: center;
-  height: 30px;
+.projectDetails-title{
+  color: white;
+  font-family: Helvetica;
 }
 
-.individualProject-text{
-  color: black;
-  font-size: large;
-  font-family: 'librebaskerville-regular', serif;
-  text-align: center;
+.projectDetails-description{
+  color: whitesmoke;
 }
 
-.info-icon{
-  margin-left: 10%;
-  cursor: pointer;
+.projectDetails-sep{
+  width: 40%;
 }
 
-
+.github-pic{
+  margin-left: -25%;
+  max-width: 35vh;
+  height: auto;
+}

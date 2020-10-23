@@ -4,7 +4,7 @@ const HOST_URL = "http://localHost:8080";
 const USER_URL = "/api/user";
 const TOWNS_URL = "/api/towns";
 const DONATION_URL = "/api/donation";
-const PROJECT_URL = "/api/projects  "
+const PROJECT_URL = "/api/projects";
 
 
 const fetchUser = (userID) =>

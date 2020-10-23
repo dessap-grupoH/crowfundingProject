@@ -1,98 +1,71 @@
 import React, { useState, useEffect, } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
-import { Grid, LinearProgress } from '@material-ui/core';
+import { Grid, Container, LinearProgress } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
-import { fetchProjects } from "../Utils/Api";
 import "../Pages/Project[id].css";
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
-import Info from '@material-ui/icons/Info';
+import Navbar from "../Components/Navbar";
+import { fetchProjectDetail } from "../Utils/Api";
 
 const Project = () => {
 
   const [t] = useTranslation("global");
-  const [projects, setProjects] = useState([]);
+  const [projectDetail, setProjectDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
 
   useEffect(() => {
     if (isLoading) {
-      fetchProjects().then(response => {
-        const tempProjects = response.data;
-        setProjects(tempProjects);
+      fetchProjectDetail(projectId).then((response) => {
+        console.log(response)
+        setProjectDetail(response.data);
         setIsLoading(false);
-      })
-    }
-    console.log(projects);
-  }, []);
-
-  const projectsItem = (
-    projects.map((project) => {
-      return (
-        <Grid item>
-          <div className="individualProject-container">
-            <Grid container spacing={2}>
-              <Grid item xs={1}>
-                <Info className="info-icon" />
-              </Grid>
-              <Grid item xs={3}>
-                <div className="individualProject-text">
-                  {project.name}
-                </div>
-              </Grid>
-              <Grid item xs={3}>
-                <div className="individualProject-text">
-                  {project.placeToConnect.name}
-                </div>
-              </Grid>
-              <Grid item xs={3}>
-                <div className="individualProject-text">
-                  {`$ ${project.moneyCollected}`}
-                </div>
-              </Grid>
-              <Grid item xs={1}></Grid>
-              <Grid item xs={1}>
-                <StarBorderIcon className="star-icon" />
-              </Grid>
-            </Grid>
-          </div>
-        </Grid>
-      );
-    }))
-
+      }).catch((error) => console.log(error));
+    };
+  });
 
 
   return isLoading ? (
     <LinearProgress variant="indeterminate" />
   ) : (
-      <div className="projects-container">
-        <Grid container direction="column" spacing={2}>
-          <Grid item>
-            <Grid container spacing={2}>
-              <Grid item xs={1}></Grid>
-              <Grid item xs={3}>
-                <div className="headerProject-container">
-                  {t("projects-headers.name")}
-                </div>
+      <div className="projectDetail-container">
+        <Navbar
+          refIntro="/home#intro"
+          refProjects="/home#currentProjects"
+          refDonate="/home#donate"
+          refMyDonations="/home#myDonations"
+        />
+
+        <div className="section-one">
+          <div className="projectDetails-cont">
+            <Grid container direction="row">
+              <Grid item xs={12}>
+                <h2 className="projectDetails-title">{projectDetail.name}</h2>
+                <hr style={{ width: "70%", align: "left" }}></hr>
               </Grid>
-              <Grid item xs={3}>
-                <div className="headerProject-container">
-                  {t("projects-headers.city")}
-                </div>
-              </Grid>
-              <Grid item xs={3}>
-                <div className="headerProject-container">
-                  {t("projects-headers.raised")}
-                </div>
+              <Grid>
+                <p className="projectDetails-description" id="bioParagraph">{"hola"}</p>
               </Grid>
             </Grid>
-          </Grid>
-          {projectsItem}
-        </Grid>
+          </div>
+
+
+          <div className="section-two">
+            <svg className="separator__svg"
+              width="100%"
+              height="400"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              fill="#1f2447"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 100 V 10 L 0 100" />
+              <path d="M 30 73 L 100 18 V 10 Z" fill="#0a0e2c" strokeWidth="0" />
+            </svg>
+          </div>
+        </div>
       </div>
     );
 }
-
 
 export default Project;
