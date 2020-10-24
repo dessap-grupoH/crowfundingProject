@@ -1,11 +1,23 @@
 import React, { useState, useEffect, } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
-import { Grid, Container, LinearProgress } from '@material-ui/core';
+import {
+  Grid, List, LinearProgress, Avatar, ListItem, ListItemIcon, ListItemText,
+  Divider
+} from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import "../Pages/Project[id].css";
 import Navbar from "../Components/Navbar";
+import DetailProgressBar from "../Components/DetailProgressBar";
 import { fetchProjectDetail } from "../Utils/Api";
+import LocationIcon from '@material-ui/icons/LocationOn';
+import DetailItem from "../Components/DetailItem";
+import EventIcon from '@material-ui/icons/Event';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+import Donate from "../Assets/donate.png"
 
 const Project = () => {
 
@@ -13,6 +25,36 @@ const Project = () => {
   const [projectDetail, setProjectDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
+  const donnationList = [{
+    comment: "Donacion anonima",
+    money: "15000",
+  },
+  {
+    comment: "Donacion anonima 2",
+    money: "122000",
+  },
+  {
+    comment: "Donacion anonima 3",
+    money: "22000",
+  },
+  {
+    comment: "Donacion anonima 4",
+    money: "11000",
+  },
+  {
+    comment: "Donacion anonima 5",
+    money: "13000",
+  },
+  {
+    comment: "Donacion anonima 6",
+    money: "11000",
+  },
+  ]
+
+  const totalMoneyNeeded = () => {
+    return projectDetail.placeToConnect.population * projectDetail.pricePerInhabitant
+  };
+
 
   useEffect(() => {
     if (isLoading) {
@@ -23,6 +65,22 @@ const Project = () => {
       }).catch((error) => console.log(error));
     };
   });
+
+  const donationItems = () => (
+    <List>
+      {donnationList.map(d => (
+        <div>
+          <ListItem>
+            <EmojiEmotionsIcon style={{ marginRight: "5%" }} />
+            <ListItemText primary={d.comment} />
+            <ListItemText primary={d.money} />
+          </ListItem>
+          <Divider />
+        </div>
+      ))
+      }
+    </List>
+  );
 
 
   return isLoading ? (
@@ -38,13 +96,114 @@ const Project = () => {
 
         <div className="section-one">
           <div className="projectDetails-cont">
-            <Grid container direction="row">
+            <Grid container direction="row" spacing={8}>
               <Grid item xs={12}>
-                <h2 className="projectDetails-title">{projectDetail.name}</h2>
-                <hr style={{ width: "70%", align: "left" }}></hr>
+                <Grid container>
+                  <Grid item xs={1}>
+                    <Avatar
+                      style={{
+                        marginTop: "15%",
+                        backgroundColor: "#363b617",
+                        border: "white",
+                      }}
+                    >PN
+                    </Avatar>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <h2 className="projectDetails-title">{projectDetail.name}</h2>
+                  </Grid>
+                </Grid>
+                <hr style={{ width: "40%", marginRight: "60%" }}></hr>
               </Grid>
-              <Grid>
-                <p className="projectDetails-description" id="bioParagraph">{"hola"}</p>
+
+              <Grid container spacing={8}>
+                <Grid item xs={8}>
+
+                  <Grid item xs={12}>
+                    <Grid container spacing={8}>
+                      <DetailItem
+                        icon={<LocationIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.placeToConnect.name}
+                      />
+                      <DetailItem
+                        icon={<EventIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.startDate}
+                      />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Grid container spacing={8}>
+                        <DetailItem
+                          icon={<MonetizationOnIcon
+                            style={{
+                              width: "20%",
+                              marginLeft: "5%",
+                            }}
+                          />}
+                          detail={projectDetail.moneyCollected}
+                        />
+                        <DetailItem
+                          icon={<SupervisorAccountIcon
+                            style={{
+                              width: "20%",
+                              marginLeft: "5%",
+                            }}
+                          />}
+                          detail={projectDetail.projectState}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <Grid container spacing={8}>
+                          <DetailItem
+                            icon={<EmojiPeopleIcon
+                              style={{
+                                width: "20%",
+                                marginLeft: "5%",
+                              }}
+                            />}
+                            detail={projectDetail.pricePerInhabitant}
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <Grid container spacing={8}>
+                          <DetailProgressBar
+                            value={40}
+                            min={0}
+                            max={totalMoneyNeeded()}
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid item alignContent="flex-end" xs={12}>
+                        <img
+                          style={{ width: "10%" }}
+                          src={Donate}
+                          alt="donate"
+                        />
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={3}>
+                  <div className="projectDetails-infoContainer">
+                    {donationItems()}
+                  </div>
+                </Grid>
               </Grid>
             </Grid>
           </div>
@@ -63,8 +222,8 @@ const Project = () => {
               <path d="M 30 73 L 100 18 V 10 Z" fill="#0a0e2c" strokeWidth="0" />
             </svg>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     );
 }
 
