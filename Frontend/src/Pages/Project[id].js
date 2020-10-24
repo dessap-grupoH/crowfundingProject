@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
 import {
@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import "../Pages/Project[id].css";
 import Navbar from "../Components/Navbar";
 import DetailProgressBar from "../Components/DetailProgressBar";
+import DonateItem from "../Components/DonateItem";
 import { fetchProjectDetail } from "../Utils/Api";
 import LocationIcon from '@material-ui/icons/LocationOn';
 import DetailItem from "../Components/DetailItem";
@@ -17,7 +18,6 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import Donate from "../Assets/donate.png"
 
 const Project = () => {
 
@@ -25,6 +25,7 @@ const Project = () => {
   const [projectDetail, setProjectDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
+
   const donnationList = [{
     comment: "Donacion anonima",
     money: "15000",
@@ -187,12 +188,13 @@ const Project = () => {
                         </Grid>
                       </Grid>
 
-                      <Grid item alignContent="flex-end" xs={12}>
-                        <img
-                          style={{ width: "10%" }}
-                          src={Donate}
-                          alt="donate"
-                        />
+                      <Grid item xs={12}>
+                        <Grid container spacing={8}>
+                          <DonateItem
+                            userId={2}
+                            projectId={projectDetail.id}
+                          />
+                        </Grid>
                       </Grid>
 
                     </Grid>
@@ -212,7 +214,7 @@ const Project = () => {
           <div className="section-two">
             <svg className="separator__svg"
               width="100%"
-              height="400"
+              height="200"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               fill="#1f2447"

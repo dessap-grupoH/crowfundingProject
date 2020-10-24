@@ -1,0 +1,83 @@
+#makeDonate {
+  background: transparent;
+  margin: 3%;
+  padding-top: 25px;
+  color: #636363;
+}
+
+#makeDonate form { margin-bottom: 15px; }
+#makeDonate label {
+  font: 15px/24px 'opensans-bold', sans-serif;
+  margin: 2px 0;
+  color: #EBEEEE;
+  display: inline-block;
+  float: left;
+  width: 15%;
+}
+
+#makeDonate .selectPayment{
+  padding: 10px 10px;
+  color: #eee;
+  text-align: center;
+  margin-bottom: 30px;
+  border-radius: 40px 10px ;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  line-height: 24px;
+  width: 31%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#makeDonate .selectPayment:hover{
+  background-color: #83adf181
+}
+
+#makeDonate select,
+#makeDonate input,
+#makeDonate textarea,
+#makeDonate select {
+  padding: 10px 10px;
+  color: #eee;
+  background: #6161619f;
+  margin-bottom: 30px;
+  border-radius: 40px 10px ;
+  border: 0;
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+  width: 65%;
+}
+
+#makeDonate input:focus,
+#makeDonate textarea:focus,
+#makeDonate select:focus {
+ color: #fff;
+ background-color: #83adf181;
+}
+
+.button-send{
+  float: right;
+  text-align: right;
+  color: white;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%; 
+  margin-right: 1%; 
+  border-radius: 8px;
+  background-color: #3644afe3;
+  padding: 1%;
+  font-size: large;
+  cursor:pointer
+}
+
+.button-send:hover{
+  background-color: #5f648fe3;
+}
+
+.donate-labelError{
+  color:red;
+  text-align: right;
+  font-size: medium;
+}

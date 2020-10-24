@@ -1,6 +1,6 @@
 .section-one {
   background-color: #363b61;
-  padding: 20px 0 0;
+  padding: 25px 0 0;
   margin-top: -1%;
 }
 
@@ -43,7 +43,7 @@
 
 .projectDetails-infoText{
   display: inline; 
-  font-size: large;
+  font-size: x-large;
   margin: 5%;
   vertical-align: middle;
 }
