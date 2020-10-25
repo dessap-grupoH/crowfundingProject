@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import "../Components/DonateForm.css";
 import { postDonation } from "../Utils/Api";
-import sendDonation from "../Assets/send-donation.png"
 
-const DonateForm = ({ userId, projectId }) => {
+const DonateForm = ({ userId, projectId, buttonText }) => {
 
   const [paymentMethod, setPaymentMethod] = useState("CreditCard");
   const [amount, setAmount] = useState(0);
@@ -71,7 +70,7 @@ const DonateForm = ({ userId, projectId }) => {
           className="button-send"
           onClick={() => onSumbit()}
         >
-          Enviar donacion
+          {buttonText}
         </div>
         {findErrorByType("send") &&
           <p className="donate-labelError">

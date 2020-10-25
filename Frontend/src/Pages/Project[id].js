@@ -136,6 +136,7 @@ const Project = () => {
                     <Grid item xs={12}>
                       <Grid container spacing={8}>
                         <DetailProgressBar
+                          progressBarTitle={t("projects.percentaje-completed")}
                           value={40}
                           min={0}
                           max={totalMoneyNeeded()}
@@ -146,6 +147,8 @@ const Project = () => {
                     <Grid item xs={12}>
                       <Grid container spacing={8}>
                         <DonateItem
+                          donateItemTitle={t("projects.donate-select")}
+                          donateButtonText={t("projects.donate-send")}
                           userId={2}
                           projectId={projectDetail.id}
                         />
@@ -156,6 +159,7 @@ const Project = () => {
                 </Grid>
 
                 <Grid item xs={3}>
+                  <div className="projectList-label">{t("projects.donators-list")}</div>
                   <div className="projectDetails-infoContainer">
                     {donationItems()}
                   </div>

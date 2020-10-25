@@ -4,7 +4,7 @@ import "../Components/DonateItem.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DonateForm from "../Components/DonateForm";
 
-const DonateItem = ({ userId, projectId }) => {
+const DonateItem = ({ userId, projectId, donateButtonText, donateItemTitle }) => {
 
   const [isOpenDonate, setOpenDoanate] = useState(false);
 
@@ -26,12 +26,13 @@ const DonateItem = ({ userId, projectId }) => {
           </Grid>
           <Grid item xs={10}>
             <div className="donate-text">
-              Despliegue para realizar una donacion.
+              {donateItemTitle}
             </div>
           </Grid>
           {isOpenDonate &&
             <Grid item xs={12}>
               <DonateForm
+                buttonText={donateButtonText}
                 userId={userId}
                 projectId={projectId}
               />
