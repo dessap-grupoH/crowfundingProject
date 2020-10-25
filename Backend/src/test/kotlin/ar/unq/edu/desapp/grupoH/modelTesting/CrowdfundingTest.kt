@@ -94,7 +94,7 @@ class CrowdfundingTest {
 
         project1.receiveDonation(donationMock)
 
-        Assert.assertEquals(10,project1.actualPercentageCompleted())
+        Assert.assertEquals(10,project1.getActualPercentageCompleted())
     }
 
     @Test

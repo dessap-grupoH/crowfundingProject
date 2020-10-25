@@ -53,12 +53,12 @@ const Projects = () => {
                      </Grid>
                      <Grid item xs={2}>
                         <div className="individualProject-text">
-                           {`80%`}
+                           {`${project.actualPercentageCompleted}%`}
                         </div>
                      </Grid>
                      <Grid item xs={2}>
                         <div className="individualProject-text">
-                           {project.donors.lenght || "0"}
+                           {project.donors.length || "0"}
                         </div>
                      </Grid>
                   </Grid>

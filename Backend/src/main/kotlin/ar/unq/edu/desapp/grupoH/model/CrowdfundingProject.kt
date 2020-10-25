@@ -4,6 +4,7 @@ import ar.unq.edu.desapp.grupoH.model.errors.*
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import java.lang.Integer.min
 import java.time.LocalDate
 import javax.persistence.*
 
@@ -71,14 +72,13 @@ class CrowdfundingProject {
     @JsonIgnoreProperties("donationList")
     fun getDonors() : List<DonorResponse> = this.donationList.groupBy { e -> e.from.nick }.map { (k, v) -> DonorResponse(k, v.sumBy { s -> s.amount }) }
 
-
     fun receiveDonation(donation: Donation){
         this.donationList.add(donation)
         this.moneyCollected += donation.amount
     }
 
-    fun actualPercentageCompleted(): Int{
-        return (this.moneyCollected * 100) / this.getMoneyRequired()
+    fun getActualPercentageCompleted(): Int{
+        return min((this.moneyCollected * 100) / this.getMoneyRequired(), 100)
     }
 }
 

@@ -132,7 +132,7 @@ const Project = () => {
                       <Grid container spacing={8}>
                         <DetailProgressBar
                           progressBarTitle={t("projects.percentaje-completed")}
-                          value={40}
+                          value={projectDetail.actualPercentageCompleted}
                           min={0}
                           max={projectDetail.moneyRequired}
                         />

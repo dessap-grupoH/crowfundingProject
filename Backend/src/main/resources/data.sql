@@ -13,19 +13,19 @@ INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES
 
 
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 10000, 'Proyecto pergaminense', 80, 1500, 'Opened' , '2020-01-19',1);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 0, 'Proyecto pergaminense', 80, 1500, 'Opened' , '2020-01-19',1);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 12000, 'Proyecto patagonense', 79, 1500, 'Opened' , '2019-12-19',2);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 10000, 'Proyecto patagonense', 79, 1500, 'Opened' , '2019-12-19',2);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-11-19', 13000, 'Proyecto tandilense', 78, 1500, 'Opened' , '2019-11-19',3);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-11-19', 5000, 'Proyecto tandilense', 78, 1500, 'Opened' , '2019-11-19',3);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 14000, 'Proyecto arroyense', 77, 1500, 'Opened' , '2019-10-19',4);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 7000, 'Proyecto arroyense', 77, 1500, 'Opened' , '2019-10-19',4);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2021-02-19', 15000, 'Proyecto agostense', 76, 1500, 'Opened' , '2019-09-19',5);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2021-02-19', 0, 'Proyecto agostense', 76, 1500, 'Opened' , '2019-09-19',5);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-12-19', 16000, 'Proyecto leonense', 75, 1500, 'Opened' , '2019-08-19',6);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-12-19', 0, 'Proyecto leonense', 75, 1500, 'Opened' , '2019-08-19',6);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 17000, 'Proyecto malantialense', 74, 1500, 'Opened' , '2019-07-19',7);
+                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 0, 'Proyecto malantialense', 74, 1500, 'Opened' , '2019-07-19',7);
 
 
 INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id) VALUES (4000, 'Ayudando con amor',  '2020-03-19','CreditCard', 1, 2 );
