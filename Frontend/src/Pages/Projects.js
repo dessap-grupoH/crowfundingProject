@@ -5,8 +5,6 @@ import { Grid, LinearProgress } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import { fetchOpenProjects } from "../Utils/Api";
 import Info from '@material-ui/icons/Info';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
 
 const Projects = () => {
 
@@ -38,24 +36,30 @@ const Projects = () => {
                            onClick={() => history.push(`/project/${project.id}`)}
                         />
                      </Grid>
-                     <Grid item xs={3}>
-                        <div className="individualProject-text">
-                           {project.name}
-                        </div>
-                     </Grid>
-                     <Grid item xs={3}>
+                     <Grid item xs={2}>
                         <div className="individualProject-text">
                            {project.placeToConnect.name}
                         </div>
                      </Grid>
-                     <Grid item xs={3}>
+                     <Grid item xs={2}>
+                        <div className="individualProject-text">
+                           {project.name}
+                        </div>
+                     </Grid>
+                     <Grid item xs={2}>
                         <div className="individualProject-text">
                            {`$ ${project.moneyCollected}`}
                         </div>
                      </Grid>
-                     <Grid item xs={1}></Grid>
-                     <Grid item xs={1}>
-                        <StarBorderIcon className="star-icon" />
+                     <Grid item xs={2}>
+                        <div className="individualProject-text">
+                           {`80%`}
+                        </div>
+                     </Grid>
+                     <Grid item xs={2}>
+                        <div className="individualProject-text">
+                           {project.donors.lenght || "0"}
+                        </div>
                      </Grid>
                   </Grid>
                </div>
@@ -74,19 +78,29 @@ const Projects = () => {
                   <Grid item>
                      <Grid container spacing={2}>
                         <Grid item xs={1}></Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={2}>
                            <div className="headerProject-container">
                               {t("projects-headers.name")}
                            </div>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={2}>
                            <div className="headerProject-container">
                               {t("projects-headers.city")}
                            </div>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={2}>
                            <div className="headerProject-container">
                               {t("projects-headers.raised")}
+                           </div>
+                        </Grid>
+                        <Grid item xs={2}>
+                           <div className="headerProject-container">
+                              {t("projects-headers.percentaje-completed")}
+                           </div>
+                        </Grid>
+                        <Grid item xs={2}>
+                           <div className="headerProject-container">
+                              {t("projects-headers.number-of-contributors")}
                            </div>
                         </Grid>
                      </Grid>

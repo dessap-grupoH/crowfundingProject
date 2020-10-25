@@ -12,7 +12,7 @@ import DetailProgressBar from "../Components/DetailProgressBar";
 import DonateItem from "../Components/DonateItem";
 import { fetchProjectDetail } from "../Utils/Api";
 import LocationIcon from '@material-ui/icons/LocationOn';
-import DetailItem from "../Components/ProjectDetail/DetailItem";
+import DetailItem from "../Components/DetailItem";
 import EventIcon from '@material-ui/icons/Event';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';

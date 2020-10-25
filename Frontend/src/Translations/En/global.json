@@ -9,10 +9,12 @@
     "donate": "Donate",
     "my-donations": "My donations"
   },
-  "projects-headers" : {
+  "projects-headers": {
     "name": "Project Name",
+    "number-of-contributors": "Number of contributors",
     "city": "City to link up",
     "start-date": "Start date",
-    "raised": "Raised"
+    "raised": "Raised",
+    "percentaje-completed": "Perecentaje completed"
   }
 }
