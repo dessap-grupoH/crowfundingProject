@@ -13,6 +13,7 @@ import DonateItem from "../Components/DonateItem";
 import { fetchProjectDetail } from "../Utils/Api";
 import LocationIcon from '@material-ui/icons/LocationOn';
 import DetailItem from "../Components/DetailItem";
+import DetailHeader from "../Components/DetailHeader";
 import EventIcon from '@material-ui/icons/Event';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
@@ -98,24 +99,9 @@ const Project = () => {
         <div className="section-one">
           <div className="projectDetails-cont">
             <Grid container direction="row" spacing={8}>
-              <Grid item xs={12}>
-                <Grid container>
-                  <Grid item xs={1}>
-                    <Avatar
-                      style={{
-                        marginTop: "15%",
-                        backgroundColor: "#363b617",
-                        border: "white",
-                      }}
-                    >PN
-                    </Avatar>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <h2 className="projectDetails-title">{projectDetail.name}</h2>
-                  </Grid>
-                </Grid>
-                <hr style={{ width: "40%", marginRight: "60%" }}></hr>
-              </Grid>
+              <DetailHeader
+                projectName={projectDetail.name}
+              />
 
               <Grid container spacing={8}>
                 <Grid item xs={8}>
