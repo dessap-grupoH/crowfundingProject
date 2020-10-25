@@ -80,27 +80,27 @@ const Projects = () => {
                         <Grid item xs={1}></Grid>
                         <Grid item xs={2}>
                            <div className="headerProject-container">
-                              {t("projects-headers.name")}
+                              {t("projects.name")}
                            </div>
                         </Grid>
                         <Grid item xs={2}>
                            <div className="headerProject-container">
-                              {t("projects-headers.city")}
+                              {t("projects.city")}
                            </div>
                         </Grid>
                         <Grid item xs={2}>
                            <div className="headerProject-container">
-                              {t("projects-headers.raised")}
+                              {t("projects.raised")}
                            </div>
                         </Grid>
                         <Grid item xs={2}>
                            <div className="headerProject-container">
-                              {t("projects-headers.percentaje-completed")}
+                              {t("projects.percentaje-completed")}
                            </div>
                         </Grid>
                         <Grid item xs={2}>
                            <div className="headerProject-container">
-                              {t("projects-headers.number-of-contributors")}
+                              {t("projects.number-of-contributors")}
                            </div>
                         </Grid>
                      </Grid>

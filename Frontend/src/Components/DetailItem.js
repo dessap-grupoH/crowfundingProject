@@ -2,8 +2,9 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import "../Components/DetailItem.css";
 
-const DetailItem = ({ icon, detail }) => (
+const DetailItem = ({ icon, detail, detailTitle }) => (
   <Grid item xs={6}>
+    <div className="projectDetails-label">{detailTitle}</div>
     <div className="projectDetails-infoContainer">
       <Grid container>
         <Grid item xs={4}>

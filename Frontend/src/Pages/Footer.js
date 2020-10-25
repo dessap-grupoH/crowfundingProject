@@ -1,22 +1,23 @@
 import React from 'react';
 import "../Pages/Footer.css"
+import { useTranslation } from "react-i18next";
 
-const Footer = () => (
-  <footer>
-    <div className="row">
-      <div>
-        <ul className="social-links">
-          Quilmes city
-        </ul>
+const Footer = () => {
 
-        <ul className="copyright">
-          <li>&copy; Copyright lucas </li>
-        </ul>
+  const [t] = useTranslation("global");
 
+  return (
+    <footer>
+      <div className="row">
+        <div>
+          <ul>
+            {`${t("header.crowdfunding-project")} - 2020`}
+          </ul>
+        </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  )
+};
 
 
 export default Footer;

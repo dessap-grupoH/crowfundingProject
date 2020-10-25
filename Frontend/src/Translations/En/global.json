@@ -9,12 +9,17 @@
     "donate": "Donate",
     "my-donations": "My donations"
   },
-  "projects-headers": {
+  "projects": {
     "name": "Project Name",
     "number-of-contributors": "Number of contributors",
     "city": "City to link up",
     "start-date": "Start date",
     "raised": "Raised",
-    "percentaje-completed": "Perecentaje completed"
+    "percentaje-completed": "Perecentaje completed",
+    "state": "Project state",
+    "price-per-habitant": "Price per habitant",
+    "donators-list": "Donator list",
+    "donate-select": "Select for a donation",
+    "donate-send": "Send donation"
   }
 }

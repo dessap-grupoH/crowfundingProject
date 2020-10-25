@@ -9,12 +9,17 @@
     "donate": "Donar",
     "my-donations": "Mis donaciones"
   },
-  "projects-headers": {
+  "projects": {
     "name": "Nombre del proyecto",
     "number-of-contributors": "Cantidad de donantes",
     "city": "Ciudad a conectar",
     "start-date": "Fecha de inicio",
     "raised": "Recaudado",
-    "percentaje-completed": "Porcentaje completado"
+    "percentaje-completed": "Porcentaje completado",
+    "state": "Estado del proyecto",
+    "price-per-habitant": "Precio por habitante",
+    "donators-list": "Lista de donantes",
+    "donate-select": "Despliegue para realizar una donacion",
+    "donate-send": "Enviar donacion"
   }
 }

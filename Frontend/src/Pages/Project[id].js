@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
 import {
-  Grid, List, LinearProgress, Avatar, ListItem, ListItemText,
-  Divider
+  Grid, List, LinearProgress, ListItem, ListItemText, Divider
 } from '@material-ui/core';
 import "../Pages/Project[id].css";
 import Navbar from "../Components/Navbar";
@@ -12,11 +11,12 @@ import DonateItem from "../Components/DonateItem";
 import { fetchProjectDetail } from "../Utils/Api";
 import LocationIcon from '@material-ui/icons/LocationOn';
 import DetailItem from "../Components/DetailItem";
+import DetailHeader from "../Components/DetailHeader";
 import EventIcon from '@material-ui/icons/Event';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Project = () => {
 
@@ -24,11 +24,9 @@ const Project = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
 
-
   useEffect(() => {
     if (isLoading) {
       fetchProjectDetail(projectId).then((response) => {
-        console.log(response)
         setProjectDetail(response.data);
         setIsLoading(false);
       }).catch((error) => console.log(error));
@@ -42,7 +40,7 @@ const Project = () => {
       {projectDetail.donors.map(d => (
         <div>
           <ListItem>
-            <EmojiEmotionsIcon style={{ marginRight: "5%" }} />
+            <AccountCircleIcon style={{ marginRight: "5%" }} />
             <ListItemText primary={d.nick} />
             <ListItemText primary={d.totalAmount} />
           </ListItem>
@@ -59,33 +57,17 @@ const Project = () => {
   ) : (
       <div className="projectDetail-container">
         <Navbar
-          refIntro="/#intro"
+          refIntro="/"
           refProjects="/#currentProjects"
-          refDonate="/#donate"
           refMyDonations="/#myDonations"
         />
 
         <div className="section-one">
           <div className="projectDetails-cont">
             <Grid container direction="row" spacing={8}>
-              <Grid item xs={12}>
-                <Grid container>
-                  <Grid item xs={1}>
-                    <Avatar
-                      style={{
-                        marginTop: "15%",
-                        backgroundColor: "#363b617",
-                        border: "white",
-                      }}
-                    >PN
-                    </Avatar>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <h2 className="projectDetails-title">{projectDetail.name}</h2>
-                  </Grid>
-                </Grid>
-                <hr style={{ width: "40%", marginRight: "60%" }}></hr>
-              </Grid>
+              <DetailHeader
+                projectName={projectDetail.name}
+              />
 
               <Grid container spacing={8}>
                 <Grid item xs={8}>
@@ -93,6 +75,7 @@ const Project = () => {
                   <Grid item xs={12}>
                     <Grid container spacing={8}>
                       <DetailItem
+                        detailTitle={t("projects.city")}
                         icon={<LocationIcon
                           style={{
                             width: "20%",
@@ -102,6 +85,7 @@ const Project = () => {
                         detail={projectDetail.placeToConnect.name}
                       />
                       <DetailItem
+                        detailTitle={t("projects.start-date")}
                         icon={<EventIcon
                           style={{
                             width: "20%",
@@ -110,69 +94,66 @@ const Project = () => {
                         />}
                         detail={projectDetail.startDate}
                       />
+                      <DetailItem
+                        detailTitle={t("projects.raised")}
+                        icon={<MonetizationOnIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.moneyCollected}
+                      />
+                      <DetailItem
+                        detailTitle={t("projects.state")}
+                        icon={<SupervisorAccountIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.projectState}
+                      />
+                      <DetailItem
+                        detailTitle={t("projects.price-per-habitant")}
+                        icon={<EmojiPeopleIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.pricePerInhabitant}
+                      />
                     </Grid>
 
                     <Grid item xs={12}>
                       <Grid container spacing={8}>
-                        <DetailItem
-                          icon={<MonetizationOnIcon
-                            style={{
-                              width: "20%",
-                              marginLeft: "5%",
-                            }}
-                          />}
-                          detail={projectDetail.moneyCollected}
-                        />
-                        <DetailItem
-                          icon={<SupervisorAccountIcon
-                            style={{
-                              width: "20%",
-                              marginLeft: "5%",
-                            }}
-                          />}
-                          detail={projectDetail.projectState}
+                        <DetailProgressBar
+                          progressBarTitle={t("projects.percentaje-completed")}
+                          value={40}
+                          min={0}
+                          max={projectDetail.moneyRequired}
                         />
                       </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DetailItem
-                            icon={<EmojiPeopleIcon
-                              style={{
-                                width: "20%",
-                                marginLeft: "5%",
-                              }}
-                            />}
-                            detail={projectDetail.pricePerInhabitant}
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DetailProgressBar
-                            value={40}
-                            min={0}
-                            max={projectDetail.moneyRequired}
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DonateItem
-                            userId={2}
-                            projectId={projectDetail.id}
-                            onDonation={onDonation}
-                          />
-                        </Grid>
-                      </Grid>
-
                     </Grid>
+
+                    <Grid item xs={12}>
+                      <Grid container spacing={8}>
+                        <DonateItem
+                          donateItemTitle={t("projects.donate-select")}
+                          donateButtonText={t("projects.donate-send")}
+                          userId={2}
+                          projectId={projectDetail.id}
+                          onDonation={onDonation}
+                        />
+                      </Grid>
+                    </Grid>
+
                   </Grid>
                 </Grid>
 
                 <Grid item xs={3}>
+                  <div className="projectList-label">{t("projects.donators-list")}</div>
                   <div className="projectDetails-infoContainer">
                     {donationItems()}
                   </div>

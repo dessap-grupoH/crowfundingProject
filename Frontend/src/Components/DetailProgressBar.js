@@ -3,8 +3,9 @@ import { Grid, LinearProgress } from '@material-ui/core';
 import "../Components/DetailItem.css";
 import BarChartIcon from '@material-ui/icons/BarChart';
 
-const DetailProgressBar = ({ value, min, max }) => (
+const DetailProgressBar = ({ value, min, max, progressBarTitle }) => (
   <Grid item xs={12}>
+    <div className="projectDetails-label">{progressBarTitle}</div>
     <div className="projectDetails-infoContainer">
       <Grid container>
         <Grid item xs={1}>
