@@ -12,7 +12,6 @@ const Header = () => {
          <Navbar
             refIntro="#intro"
             refProjects="#currentProjects"
-            refDonate="#donate"
             refMyDonations="#myDonations"
          />
 

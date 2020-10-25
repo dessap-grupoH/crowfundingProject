@@ -65,7 +65,6 @@ const Project = () => {
         <Navbar
           refIntro="/home#intro"
           refProjects="/home#currentProjects"
-          refDonate="/home#donate"
           refMyDonations="/home#myDonations"
         />
 
