@@ -58,7 +58,6 @@ const Project = () => {
   };
 
 
-
   return isLoading ? (
     <LinearProgress variant="indeterminate" />
   ) : (
@@ -83,6 +82,7 @@ const Project = () => {
                   <Grid item xs={12}>
                     <Grid container spacing={8}>
                       <DetailItem
+                        detailTitle={t("projects.city")}
                         icon={<LocationIcon
                           style={{
                             width: "20%",
@@ -92,6 +92,7 @@ const Project = () => {
                         detail={projectDetail.placeToConnect.name}
                       />
                       <DetailItem
+                        detailTitle={t("projects.start-date")}
                         icon={<EventIcon
                           style={{
                             width: "20%",
@@ -101,6 +102,7 @@ const Project = () => {
                         detail={projectDetail.startDate}
                       />
                       <DetailItem
+                        detailTitle={t("projects.raised")}
                         icon={<MonetizationOnIcon
                           style={{
                             width: "20%",
@@ -110,6 +112,7 @@ const Project = () => {
                         detail={projectDetail.moneyCollected}
                       />
                       <DetailItem
+                        detailTitle={t("projects.state")}
                         icon={<SupervisorAccountIcon
                           style={{
                             width: "20%",
@@ -119,6 +122,7 @@ const Project = () => {
                         detail={projectDetail.projectState}
                       />
                       <DetailItem
+                        detailTitle={t("projects.price-per-habitant")}
                         icon={<EmojiPeopleIcon
                           style={{
                             width: "20%",

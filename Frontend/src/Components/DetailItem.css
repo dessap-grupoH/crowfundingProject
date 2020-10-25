@@ -17,3 +17,10 @@
   margin: 5%;
   vertical-align: middle;
 }
+
+.projectDetails-label{
+  font-family: monospace;
+  font-size: large;
+  color: white;
+  margin-left: 2%;
+}
