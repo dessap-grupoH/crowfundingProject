@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
-import "../Pages/Projects.css";
 import {
   Grid, List, LinearProgress, ListItem, ListItemText, Divider
 } from '@material-ui/core';
-import "../Pages/Project[id].css";
-import Navbar from "../Components/Navbar";
-import DetailProgressBar from "../Components/DetailProgressBar";
-import DonateItem from "../Components/DonateItem";
-import { fetchProjectDetail } from "../Utils/Api";
 import LocationIcon from '@material-ui/icons/LocationOn';
-import DetailItem from "../Components/DetailItem";
-import DetailHeader from "../Components/DetailHeader";
 import EventIcon from '@material-ui/icons/Event';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { useTranslation } from "react-i18next"
+import DetailItem from "../Components/DetailItem";
+import DetailHeader from "../Components/DetailHeader";
+import { fetchProjectDetail } from "../Utils/Api";
+import Navbar from "../Components/Navbar";
+import DetailProgressBar from "../Components/DetailProgressBar";
+import DonateItem from "../Components/DonateItem";
+import "../Pages/Project[id].css";
+import "../Pages/Projects.css";
 
 const Project = () => {
 
   const [projectDetail, setProjectDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     if (isLoading) {
@@ -140,8 +142,6 @@ const Project = () => {
                     <Grid item xs={12}>
                       <Grid container spacing={8}>
                         <DonateItem
-                          donateItemTitle={t("projects.donate-select")}
-                          donateButtonText={t("projects.donate-send")}
                           userId={2}
                           projectId={projectDetail.id}
                           onDonation={onDonation}

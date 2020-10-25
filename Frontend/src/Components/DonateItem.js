@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-import "../Components/DonateItem.css";
+import { useTranslation } from "react-i18next"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import "../Components/DonateItem.css";
 import DonateForm from "../Components/DonateForm";
 
-const DonateItem = ({ userId, projectId, donateButtonText, donateItemTitle, onDonation }) => {
+const DonateItem = ({ userId, projectId, onDonation }) => {
 
   const [isOpenDonate, setOpenDoanate] = useState(false);
-
+  const [t] = useTranslation("global");
 
   return (
     <Grid item xs={12}>
@@ -26,13 +27,12 @@ const DonateItem = ({ userId, projectId, donateButtonText, donateItemTitle, onDo
           </Grid>
           <Grid item xs={10}>
             <div className="donate-text">
-              {donateItemTitle}
+              {t("projects.donate-select")}
             </div>
           </Grid>
           {isOpenDonate &&
             <Grid item xs={12}>
               <DonateForm
-                buttonText={donateButtonText}
                 userId={userId}
                 projectId={projectId}
                 onDonation={onDonation}

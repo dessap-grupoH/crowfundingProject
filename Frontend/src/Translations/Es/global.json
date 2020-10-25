@@ -21,5 +21,14 @@
     "donators-list": "Lista de donantes",
     "donate-select": "Despliegue para realizar una donacion",
     "donate-send": "Enviar donacion"
+  },
+  "donation-form":{
+    "amount-label": "Cantidad",
+    "message-label": "Comentario",
+    "payment-method": {
+      "label": "Metodo de pago",
+      "credit-card": "Tarjeta de credito",
+      "debit-card": "Tarjeta de debito"
+    }
   }
 }

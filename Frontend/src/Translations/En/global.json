@@ -15,11 +15,20 @@
     "city": "City to link up",
     "start-date": "Start date",
     "raised": "Raised",
-    "percentaje-completed": "Perecentaje completed",
+    "percentaje-completed": "Perecentage completed",
     "state": "Project state",
-    "price-per-habitant": "Price per habitant",
-    "donators-list": "Donator list",
-    "donate-select": "Select for a donation",
+    "price-per-habitant": "Price per inhabitant",
+    "donators-list": "Donor list",
+    "donate-select": "Expand to donate",
     "donate-send": "Send donation"
+  },
+  "donation-form":{
+    "amount-label": "Amount",
+    "message-label": "Comment",
+    "payment-method": {
+      "label": "Payment Method",
+      "credit-card": "Credit Card",
+      "debit-card": "Debit Card"
+    }
   }
 }
