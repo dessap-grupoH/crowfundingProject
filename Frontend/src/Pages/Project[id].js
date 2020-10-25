@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
 import {
-  Grid, List, LinearProgress, Avatar, ListItem, ListItemIcon, ListItemText,
-  Divider
+  Grid, List, LinearProgress, ListItem, ListItemText, Divider
 } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import "../Pages/Project[id].css";
@@ -18,7 +17,7 @@ import EventIcon from '@material-ui/icons/Event';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Project = () => {
 
@@ -27,62 +26,37 @@ const Project = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
 
-  const donnationList = [{
-    comment: "Donacion anonima",
-    money: "15000",
-  },
-  {
-    comment: "Donacion anonima 2",
-    money: "122000",
-  },
-  {
-    comment: "Donacion anonima 3",
-    money: "22000",
-  },
-  {
-    comment: "Donacion anonima 4",
-    money: "11000",
-  },
-  {
-    comment: "Donacion anonima 5",
-    money: "13000",
-  },
-  {
-    comment: "Donacion anonima 6",
-    money: "11000",
-  },
-  ]
-
   const totalMoneyNeeded = () => {
     return projectDetail.placeToConnect.population * projectDetail.pricePerInhabitant
   };
 
-
   useEffect(() => {
     if (isLoading) {
       fetchProjectDetail(projectId).then((response) => {
-        console.log(response)
         setProjectDetail(response.data);
         setIsLoading(false);
       }).catch((error) => console.log(error));
     };
   });
 
-  const donationItems = () => (
-    <List>
-      {donnationList.map(d => (
-        <div>
-          <ListItem>
-            <EmojiEmotionsIcon style={{ marginRight: "5%" }} />
-            <ListItemText primary={d.comment} />
-            <ListItemText primary={d.money} />
-          </ListItem>
-          <Divider />
-        </div>
-      ))
-      }
-    </List>
-  );
+  const donationItems = () => {
+    console.log(projectDetail)
+    return (
+      <List>
+        {projectDetail.donors.map(d => (
+          <div>
+            <ListItem>
+              <AccountCircleIcon style={{ marginRight: "5%" }} />
+              <ListItemText primary={d.nick} />
+            </ListItem>
+            <Divider />
+          </div>
+        ))
+        }
+      </List>
+    );
+  };
+
 
 
   return isLoading ? (
@@ -126,64 +100,54 @@ const Project = () => {
                         />}
                         detail={projectDetail.startDate}
                       />
+                      <DetailItem
+                        icon={<MonetizationOnIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.moneyCollected}
+                      />
+                      <DetailItem
+                        icon={<SupervisorAccountIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.projectState}
+                      />
+                      <DetailItem
+                        icon={<EmojiPeopleIcon
+                          style={{
+                            width: "20%",
+                            marginLeft: "5%",
+                          }}
+                        />}
+                        detail={projectDetail.pricePerInhabitant}
+                      />
                     </Grid>
 
                     <Grid item xs={12}>
                       <Grid container spacing={8}>
-                        <DetailItem
-                          icon={<MonetizationOnIcon
-                            style={{
-                              width: "20%",
-                              marginLeft: "5%",
-                            }}
-                          />}
-                          detail={projectDetail.moneyCollected}
-                        />
-                        <DetailItem
-                          icon={<SupervisorAccountIcon
-                            style={{
-                              width: "20%",
-                              marginLeft: "5%",
-                            }}
-                          />}
-                          detail={projectDetail.projectState}
+                        <DetailProgressBar
+                          value={40}
+                          min={0}
+                          max={totalMoneyNeeded()}
                         />
                       </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DetailItem
-                            icon={<EmojiPeopleIcon
-                              style={{
-                                width: "20%",
-                                marginLeft: "5%",
-                              }}
-                            />}
-                            detail={projectDetail.pricePerInhabitant}
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DetailProgressBar
-                            value={40}
-                            min={0}
-                            max={totalMoneyNeeded()}
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Grid container spacing={8}>
-                          <DonateItem
-                            userId={2}
-                            projectId={projectDetail.id}
-                          />
-                        </Grid>
-                      </Grid>
-
                     </Grid>
+
+                    <Grid item xs={12}>
+                      <Grid container spacing={8}>
+                        <DonateItem
+                          userId={2}
+                          projectId={projectDetail.id}
+                        />
+                      </Grid>
+                    </Grid>
+
                   </Grid>
                 </Grid>
 
