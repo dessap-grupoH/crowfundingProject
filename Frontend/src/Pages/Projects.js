@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import "../Pages/Projects.css";
 import { Grid, LinearProgress } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
-import { fetchProjects } from "../Utils/Api";
+import { fetchOpenProjects } from "../Utils/Api";
 import Info from '@material-ui/icons/Info';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarIcon from '@material-ui/icons/Star';
@@ -17,7 +17,7 @@ const Projects = () => {
 
    useEffect(() => {
       if (isLoading) {
-         fetchProjects().then(response => {
+         fetchOpenProjects().then(response => {
             const tempProjects = response.data;
             setProjects(tempProjects);
             setIsLoading(false);
