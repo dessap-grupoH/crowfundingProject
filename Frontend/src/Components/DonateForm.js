@@ -3,7 +3,7 @@ import "../Components/DonateForm.css";
 import { postDonation } from "../Utils/Api";
 import sendDonation from "../Assets/send-donation.png"
 
-const DonateForm = ({ userId, projectId }) => {
+const DonateForm = ({ userId, projectId, onDonation }) => {
 
   const [paymentMethod, setPaymentMethod] = useState("CreditCard");
   const [amount, setAmount] = useState(0);
@@ -15,11 +15,12 @@ const DonateForm = ({ userId, projectId }) => {
       paymentMethod: `${paymentMethod}`,
       donatorId: userId,
       projectId: projectId,
-      amount: parseInt(amount),
+      amount: parseInt(amount, 10),
       comment: `${comment}`
-    }).catch(error => {
-      addError([...errors, { type: "send", error: "Hubo un error al enviar la donacion" }])
-    });
+    }).then(resp => onDonation(resp.data))
+      .catch(_ => {
+        addError([...errors, { type: "send", error: "Hubo un error al enviar la donacion" }])
+      });
   };
 
   const findErrorByType = (type) => {

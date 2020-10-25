@@ -54,4 +54,16 @@ class CrowdFundingProjectController {
         }
         return ResponseEntity(response, HttpStatus.OK)
     }
+
+    @GetMapping("/aboutToEnd")
+    @Throws(Exception::class)
+    fun findAboutToend(): ResponseEntity<List<CrowdfundingProject>> {
+        var response: List<CrowdfundingProject>
+        try {
+            response = service.findAboutToend()
+        } catch (e: Exception) {
+            return ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+        return ResponseEntity(response, HttpStatus.OK)
+    }
 }

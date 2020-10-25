@@ -5,6 +5,7 @@ import ar.unq.edu.desapp.grupoH.model.states.ProjectState
 import ar.unq.edu.desapp.grupoH.repository.CrowdFundingProjectRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.time.LocalDate
 
 @Generated
 @Service
@@ -16,4 +17,6 @@ class CrowdFundingProjectService {
     fun findAll() = repository.findAll().toList()
     fun findOpen() = repository.findByProjectState(ProjectState.Opened)
     fun findById(id: Int) = repository.findById(id).get()
+    fun findAboutToend() = repository.findAllByEstimatedFinishDateMonth(LocalDate.now().monthValue)
+
 }

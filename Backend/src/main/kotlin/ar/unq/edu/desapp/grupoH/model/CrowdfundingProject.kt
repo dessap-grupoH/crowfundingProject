@@ -2,7 +2,6 @@ package ar.unq.edu.desapp.grupoH.model
 
 import ar.unq.edu.desapp.grupoH.model.errors.*
 import ar.unq.edu.desapp.grupoH.model.states.ProjectState
-import ar.unq.edu.desapp.grupoH.model.user.DonorUser
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
@@ -49,7 +48,7 @@ class CrowdfundingProject {
         this.percentageNeeded = percentageNeededCheck(newPercentage)
     }
 
-    fun moneyRequiredToCompleteProject(): Int{
+    fun getMoneyRequired(): Int{
         return (this.placeToConnect!!.population * this.percentageNeeded / 100) * this.pricePerInhabitant
     }
 
@@ -70,7 +69,8 @@ class CrowdfundingProject {
     }
 
     @JsonIgnoreProperties("donationList")
-    fun getDonors() : List<DonorUser> = this.donationList.map { d -> d.from }.toSet().toList()
+    fun getDonors() : List<DonorResponse> = this.donationList.groupBy { e -> e.from.nick }.map { (k, v) -> DonorResponse(k, v.sumBy { s -> s.amount }) }
+
 
     fun receiveDonation(donation: Donation){
         this.donationList.add(donation)
@@ -78,7 +78,7 @@ class CrowdfundingProject {
     }
 
     fun actualPercentageCompleted(): Int{
-        return (this.moneyCollected * 100) / this.moneyRequiredToCompleteProject()
+        return (this.moneyCollected * 100) / this.getMoneyRequired()
     }
-
 }
+

@@ -57,7 +57,7 @@ class CrowdfundingTest {
 
         Mockito.`when`(townMock.population).thenReturn(3500)
 
-        Assert.assertEquals(3500000, project1.moneyRequiredToCompleteProject())
+        Assert.assertEquals(3500000, project1.getMoneyRequired())
     }
 
     @Test

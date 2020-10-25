@@ -4,7 +4,7 @@ import "../Components/DonateItem.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DonateForm from "../Components/DonateForm";
 
-const DonateItem = ({ userId, projectId }) => {
+const DonateItem = ({ userId, projectId, onDonation }) => {
 
   const [isOpenDonate, setOpenDoanate] = useState(false);
 
@@ -34,6 +34,7 @@ const DonateItem = ({ userId, projectId }) => {
               <DonateForm
                 userId={userId}
                 projectId={projectId}
+                onDonation={onDonation}
               />
             </Grid>
           }

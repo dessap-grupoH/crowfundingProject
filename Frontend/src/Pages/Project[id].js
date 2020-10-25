@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import "../Pages/Projects.css";
 import {
-  Grid, List, LinearProgress, Avatar, ListItem, ListItemIcon, ListItemText,
+  Grid, List, LinearProgress, Avatar, ListItem, ListItemText,
   Divider
 } from '@material-ui/core';
-import { useTranslation } from "react-i18next";
 import "../Pages/Project[id].css";
 import Navbar from "../Components/Navbar";
 import DetailProgressBar from "../Components/DetailProgressBar";
@@ -21,40 +20,9 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 
 const Project = () => {
 
-  const [t] = useTranslation("global");
   const [projectDetail, setProjectDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
-
-  const donnationList = [{
-    comment: "Donacion anonima",
-    money: "15000",
-  },
-  {
-    comment: "Donacion anonima 2",
-    money: "122000",
-  },
-  {
-    comment: "Donacion anonima 3",
-    money: "22000",
-  },
-  {
-    comment: "Donacion anonima 4",
-    money: "11000",
-  },
-  {
-    comment: "Donacion anonima 5",
-    money: "13000",
-  },
-  {
-    comment: "Donacion anonima 6",
-    money: "11000",
-  },
-  ]
-
-  const totalMoneyNeeded = () => {
-    return projectDetail.placeToConnect.population * projectDetail.pricePerInhabitant
-  };
 
 
   useEffect(() => {
@@ -67,14 +35,16 @@ const Project = () => {
     };
   });
 
+  const onDonation = (updatedDetails) => setProjectDetail(updatedDetails)
+
   const donationItems = () => (
     <List>
-      {donnationList.map(d => (
+      {projectDetail.donors.map(d => (
         <div>
           <ListItem>
             <EmojiEmotionsIcon style={{ marginRight: "5%" }} />
-            <ListItemText primary={d.comment} />
-            <ListItemText primary={d.money} />
+            <ListItemText primary={d.nick} />
+            <ListItemText primary={d.totalAmount} />
           </ListItem>
           <Divider />
         </div>
@@ -89,10 +59,10 @@ const Project = () => {
   ) : (
       <div className="projectDetail-container">
         <Navbar
-          refIntro="/home#intro"
-          refProjects="/home#currentProjects"
-          refDonate="/home#donate"
-          refMyDonations="/home#myDonations"
+          refIntro="/#intro"
+          refProjects="/#currentProjects"
+          refDonate="/#donate"
+          refMyDonations="/#myDonations"
         />
 
         <div className="section-one">
@@ -183,7 +153,7 @@ const Project = () => {
                           <DetailProgressBar
                             value={40}
                             min={0}
-                            max={totalMoneyNeeded()}
+                            max={projectDetail.moneyRequired}
                           />
                         </Grid>
                       </Grid>
@@ -193,6 +163,7 @@ const Project = () => {
                           <DonateItem
                             userId={2}
                             projectId={projectDetail.id}
+                            onDonation={onDonation}
                           />
                         </Grid>
                       </Grid>
