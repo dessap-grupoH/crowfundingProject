@@ -28,14 +28,17 @@ class Donation {
 
     lateinit var comment: String
 
+    var donationPoints : Int = 0
+
     constructor()
 
-   constructor(date: LocalDate, paymentMethod: PaymentMethod, amount: Int, projectTo : CrowdfundingProject, from: DonorUser, comment: String) {
+   constructor(date: LocalDate, paymentMethod: PaymentMethod, amount: Int, projectTo : CrowdfundingProject, from: DonorUser, comment: String, donationPoints: Int) {
        this.date = date
        this.paymentMethod = paymentMethod
        this.amount = amount
        this.projectTo = projectTo
        this.from = from
        this.comment = comment
+       this.donationPoints = donationPoints
    }
 }

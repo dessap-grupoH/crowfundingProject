@@ -30,16 +30,17 @@ class DonorUser : User {
 
     fun makeDonation(paymentMethod: PaymentMethod, amount: Int, to: CrowdfundingProject, comment: String) : Donation{
         if(amount > 0){
-            val newDonation = Donation(LocalDate.now(), paymentMethod, amount, to, this, comment)
+            val gainedPoints = PointsSystem.pointGenerator(this, amount, to)
+            val newDonation = Donation(LocalDate.now(), paymentMethod, amount, to, this, comment, gainedPoints)
             this.donationList.add(newDonation)
             to.receiveDonation(newDonation)
-            this.actualPoints += PointsSystem.pointGenerator(this, amount, to)
+            this.actualPoints += gainedPoints
             return newDonation
         }else{
             throw InvalidAmountForDonation(ModelMessages.invalidAmountDonate)
         }
     }
 
-    fun isSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date.monthValue == LocalDate.now().monthValue }.size == 2
+    fun willBeSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date.monthValue == LocalDate.now().monthValue }.size == 1
 
 }

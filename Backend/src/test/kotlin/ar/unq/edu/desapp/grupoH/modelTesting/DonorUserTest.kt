@@ -58,7 +58,7 @@ class DonorUserTest {
     }
 
     @Test
-    fun isSecondMonthlyDonation(){
+    fun willBeSecondMonthlyDonation(){
         val user1 = DonorUser("user1", "123456", "user1@gmail.com", "1x")
         val projectMock: CrowdfundingProject = mock(CrowdfundingProject::class.java)
         val townMock: Town = mock(Town::class.java)
@@ -66,19 +66,15 @@ class DonorUserTest {
         `when`(projectMock.placeToConnect).thenReturn(townMock)
         `when`(townMock.population).thenReturn(1500)
 
-        Assert.assertEquals(false, user1.isSecondMonthlyDonation())
+        Assert.assertEquals(false, user1.willBeSecondMonthlyDonation())
 
         user1.makeDonation(PaymentMethod.DebitCard,1500,projectMock,"Donacion de 1500$")
 
-        Assert.assertFalse(user1.isSecondMonthlyDonation())
+        Assert.assertTrue(user1.willBeSecondMonthlyDonation())
 
         user1.makeDonation(PaymentMethod.DebitCard,200,projectMock,"Donacion de 200$")
 
-        Assert.assertTrue(user1.isSecondMonthlyDonation())
-
-        user1.makeDonation(PaymentMethod.DebitCard,500,projectMock,"Donacion de 500$")
-
-        Assert.assertFalse(user1.isSecondMonthlyDonation())
+        Assert.assertFalse(user1.willBeSecondMonthlyDonation())
     }
 
 }

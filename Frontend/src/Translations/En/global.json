@@ -7,7 +7,13 @@
     "home": "Home",
     "projects": "Projects",
     "donate": "Donate",
-    "my-donations": "My donations"
+    "profile": "Profile"
+  },
+  "profile": {
+    "name": "Username",
+    "nickname": "Nickname",
+    "email": "E-mail",
+    "points": "Points"
   },
   "projects": {
     "name": "Project Name",

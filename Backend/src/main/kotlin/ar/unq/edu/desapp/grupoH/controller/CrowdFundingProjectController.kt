@@ -60,7 +60,7 @@ class CrowdFundingProjectController {
     fun findAboutToend(): ResponseEntity<List<CrowdfundingProject>> {
         var response: List<CrowdfundingProject>
         try {
-            response = service.findAboutToend()
+            response = service.findAboutToEnd()
         } catch (e: Exception) {
             return ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }

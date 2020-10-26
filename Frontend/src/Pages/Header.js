@@ -12,7 +12,6 @@ const Header = () => {
          <Navbar
             refIntro="#intro"
             refProjects="#currentProjects"
-            refMyDonations="#myDonations"
          />
 
          <div className="row banner">

@@ -61,7 +61,6 @@ const Project = () => {
         <Navbar
           refIntro="/"
           refProjects="/#currentProjects"
-          refMyDonations="/#myDonations"
         />
 
         <div className="section-one">

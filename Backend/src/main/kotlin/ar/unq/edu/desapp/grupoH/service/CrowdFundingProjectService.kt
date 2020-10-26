@@ -17,6 +17,6 @@ class CrowdFundingProjectService {
     fun findAll() = repository.findAll().toList()
     fun findOpen() = repository.findByProjectState(ProjectState.Opened)
     fun findById(id: Int) = repository.findById(id).get()
-    fun findAboutToend() = repository.findAllByEstimatedFinishDateMonth(LocalDate.now().monthValue)
+    fun findAboutToEnd() = repository.findAllByEstimatedFinishDateBetweenOrderByEstimatedFinishDateAsc(LocalDate.now(), LocalDate.now().plusDays(30))
 
 }
