@@ -2,7 +2,7 @@ import React from 'react';
 import "../Components/Navbar.css"
 import { useTranslation } from "react-i18next"
 
-const Navbar = ({ refIntro, refProjects, refDonate, refMyDonations }) => {
+const Navbar = ({ refIntro, refProjects, refMyDonations }) => {
 
     const [t, i18n] = useTranslation("global");
 
@@ -15,8 +15,8 @@ const Navbar = ({ refIntro, refProjects, refDonate, refMyDonations }) => {
                 <li className="current"><a className="smoothscroll" href={refIntro}> {t("navbar.home")} </a></li>
                 <li><a className="smoothscroll" href={refProjects}> {t("navbar.projects")} </a></li>
                 <li><a className="smoothscroll" href={refMyDonations}> {t("navbar.my-donations")} </a></li>
-                <li><a className="smoothscroll" href="" onClick={() => i18n.changeLanguage("en")}> Ingles </a></li>
-                <li><a className="smoothscroll" href="" onClick={() => i18n.changeLanguage("es")}> Español </a></li>
+                <li><a className="smoothscroll" href="#" onClick={() => i18n.changeLanguage("en")}> Ingles </a></li>
+                <li><a className="smoothscroll" href="#" onClick={() => i18n.changeLanguage("es")}> Español </a></li>
             </ul>
         </nav>
     );
