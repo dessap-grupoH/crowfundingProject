@@ -9,7 +9,7 @@ const Navbar = ({ refIntro, refProjects, refMyDonations }) => {
     return (
         <nav id="nav-wrap">
             <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-            <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
+            <a className="mobile-btn" href="#intro" title="Hide navigation">Hide navigation</a>
 
             <ul id="nav" className="nav">
                 <li className="current"><a className="smoothscroll" href={refIntro}> {t("navbar.home")} </a></li>
