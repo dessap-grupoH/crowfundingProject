@@ -7,7 +7,7 @@
     "home": "Home",
     "projects": "Projects",
     "donate": "Donate",
-    "my-donations": "My donations"
+    "projects-To-End-Soon": "Projects to end soon"
   },
   "projects": {
     "name": "Project Name",
@@ -22,7 +22,7 @@
     "donate-select": "Expand to donate",
     "donate-send": "Send donation"
   },
-  "donation-form":{
+  "donation-form": {
     "amount-label": "Amount",
     "message-label": "Comment",
     "payment-method": {

@@ -3,14 +3,14 @@ import './Home.css';
 import "../global.css"
 import Header from './Header';
 import Projects from './Projects';
-import MyDonations from './MyDonations';
+import ProjectsToEndSoon from './ProjectsToEndSoon';
 import Footer from './Footer';
 
 const Home = () => (
   <div className="App">
     <Header />
     <Projects />
-    <MyDonations />
+    <ProjectsToEndSoon />
     <Footer />
   </div>
 );

@@ -19,10 +19,15 @@ const Projects = () => {
             const tempProjects = response.data;
             setProjects(tempProjects);
             setIsLoading(false);
-         })
+         });
       }
-      console.log(projects);
    }, []);
+
+   const projectsToEndSoon = () => {
+      const caca = projects.sort((f1, f2) =>
+         new Date(f1.estimatedFinishDate) < new Date(f2.estimatedFinishDate));
+      console.log(caca);
+   }
 
    const projectsItem = (
       projects.map((project) => {
