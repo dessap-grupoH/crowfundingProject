@@ -7,7 +7,8 @@
     "home": "Inicio",
     "projects": "Proyectos",
     "donate": "Donar",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "projects-To-End-Soon": "Projectos proximos a finalizar"
   },
   "profile": {
     "name": "Nombre de usuario",
@@ -28,7 +29,7 @@
     "donate-select": "Despliegue para realizar una donacion",
     "donate-send": "Enviar donacion"
   },
-  "donation-form":{
+  "donation-form": {
     "amount-label": "Cantidad",
     "message-label": "Comentario",
     "payment-method": {
