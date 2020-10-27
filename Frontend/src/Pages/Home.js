@@ -8,10 +8,12 @@ import Footer from './Footer';
 
 const Home = () => (
   <div className="App">
-    <Header />
-    <Projects />
-    <ProjectsToEndSoon />
-    <Footer />
+    <div className="appBack">
+      <Header />
+      <Projects />
+      <ProjectsToEndSoon />
+      <Footer />
+    </div>
   </div>
 );
 

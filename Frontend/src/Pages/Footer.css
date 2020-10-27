@@ -1,7 +1,8 @@
 footer {
-  padding-top: 20px;
-  margin-bottom: 20px;
-  color: #303030;
+  padding-top: 30px;
+  margin-bottom: -10px;
+  background-color: rgb(14, 14, 14);
+  color: rgb(216, 216, 216);
   font-size: 14px;
   text-align: center;
   position: relative;
