@@ -31,32 +31,32 @@ const Profile = () => {
         />
 
         <div className="section-one">
-          <div className="projectDetails-cont">
+          <div className="profile-cont">
             <Grid container spacing={8}>
               <Grid container spacing={8}>
-                  <Grid item xs={8}>
-                    <Grid item xs={12}>
-                      <Grid container spacing={8}>
-                        <DetailItem
-                          detailTitle={t("profile.name")}
-                          detail={userDetails.username}
-                        />
-                        <DetailItem
-                          detailTitle={t("profile.nickname")}
-                          detail={userDetails.nick}
-                        />
-                        <DetailItem
-                          detailTitle={t("profile.email")}
-                          detail={userDetails.email}
-                        />
-                        <DetailItem
-                          detailTitle={t("profile.points")}
-                          detail={userDetails.actualPoints.toLocaleString(t("locale"))}
-                        />
-                      </Grid>
+                <Grid item xs={8}>
+                  <Grid item xs={12}>
+                    <Grid container spacing={8}>
+                      <DetailItem
+                        detailTitle={t("profile.name")}
+                        detail={userDetails.username}
+                      />
+                      <DetailItem
+                        detailTitle={t("profile.nickname")}
+                        detail={userDetails.nick}
+                      />
+                      <DetailItem
+                        detailTitle={t("profile.email")}
+                        detail={userDetails.email}
+                      />
+                      <DetailItem
+                        detailTitle={t("profile.points")}
+                        detail={userDetails.actualPoints.toLocaleString(t("locale"))}
+                      />
                     </Grid>
                   </Grid>
                 </Grid>
+              </Grid>
               <Grid item xs={8}>
                 <DonationTable donations={userDetails.donationList} />
               </Grid>
