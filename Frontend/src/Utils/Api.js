@@ -19,6 +19,9 @@ const fetchProjects = () =>
 const fetchOpenProjects = () =>
   axios.get(`${HOST_URL}${PROJECT_URL}/open`);
 
+const fetchAboutEnd = () =>
+  axios.get(`${HOST_URL}${PROJECT_URL}/aboutToEnd`);
+
 const fetchProjectDetail = (proejctID) =>
   axios.get(`${HOST_URL}${PROJECT_URL}/details?id=${proejctID}`);
 
@@ -32,5 +35,6 @@ export {
   fetchProjects,
   fetchOpenProjects,
   fetchProjectDetail,
-  postDonation
+  postDonation,
+  fetchAboutEnd
 };

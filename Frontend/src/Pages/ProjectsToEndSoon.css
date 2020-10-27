@@ -1,7 +1,9 @@
 #projectsToEndSoon {
+  border-bottom: white solid 2px;
   margin-left: -1%;
   background:  #8a8c9b;
   padding-bottom: 2%;
+  padding-top: 2%;
 }
 
 #projectsToEndSoon .card{

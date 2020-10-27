@@ -52,5 +52,10 @@
       "next-button-text": "Siguiente pagina",
       "back-button-text": "Pagina anterior"
     }
+  },
+  "projects-to-end-soon": {
+    "see-more": "Ver mas",
+    "estimated-finish-date": "Fecha estimada de cierre: ",
+    "percentaje-completed": "De esto proyecto se completo el: "
   }
 }

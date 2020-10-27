@@ -48,7 +48,7 @@ const DonateForm = ({ userId, projectId, onDonation }) => {
             className="selectPayment"
             onClick={() => setPaymentMethod("DebitCard")}
           >
-            {t("donation-form.payment-method.credit-card")}
+            {t("donation-form.payment-method.debit-card")}
           </div>
           <div
             style={{ background: paymentMethod === "CreditCard" ? "#83adf181" : "#6161619f" }}
@@ -60,7 +60,7 @@ const DonateForm = ({ userId, projectId, onDonation }) => {
         </div>
 
         <div>
-          <label htmlFor="makeDonatetMessage">Message</label>
+          <label htmlFor="makeDonatetMessage">{t("donation-form.message-label")}</label>
           <textarea
             onChange={e => setComment(e.target.value)}
             cols="50"

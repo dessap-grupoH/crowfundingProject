@@ -28,7 +28,8 @@
     "price-per-habitant": "Price per inhabitant",
     "donators-list": "Donor list",
     "donate-select": "Expand to donate",
-    "donate-send": "Send donation"
+    "donate-send": "Send donation",
+    "comment": "Comment"
   },
   "donation-form": {
     "amount-label": "Amount",
@@ -52,5 +53,10 @@
       "next-button-text": "Next page",
       "back-button-text": "Previous page"
     }
+  },
+  "projects-to-end-soon": {
+    "see-more": "See more",
+    "estimated-finish-date": "Estimated finish date: ",
+    "percentaje-completed": "From this project has completed: "
   }
 }
