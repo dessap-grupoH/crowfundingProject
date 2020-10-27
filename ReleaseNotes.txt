@@ -1,4 +1,37 @@
 ---------------------------------------------------------------------
+ENTREGA 2.0
+---------------------------------------------------------------------
+NEW FEATURES 
+
+* Endpoints :
+	- User details.
+	- All projects, open projects, ending soon projects.
+	- Post donation.
+	- All towns.
+
+* Presentation layer :
+	- Home (app description, open projects, ending soon projects).
+	- Project details (including make donation).
+	- Profile (including user donation details).
+	- Navbar.
+	- Footer.
+	- i18n (en-US, es-AR).
+
+
+NOTES
+
+* Frontend not deployed in Heroku.
+
+* Missing login (hc user).
+
+
+KNOWN ISSUES
+
+* Some views not responsive at all.
+
+
+
+---------------------------------------------------------------------
 ENTREGA 1.0
 ---------------------------------------------------------------------
 NEW FEATURES 

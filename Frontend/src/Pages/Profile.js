@@ -28,6 +28,7 @@ const Profile = () => {
         <Navbar
           refIntro="/"
           refProjects="/#currentProjects"
+          refProjectsToEndSoon="/#projectsToEndSoon"
         />
 
         <div className="section-one">
