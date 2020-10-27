@@ -1,4 +1,5 @@
 {
+  "locale": "en-US",
   "header": {
     "crowdfunding-project": "Crowdfunding project",
     "project-description": "In this non-profit project you can donate to different neighborhoods from the country that do not have internet so far, this way you can give them a big growth opportunity."
@@ -36,6 +37,20 @@
       "label": "Payment Method",
       "credit-card": "Credit Card",
       "debit-card": "Debit Card"
+    }
+  },
+  "donation-table": {
+    "headers": {
+      "project": "Project",
+      "donation-date": "Donation date",
+      "amount": "Amount",
+      "given-points": "Given points",
+      "comment": "Comment"
+    },
+    "footer": {
+      "rows-per-page": "Rows per page:",
+      "next-button-text": "Next page",
+      "back-button-text": "Previous page"
     }
   }
 }

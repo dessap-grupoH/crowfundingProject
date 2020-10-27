@@ -1,4 +1,5 @@
 {
+  "locale": "es-AR",
   "header": {
     "crowdfunding-project": "Proyecto solidario",
     "project-description": "Este es un proyecto sin fines de lucro donde podrás hacer donaciones a distintos barrios del pais que no posean internet hasta el momento, de esta forma puedes darles una gran oportunidad de crecimiento."
@@ -36,6 +37,20 @@
       "label": "Metodo de pago",
       "credit-card": "Tarjeta de credito",
       "debit-card": "Tarjeta de debito"
+    }
+  },
+  "donation-table": {
+    "headers": {
+      "project": "Proyecto",
+      "donation-date": "Fecha de donacion",
+      "amount": "Cantidad",
+      "given-points": "Puntos obtenidos",
+      "comment": "Comentario"
+    },
+    "footer": {
+      "rows-per-page": "Filas por pagina:",
+      "next-button-text": "Siguiente pagina",
+      "back-button-text": "Pagina anterior"
     }
   }
 }

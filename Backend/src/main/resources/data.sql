@@ -8,7 +8,7 @@ INSERT INTO Town(`name`, province, population, connection_state) VALUES ('El Mal
 
 
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'ricardo@gmail.com', '123', 'ricardo', 250, 'ricX');
-INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'lucas@gmail.com', '123', 'lucas', 100, 'randomize');
+INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'lucas@gmail.com', '123', 'lucas', 11500, 'randomize');
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'rodrigo@gmail.com', '123', 'rodrigo', 1250, 'rodx1');
 
 
@@ -30,6 +30,6 @@ INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`,
 
 INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (4000, 'Ayudando con amor',  '2020-03-19','CreditCard', 1, 2, 4000);
 INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (6000, 'Ayudando con ganas', '2020-02-19', 'CreditCard', 2, 2, 6000);
-INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (5000, 'Ayudando con esperanza', '2020-01-19', 'CreditCard', 3, 3, 5000);
+INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (5000, 'Ayudando con esperanza', '2020-06-19', 'CreditCard', 2, 3, 5500);
 INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (7000, 'Ayudando con dedicacion', '2020-04-19', 'CreditCard', 1, 4, 7500);
-INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (8000, 'Ayudando con fuerza', '2020-05-19', 'CreditCard', 2, 5, 24500);
+INSERT INTO Donation(amount, comment, `date`, payment_method, from_id, project_to_id, donation_points) VALUES (8000, 'Ayudando con fuerza', '2020-05-19', 'CreditCard', 3, 5, 24500);
