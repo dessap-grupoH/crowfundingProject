@@ -30,5 +30,10 @@
       "credit-card": "Tarjeta de credito",
       "debit-card": "Tarjeta de debito"
     }
+  },
+  "projects-to-end-soon": {
+    "see-more": "Ver mas",
+    "estimated-finish-date": "Fecha estimada de cierre: ",
+    "percentaje-completed": "De esto proyecto se completo el: "
   }
 }
