@@ -20,7 +20,8 @@
     "price-per-habitant": "Price per inhabitant",
     "donators-list": "Donor list",
     "donate-select": "Expand to donate",
-    "donate-send": "Send donation"
+    "donate-send": "Send donation",
+    "comment": "Comment"
   },
   "donation-form": {
     "amount-label": "Amount",
