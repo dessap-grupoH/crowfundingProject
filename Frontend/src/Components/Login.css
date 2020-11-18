@@ -1,0 +1,43 @@
+.loginContainer{
+  padding: 30px;
+  background-color: rgba(75, 75, 75, 0.685);
+  margin-left: 5%;
+  height: 350px;
+  width: 35%;
+  border-radius: 15px 40px;
+}
+
+.inputHeader{
+  margin-bottom: 3px;
+  margin-left: 10px;
+  font-family: 'opensans-bold', sans-serif;
+  font-size: 1.5em;
+}
+
+.input{
+  font-size: x-large;
+  padding-left: 5px;
+  margin: 8px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: rgb(218, 218, 218);
+}
+
+.displayInB{
+  display: inline-block;
+}
+
+.floatL{
+  float: left;;
+}
+
+.authSeparator{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 70%;
+}
+
+.right{
+  margin-bottom: 10%;
+  text-align: right;
+}
