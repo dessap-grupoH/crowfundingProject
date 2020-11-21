@@ -3,7 +3,7 @@ import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
 import RegisterComponent from "../Components/RegisterComponent";
 import Button from "../Components/Generics/Button";
-import back from "../Assets/back.jpg";
+import back from "../Assets/back.png";
 
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
