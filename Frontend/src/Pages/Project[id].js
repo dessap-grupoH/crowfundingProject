@@ -8,6 +8,7 @@ import cost from "../Assets/cost.png";
 import schedule from "../Assets/schedule.png";
 import clipboard from "../Assets/clipboard.png";
 import money from "../Assets/money.png";
+import rising from "../Assets/rising.png";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useTranslation } from "react-i18next"
 import DetailItem from "../Components/DetailItem";
@@ -101,8 +102,7 @@ const Project = () => {
           <DetailProgressBar
             progressBarTitle={t("projects.percentaje-completed")}
             value={projectDetail.actualPercentageCompleted}
-            min={0}
-            max={projectDetail.moneyRequired}
+            icon={<img src={rising} style={{ width: "40px", marginRight: "15px" }} />}
           />
 
           <DonateItem

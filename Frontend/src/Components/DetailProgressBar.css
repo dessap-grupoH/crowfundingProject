@@ -1,14 +1,21 @@
-.projectDetails-infoContainer{
-  box-shadow: 2px 4px 8px rgb(0, 0, 0), 2px 4px 4px rgba(0, 0, 0);
+.barContainer{
+  display: inline-block;
+  width: 40%;
+}
+
+.barItem{
+  color: white;
   margin-top: 1%;
   margin-bottom: 1%;
   margin-left: 1%; 
   margin-right: 1%; 
-  border: none;
-  border-radius: 8px;
-  background-color: #8a8c9b;
-  min-height: 20px;
   padding-top: 1%;
+  display: inline;
+}
+
+.barNumbers{
+  float: left;
+  text-align: center;
 }
 
 .projectDetails-bar{
@@ -18,9 +25,10 @@
   vertical-align: middle;
 }
 
-.progressBar-label{
+.barLabel{
+  margin-top: 2%;
+  padding-left: 2%;
   font-family: monospace;
   font-size: large;
   color: white;
-  margin-left: 2%;
 }
