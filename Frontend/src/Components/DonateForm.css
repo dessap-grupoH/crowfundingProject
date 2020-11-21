@@ -25,7 +25,7 @@
   outline: none;
   font-size: 20px;
   line-height: 24px;
-  width: 31%;
+  width: 210px;
   display: inline-block;
   cursor: pointer;
 }
@@ -34,13 +34,20 @@
   background-color: #83adf181
 }
 
+@media only screen and (max-width: 767px){
+  #makeDonate .selectPayment{
+    width: 120px;
+    display: inherit;
+  }
+}
+
 #makeDonate select,
 #makeDonate input,
 #makeDonate textarea,
 #makeDonate select {
   font: 15px/24px 'opensans-bold', sans-serif;
-  padding: 10px 10px;
-  color: #eee;
+  padding: 15px 15px;
+  color: rgb(255, 255, 255);
   background: #6161619f;
   margin-bottom: 30px;
   border-radius: 40px 10px ;
@@ -59,8 +66,8 @@
 }
 
 .button-send{
-  float: right;
-  text-align: right;
+  padding: 1%;
+  text-align: center;
   color: white;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -69,8 +76,11 @@
   border-radius: 8px;
   background-color: #3644afe3;
   padding: 1%;
-  font-size: large;
-  cursor:pointer
+  width: 135px;
+  margin-left: 60%;
+  font-size: 1.1em;
+  cursor: pointer;
+  font-family: 'opensans-bold', sans-serif;
 }
 
 .button-send:hover{

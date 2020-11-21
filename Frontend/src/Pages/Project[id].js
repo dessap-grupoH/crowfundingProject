@@ -37,8 +37,6 @@ const Project = () => {
     };
   });
 
-  const onDonation = (updatedDetails) => setProjectDetail(updatedDetails)
-
   const donationItems = () => (
     <List>
       {projectDetail.donors.map(d => (

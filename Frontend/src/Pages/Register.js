@@ -8,7 +8,7 @@ import back from "../Assets/back.jpg";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import "./Auth.css";
+import "./Register.css";
 
 const Register = () => {
 

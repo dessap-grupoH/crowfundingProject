@@ -1,33 +1,45 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next"
-import "../Components/DonateForm.css";
+import Toast from "../Components/Generics/Toast";
 import { postDonation } from "../Utils/Api";
+import "../Components/DonateForm.css";
 
-const DonateForm = ({ userId, projectId, onDonation }) => {
+const DonateForm = ({ userId, projectId }) => {
 
   const [paymentMethod, setPaymentMethod] = useState("CreditCard");
   const [amount, setAmount] = useState(0);
   const [comment, setComment] = useState("");
   const [errors, addError] = useState([]);
+  const [successToast, setSuccessToast] = useState(false);
+  const [errorToast, setErrorToast] = useState(false);
   const [t] = useTranslation("global");
 
   const onSumbit = () => {
-    postDonation({
-      paymentMethod: `${paymentMethod}`,
-      donatorId: userId,
-      projectId: projectId,
-      amount: parseInt(amount, 10),
-      comment: `${comment}`
-    }).then(resp => onDonation(resp.data))
-      .catch(_ => {
-        addError([...errors, { type: "send", error: "Hubo un error al enviar la donacion" }])
-      });
+    if (!isValidAmount()) {
+      addError([...errors, { type: "amount", error: "Monto invalido a donar" }]);
+      setErrorToast(true);
+    } else {
+      postDonation({
+        paymentMethod: `${paymentMethod}`,
+        donatorId: userId,
+        projectId: projectId,
+        amount: parseInt(amount, 10),
+        comment: `${comment}`
+      }).then(() => setSuccessToast(true))
+        .catch(_ => {
+          addError([...errors, { type: "send", error: "Hubo un error al enviar la donacion" }])
+          setErrorToast(true);
+        });
+    };
   };
 
-  const findErrorByType = (type) => {
-    return errors.find(err => err.type === type)
-      ? errors.find(err => err.type === type).error
-      : "";
+  const isValidAmount = () => {
+    return amount > 0
+  };
+
+  const handleCloseErrorToast = () => {
+    let newErros = errors.slice(1);
+    addError(newErros);
   }
 
   return (
@@ -75,12 +87,18 @@ const DonateForm = ({ userId, projectId, onDonation }) => {
         >
           {t("projects.donate-send")}
         </div>
-        {findErrorByType("send") &&
-          <p className="donate-labelError">
-            {findErrorByType("send")}
-          </p>
-        }
       </form>
+      <Toast
+        content={errors.length > 0 && errors[0].error}
+        open={errorToast}
+        handleClose={() => setErrorToast(false)}
+      />
+      <Toast
+        content={"La operacion fue realizada con exito"}
+        succes
+        open={successToast}
+        handleClose={() => setSuccessToast(false)}
+      />
     </section >
   );
 }

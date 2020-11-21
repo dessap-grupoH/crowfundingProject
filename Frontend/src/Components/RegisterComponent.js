@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Auth.css";
+import "./RegisterComponent.css";
 import { InputBase } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 

@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
-import Button from "../Components/Generics/Button";
-import back from "../Assets/back.jpg";
-import "./Donate.css"
 import DonateForm from "../Components/DonateForm";
+import donate from "../Assets/donate.png";
 
 import { useLocation } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-import "./Auth.css";
+import "./Donate.css"
 
 const Donate = () => {
 
-  const history = useHistory();
   const location = useLocation();
   const [projectid] = useState(location.state)
 
@@ -28,15 +24,15 @@ const Donate = () => {
         refProjects="#currentProjects"
         refProjectsToEndSoon="#projectsToEndSoon"
       />
-      <div className="donateContainer">
-        <div className="donate">
-          <DonateForm
-            userId={2}
-            projectId={projectid}
-          />
+      <div className="donate">
+        <div className="donateLabel">
+          {<img src={donate} style={{ width: "55px", marginRight: "15px" }} />}{"Donar"}
         </div>
+        <DonateForm
+          userId={2}
+          projectId={projectid}
+        />
       </div>
-
     </div>
   )
 };

@@ -1,11 +1,31 @@
-.donateContainer {
+.donate {
+  margin-left: 27%;
   margin-top: 150px;
   text-align: center;
+  padding: 30px;
+  background-color: rgba(65, 65, 65, 0.883);
+  height: 550px;
+  width: 40%;
+  border-radius: 20px;
 }
 
-.donate {
-  width: 45%;
-  margin-top: 2%;
-  text-align: left;
-  display:inline-block;
+@media only screen and (max-width: 767px){
+  .donate {
+    padding: 10px;
+    margin-left: 3%;
+    width: 85%;
+    height: 600px;
+  }
 }
+
+
+.donateLabel{
+  margin-top: 1%;
+  font-family: 'opensans-bold', sans-serif;
+  font-size: 2em;
+  color: white;
+}
+
+
+
+
