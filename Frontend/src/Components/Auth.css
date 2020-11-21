@@ -2,9 +2,9 @@
   padding: 30px;
   background-color: rgba(75, 75, 75, 0.685);
   margin-left: 5%;
-  height: 350px;
-  width: 35%;
-  border-radius: 15px 40px;
+  height: 200px;
+  width: 90%;
+  border-radius: 20px;
 }
 
 .inputHeader{
@@ -31,13 +31,24 @@
   float: left;;
 }
 
+.floatR{
+  float: right;
+  text-align: right;
+}
+
 .authSeparator{
   margin-top: 30px;
   margin-bottom: 20px;
   width: 70%;
 }
 
-.right{
-  margin-bottom: 10%;
+.continue{
+  font-family: 'opensans-bold', sans-serif;
+  cursor: pointer;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 1.2em;
+  text-decoration: underline;
+  color: whitesmoke;
   text-align: right;
 }

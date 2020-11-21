@@ -3,8 +3,6 @@ import Navbar from "../Components/Navbar";
 import "../Pages/Header.css"
 import { useTranslation } from "react-i18next"
 import ParticlesBg from "particles-bg";
-import { Grid } from '@material-ui/core';
-import Login from "../Components/Login";
 
 const Header = () => {
 

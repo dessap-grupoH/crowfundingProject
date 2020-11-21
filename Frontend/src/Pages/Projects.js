@@ -23,12 +23,6 @@ const Projects = () => {
       }
    }, []);
 
-   const projectsToEndSoon = () => {
-      const caca = projects.sort((f1, f2) =>
-         new Date(f1.estimatedFinishDate) < new Date(f2.estimatedFinishDate));
-      console.log(caca);
-   }
-
    const projectsItem = (
       projects.map((project) => {
          return (
@@ -37,6 +31,7 @@ const Projects = () => {
                   <Grid container spacing={2}>
                      <Grid item xs={1}>
                         <Info
+                           style={{ fontSize: "35px" }}
                            className="info-icon"
                            onClick={() => history.push(`/project/${project.id}`)}
                         />

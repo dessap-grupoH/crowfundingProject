@@ -5,6 +5,7 @@ import { fetchAboutEnd } from "../Utils/Api";
 import {
    Grid, Card, CardActions, CardContent, Button, Typography, LinearProgress
 } from '@material-ui/core';
+import ParticlesBg from "particles-bg";
 import "../Pages/ProjectsToEndSoon.css";
 
 const ProjectsToEndSoon = () => {
@@ -29,6 +30,9 @@ const ProjectsToEndSoon = () => {
       <LinearProgress variant="indeterminate" />
    ) : (
          <section id="projectsToEndSoon">
+
+            <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
+
             <Grid container direction="row">
                {
                   projects.map(p => {

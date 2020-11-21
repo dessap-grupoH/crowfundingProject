@@ -1,3 +1,29 @@
-.marginAuth{
+.authsContainer {
   margin-top: 150px;
+  text-align: center;
+}
+
+.auths {
+  width: 45%;
+  margin-top: 2%;
+  text-align: left;
+  display:inline-block;
+}
+
+.buttonAuth0 {
+  cursor: pointer;
+  padding-bottom: 8%;
+  padding: 1%;
+  margin-left: 5%;
+  width: 10%;
+  min-width: 75px;
+  text-align: left;
+  margin-bottom: 3%;
+  background-color: rgba(75, 75, 75, 0.685);
+  border-radius: 50px;
+  height: 60px;
+}
+
+.buttonAuth0:hover{
+  background-color: rgba(126, 125, 125, 0.685);
 }

@@ -14,6 +14,7 @@ import DetailItem from "../Components/DetailItem";
 import DetailHeader from "../Components/DetailHeader";
 import { fetchProjectDetail } from "../Utils/Api";
 import Navbar from "../Components/Navbar";
+import ParticlesBg from "particles-bg";
 import DetailProgressBar from "../Components/DetailProgressBar";
 import DonateItem from "../Components/DonateItem";
 import "../Pages/Project[id].css";
@@ -58,6 +59,9 @@ const Project = () => {
     <LinearProgress variant="indeterminate" />
   ) : (
       <div className="projectDetail-container">
+
+        <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
+
         <Navbar
           refIntro="/"
           refProjects="/#currentProjects"
@@ -168,11 +172,11 @@ const Project = () => {
               height="200"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
-              fill="#1f2447"
+              fill="transparent"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg">
               <path d="M 100 100 V 10 L 0 100" />
-              <path d="M 30 73 L 100 18 V 10 Z" fill="#0a0e2c" strokeWidth="0" />
+              <path d="M 30 73 L 100 18 V 10 Z" fill="transparent" strokeWidth="0" />
             </svg>
           </div>
         </div >
