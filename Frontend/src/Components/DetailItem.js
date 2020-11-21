@@ -3,21 +3,12 @@ import { Grid } from '@material-ui/core';
 import "../Components/DetailItem.css";
 
 const DetailItem = ({ icon, detail, detailTitle }) => (
-  <Grid item xs={6}>
-    <div className="projectDetails-label">{detailTitle}</div>
-    <div className="projectDetails-infoContainer">
-      <Grid container>
-        <Grid item xs={4}>
-          {icon}
-        </Grid>
-        <Grid item xs={8}>
-          <div className="projectDetails-infoText">
-            {detail}
-          </div>
-        </Grid>
-      </Grid>
+  <div className="detailContainer">
+    <div className="detailLabel">{icon}{detailTitle}</div>
+    <div className="detailItem">
+      <p style={{ marginTop: "3px" }}>{detail}</p>
     </div>
-  </Grid>
+  </div >
 );
 
 export default DetailItem;

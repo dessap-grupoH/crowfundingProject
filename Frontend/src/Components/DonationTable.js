@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next"
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@material-ui/core';
-
+import "./DonationTable.css";
 const DonationTable = ({ donations }) => {
 
   const [page, setPage] = useState(0);
@@ -17,48 +17,50 @@ const DonationTable = ({ donations }) => {
     setPage(0);
   };
 
+  const bgStyle = { background: "#8a8c9b" };
+
   return (
-    <Paper>
-      <TableContainer>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
+    <Paper className="paperTable" style={bgStyle}>
+      <TableContainer style={{ borderRadius: "20px" }}>
+        <Table stickyHeader aria-label="sticky table" style={bgStyle}>
+          <TableHead className="tableHead">
             <TableRow>
-              <TableCell>
+              <TableCell style={bgStyle}>
                 {t("donation-table.headers.project")}
               </TableCell>
-              <TableCell>
+              <TableCell style={bgStyle}>
                 {t("donation-table.headers.donation-date")}
               </TableCell>
-              <TableCell align="right">
+              <TableCell align="right" style={bgStyle}>
                 {t("donation-table.headers.amount")}
               </TableCell>
-              <TableCell align="right">
+              <TableCell align="right" style={bgStyle}>
                 {t("donation-table.headers.given-points")}
               </TableCell>
-              <TableCell>
+              <TableCell style={bgStyle}>
                 {t("donation-table.headers.comment")}
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {donations.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => 
-                <TableRow hover tabIndex={-1} key={`row_id_${row.id}`}>
-                    <TableCell>
-                      {row.projectTo.name}
-                    </TableCell>
-                    <TableCell>
-                      {new Date(row.date).toLocaleDateString(t("locale"))}
-                    </TableCell>
-                    <TableCell align="right">
-                      {`$ ${row.amount.toLocaleString(t("locale"))}`}
-                    </TableCell>
-                    <TableCell align="right" >
-                      {row.donationPoints.toLocaleString(t("locale"))}
-                    </TableCell>
-                    <TableCell>
-                      {row.comment}
-                    </TableCell>
-                </TableRow>
+          <TableBody style={bgStyle}>
+            {donations.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) =>
+              <TableRow hover tabIndex={-1} key={`row_id_${row.id}`}>
+                <TableCell>
+                  {row.projectTo.name}
+                </TableCell>
+                <TableCell>
+                  {new Date(row.date).toLocaleDateString(t("locale"))}
+                </TableCell>
+                <TableCell align="right">
+                  {`$ ${row.amount.toLocaleString(t("locale"))}`}
+                </TableCell>
+                <TableCell align="right" >
+                  {row.donationPoints.toLocaleString(t("locale"))}
+                </TableCell>
+                <TableCell>
+                  {row.comment}
+                </TableCell>
+              </TableRow>
             )}
           </TableBody>
         </Table>
@@ -77,6 +79,6 @@ const DonationTable = ({ donations }) => {
       />
     </Paper>
   );
-  }
+}
 
 export default DonationTable;

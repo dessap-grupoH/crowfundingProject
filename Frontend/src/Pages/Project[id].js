@@ -3,11 +3,11 @@ import { useParams } from "react-router";
 import {
   Grid, List, LinearProgress, ListItem, ListItemText, Divider
 } from '@material-ui/core';
-import LocationIcon from '@material-ui/icons/LocationOn';
-import EventIcon from '@material-ui/icons/Event';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import location from "../Assets/location.png";
+import cost from "../Assets/cost.png";
+import schedule from "../Assets/schedule.png";
+import clipboard from "../Assets/clipboard.png";
+import money from "../Assets/money.png";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useTranslation } from "react-i18next"
 import DetailItem from "../Components/DetailItem";
@@ -67,118 +67,55 @@ const Project = () => {
           refProjects="/#currentProjects"
         />
 
-        <div className="section-one">
-          <div className="projectDetails-cont">
-            <Grid container direction="row" spacing={8}>
-              <DetailHeader
-                projectName={projectDetail.name}
-              />
+        <div className="projectDetails-cont">
+          <DetailHeader
+            projectName={projectDetail.name}
+          />
 
-              <Grid container spacing={8}>
-                <Grid item xs={8}>
+          <DetailItem
+            detailTitle={t("projects.city")}
+            detail={projectDetail.placeToConnect.name}
+            icon={<img src={location} style={{ width: "40px", marginRight: "10px" }} />}
+          />
+          <DetailItem
+            detailTitle={t("projects.start-date")}
+            detail={projectDetail.startDate}
+            icon={<img src={schedule} style={{ width: "35px", marginRight: "10px" }} />}
+          />
+          <DetailItem
+            detailTitle={t("projects.raised")}
+            detail={projectDetail.moneyCollected}
+            icon={<img src={money} style={{ width: "40px", marginRight: "10px" }} />}
+          />
+          <DetailItem
+            detailTitle={t("projects.state")}
+            detail={projectDetail.projectState}
+            icon={<img src={clipboard} style={{ width: "40px", marginRight: "10px" }} />}
+          />
+          <DetailItem
+            detailTitle={t("projects.price-per-habitant")}
+            detail={projectDetail.pricePerInhabitant}
+            icon={<img src={cost} style={{ width: "40px", marginRight: "10px" }} />}
+          />
 
-                  <Grid item xs={12}>
-                    <Grid container spacing={8}>
-                      <DetailItem
-                        detailTitle={t("projects.city")}
-                        icon={<LocationIcon
-                          style={{
-                            width: "20%",
-                            marginLeft: "5%",
-                          }}
-                        />}
-                        detail={projectDetail.placeToConnect.name}
-                      />
-                      <DetailItem
-                        detailTitle={t("projects.start-date")}
-                        icon={<EventIcon
-                          style={{
-                            width: "20%",
-                            marginLeft: "5%",
-                          }}
-                        />}
-                        detail={projectDetail.startDate}
-                      />
-                      <DetailItem
-                        detailTitle={t("projects.raised")}
-                        icon={<MonetizationOnIcon
-                          style={{
-                            width: "20%",
-                            marginLeft: "5%",
-                          }}
-                        />}
-                        detail={projectDetail.moneyCollected}
-                      />
-                      <DetailItem
-                        detailTitle={t("projects.state")}
-                        icon={<SupervisorAccountIcon
-                          style={{
-                            width: "20%",
-                            marginLeft: "5%",
-                          }}
-                        />}
-                        detail={projectDetail.projectState}
-                      />
-                      <DetailItem
-                        detailTitle={t("projects.price-per-habitant")}
-                        icon={<EmojiPeopleIcon
-                          style={{
-                            width: "20%",
-                            marginLeft: "5%",
-                          }}
-                        />}
-                        detail={projectDetail.pricePerInhabitant}
-                      />
-                    </Grid>
+          <DetailProgressBar
+            progressBarTitle={t("projects.percentaje-completed")}
+            value={projectDetail.actualPercentageCompleted}
+            min={0}
+            max={projectDetail.moneyRequired}
+          />
 
-                    <Grid item xs={12}>
-                      <Grid container spacing={8}>
-                        <DetailProgressBar
-                          progressBarTitle={t("projects.percentaje-completed")}
-                          value={projectDetail.actualPercentageCompleted}
-                          min={0}
-                          max={projectDetail.moneyRequired}
-                        />
-                      </Grid>
-                    </Grid>
+          <DonateItem
+            userId={2}
+            projectId={projectDetail.id}
+            onDonation={onDonation}
+          />
 
-                    <Grid item xs={12}>
-                      <Grid container spacing={8}>
-                        <DonateItem
-                          userId={2}
-                          projectId={projectDetail.id}
-                          onDonation={onDonation}
-                        />
-                      </Grid>
-                    </Grid>
-
-                  </Grid>
-                </Grid>
-
-                <Grid item xs={3}>
-                  <div className="projectList-label">{t("projects.donators-list")}</div>
-                  <div className="projectDetails-infoContainer">
-                    {donationItems()}
-                  </div>
-                </Grid>
-              </Grid>
-            </Grid>
+          <div className="projectList-label">{t("projects.donators-list")}</div>
+          <div className="projectDetails-infoContainer">
+            {donationItems()}
           </div>
 
-
-          <div className="section-two">
-            <svg className="separator__svg"
-              width="100%"
-              height="200"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              fill="transparent"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M 100 100 V 10 L 0 100" />
-              <path d="M 30 73 L 100 18 V 10 Z" fill="transparent" strokeWidth="0" />
-            </svg>
-          </div>
         </div >
       </div >
     );

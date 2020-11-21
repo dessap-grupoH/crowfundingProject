@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import DetailItem from "../Components/DetailItem";
 import { fetchUser } from "../Utils/Api";
 import Navbar from "../Components/Navbar";
+import ParticlesBg from "particles-bg";
 import DonationTable from "../Components/DonationTable";
 
 const Profile = () => {
@@ -31,52 +32,26 @@ const Profile = () => {
           refProjectsToEndSoon="/#projectsToEndSoon"
         />
 
-        <div className="section-one">
-          <div className="profile-cont">
-            <Grid container spacing={8}>
-              <Grid container spacing={8}>
-                <Grid item xs={8}>
-                  <Grid item xs={12}>
-                    <Grid container spacing={8}>
-                      <DetailItem
-                        detailTitle={t("profile.name")}
-                        detail={userDetails.username}
-                      />
-                      <DetailItem
-                        detailTitle={t("profile.nickname")}
-                        detail={userDetails.nick}
-                      />
-                      <DetailItem
-                        detailTitle={t("profile.email")}
-                        detail={userDetails.email}
-                      />
-                      <DetailItem
-                        detailTitle={t("profile.points")}
-                        detail={userDetails.actualPoints.toLocaleString(t("locale"))}
-                      />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={8}>
-                <DonationTable donations={userDetails.donationList} />
-              </Grid>
-            </Grid>
-          </div>
+        <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
 
-          <div className="section-two">
-            <svg className="separator__svg"
-              width="100%"
-              height="200"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              fill="#1f2447"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M 100 100 V 10 L 0 100" />
-              <path d="M 30 73 L 100 18 V 10 Z" fill="#0a0e2c" strokeWidth="0" />
-            </svg>
-          </div>
+        <div className="profile-cont">
+          <DetailItem
+            detailTitle={t("profile.name")}
+            detail={userDetails.username}
+          />
+          <DetailItem
+            detailTitle={t("profile.nickname")}
+            detail={userDetails.nick}
+          />
+          <DetailItem
+            detailTitle={t("profile.email")}
+            detail={userDetails.email}
+          />
+          <DetailItem
+            detailTitle={t("profile.points")}
+            detail={userDetails.actualPoints.toLocaleString(t("locale"))}
+          />
+          <DonationTable donations={userDetails.donationList} />
         </div >
       </div >
     );

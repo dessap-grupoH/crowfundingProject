@@ -1,24 +1,10 @@
-.section-one {
-  background-color: #363b61;
-  padding: 25px 0 0;
-  margin-top: -1%;
-}
-
-.section-two{
-  background-color: #363b61;
-  bottom: -4px;
-  left: 0;
-  overflow: hidden;
-  width: 100%;
-}
-
 .profile-cont{
   margin-top: 10%;
   margin-left: 5%;
 }
 
 .projectDetails-cont{
-  margin-top: 3%;
+  margin-top: 5%;
   margin-left: 5%;
 }
 
@@ -44,11 +30,13 @@
   background-color: #8a8c9b;
   min-height: 20px;
   padding-top: 1%;
+  font-size: 1.2em;
+  font-family: 'opensans-bold', sans-serif;
 }
 
 .projectDetails-infoText{
   display: inline; 
-  font-size: x-large;
+  font-size: 1.3em;
   margin: 5%;
   vertical-align: middle;
 }
