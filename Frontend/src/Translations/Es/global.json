@@ -27,7 +27,7 @@
     "state": "Estado del proyecto",
     "price-per-habitant": "Precio por habitante",
     "donators-list": "Lista de donantes",
-    "donate-select": "Despliegue para realizar una donacion",
+    "make-donation": "Make donation",
     "donate-send": "Enviar donacion"
   },
   "donation-form": {

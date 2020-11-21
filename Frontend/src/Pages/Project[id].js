@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
-import {
-  Grid, List, LinearProgress, ListItem, ListItemText, Divider
-} from '@material-ui/core';
+import { List, LinearProgress, ListItem, ListItemText, Divider } from '@material-ui/core';
 import location from "../Assets/location.png";
 import cost from "../Assets/cost.png";
 import schedule from "../Assets/schedule.png";
 import clipboard from "../Assets/clipboard.png";
 import money from "../Assets/money.png";
 import rising from "../Assets/rising.png";
+import list from "../Assets/list.png";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useTranslation } from "react-i18next"
 import DetailItem from "../Components/DetailItem";
@@ -17,7 +16,7 @@ import { fetchProjectDetail } from "../Utils/Api";
 import Navbar from "../Components/Navbar";
 import ParticlesBg from "particles-bg";
 import DetailProgressBar from "../Components/DetailProgressBar";
-import DonateItem from "../Components/DonateItem";
+import { useHistory } from "react-router-dom";
 import "../Pages/Project[id].css";
 import "../Pages/Projects.css";
 
@@ -27,6 +26,7 @@ const Project = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { projectId } = useParams();
   const [t] = useTranslation("global");
+  const history = useHistory();
 
   useEffect(() => {
     if (isLoading) {
@@ -98,6 +98,15 @@ const Project = () => {
             detail={projectDetail.pricePerInhabitant}
             icon={<img src={cost} style={{ width: "40px", marginRight: "10px" }} />}
           />
+          <DetailItem
+            detail={t("projects.make-donation")}
+            isDonation
+            onClickItem={() => history.push({
+              pathname: "/donate",
+              state: projectDetail.id
+            })
+            }
+          />
 
           <DetailProgressBar
             progressBarTitle={t("projects.percentaje-completed")}
@@ -105,14 +114,10 @@ const Project = () => {
             icon={<img src={rising} style={{ width: "40px", marginRight: "15px" }} />}
           />
 
-          <DonateItem
-            userId={2}
-            projectId={projectDetail.id}
-            onDonation={onDonation}
-          />
-
-          <div className="projectList-label">{t("projects.donators-list")}</div>
-          <div className="projectDetails-infoContainer">
+          <div className="listLabel">
+            {<img src={list} style={{ width: "40px", marginRight: "10px" }} />}
+            {t("projects.donators-list")}</div>
+          <div className="listContainer">
             {donationItems()}
           </div>
 

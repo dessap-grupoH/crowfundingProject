@@ -1,11 +1,13 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import "../Components/DetailItem.css";
 
-const DetailItem = ({ icon, detail, detailTitle }) => (
+const DetailItem = ({ icon, detail, detailTitle, isDonation, onClickItem }) => (
   <div className="detailContainer">
     <div className="detailLabel">{icon}{detailTitle}</div>
-    <div className="detailItem">
+    <div
+      className={!isDonation ? "detailItem" : "donateItem"}
+      onClick={onClickItem ? onClickItem : ""}
+    >
       <p style={{ marginTop: "3px" }}>{detail}</p>
     </div>
   </div >

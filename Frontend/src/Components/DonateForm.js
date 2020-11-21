@@ -35,14 +35,14 @@ const DonateForm = ({ userId, projectId, onDonation }) => {
       <form id="makeDonateForm">
 
         <div>
-          <label htmlFor="makeDonateName"> {t("donation-form.amount-label")} </label>
           <input
             onChange={e => setAmount(e.target.value)}
-            type="numeric" size="35" id="makeDonateName" name="makeDonateName" />
+            type="numeric" size="35" id="makeDonateName" name="makeDonateName"
+            placeholder={t("donation-form.amount-label")}
+          />
         </div>
 
         <div>
-          <label htmlFor="makeDonateSubject">{t("donation-form.payment-method.label")}</label>
           <div
             style={{ background: paymentMethod === "DebitCard" ? "#83adf181" : "#6161619f" }}
             className="selectPayment"
@@ -58,15 +58,14 @@ const DonateForm = ({ userId, projectId, onDonation }) => {
             {t("donation-form.payment-method.credit-card")}
           </div>
         </div>
-
         <div>
-          <label htmlFor="makeDonatetMessage">{t("donation-form.message-label")}</label>
           <textarea
             onChange={e => setComment(e.target.value)}
             cols="50"
             rows="5"
             id="makeDonateMessage"
             name="makeDonateMessage"
+            placeholder={t("donation-form.message-label")}
           ></textarea>
         </div>
 

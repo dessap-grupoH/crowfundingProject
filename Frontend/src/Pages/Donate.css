@@ -1,0 +1,11 @@
+.donateContainer {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.donate {
+  width: 45%;
+  margin-top: 2%;
+  text-align: left;
+  display:inline-block;
+}
