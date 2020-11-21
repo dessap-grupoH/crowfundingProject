@@ -25,9 +25,6 @@ const RegisterComponent = () => {
         inputProps={{ "aria-label": "naked" }}
         onChange={e => setNick(e.target.value)}
       />
-      <div className="continue">
-        Contiunar
-      </div>
     </div>
   )
 }

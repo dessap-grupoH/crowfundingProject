@@ -3,14 +3,17 @@ import { InputBase } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
 import googleAuth from "../Assets/googleAuth.png";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import "./LoginComponent.css";
 
 const LoginComponent = () => {
 
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div>
-      <img src={googleAuth} className="authGoogleButt" />
+      <img src={googleAuth} className="authGoogleButt" onClick={loginWithRedirect} />
       <div className="loginComponentContainer">
         <div className="displayInB">
           <div className="floatL">

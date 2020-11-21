@@ -2,8 +2,7 @@ import React from 'react';
 import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
 import RegisterComponent from "../Components/RegisterComponent";
-import Button from "../Components/Generics/Button";
-import back from "../Assets/back.png";
+import BackNext from "../Components/Generics/BackNext";
 
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -25,16 +24,14 @@ const Register = () => {
       />
       <div className="authsContainer">
         <div className="auths">
-          <div className="displayInlineBlock">
-            <Button
-              cssClass="buttonAuth0"
-              icon={<img src={back} style={{ width: "60px", marginLeft: "10%" }} />}
-              onClickButton={() => history.goBack()}
-            />
-          </div>
           <RegisterComponent />
         </div>
       </div>
+      <BackNext
+        width="35%"
+        marginLeft="26%"
+      />
+
 
     </div>
   )

@@ -1,7 +1,7 @@
 .loginComponentContainer{
   text-align: left;
   padding: 30px;
-  background-color: rgba(75, 75, 75, 0.685);
+  background-color: rgba(45, 122, 153, 0.815);
   min-height: 350px;
   max-width: 40%;
   margin-left: 27%;
@@ -22,6 +22,7 @@
   width: 60px;
   margin-left: 18%;
   margin-top: -2%;
+  cursor: pointer;
 }
 
 .input{
