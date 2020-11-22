@@ -66,4 +66,15 @@ class CrowdFundingProjectController {
         }
         return ResponseEntity(response, HttpStatus.OK)
     }
+
+    @PostMapping("/close")
+    @Throws(Exception::class)
+    fun closeProject(@RequestParam id: Int): ResponseEntity<String>{
+        try{
+            service.updateProject(id)
+        } catch (e: Exception){
+            return ResponseEntity(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+        return ResponseEntity("Se cerro el proyecto exitosamente", HttpStatus.OK)
+    }
 }

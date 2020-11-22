@@ -80,5 +80,9 @@ class CrowdfundingProject {
     fun getActualPercentageCompleted(): Int{
         return min((this.moneyCollected * 100) / this.getMoneyRequired(), 100)
     }
+
+    fun changeToFinished() {
+        this.projectState = ProjectState.Closed
+    }
 }
 

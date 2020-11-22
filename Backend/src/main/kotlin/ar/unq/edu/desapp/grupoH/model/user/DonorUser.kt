@@ -20,6 +20,8 @@ class DonorUser : User {
 
     var actualPoints : Int = 0
 
+    var adminPermission = false
+
     lateinit var nick: String
 
     constructor()
