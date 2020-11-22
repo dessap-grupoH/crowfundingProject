@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, LinearProgress } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
 import "../Components/DetailProgressBar.css";
 
 const DetailProgressBar = ({ value, icon, progressBarTitle }) => (

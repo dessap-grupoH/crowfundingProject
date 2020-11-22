@@ -5,7 +5,6 @@ import DonateForm from "../Components/DonateForm";
 import donate from "../Assets/donate.png";
 
 import { useLocation } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./Donate.css"
 
@@ -26,7 +25,7 @@ const Donate = () => {
       />
       <div className="donate">
         <div className="donateLabel">
-          {<img src={donate} style={{ width: "55px", marginRight: "15px" }} />}{"Donar"}
+          {<img alt="donate" src={donate} style={{ width: "55px", marginRight: "15px" }} />}{"Donar"}
         </div>
         <DonateForm
           userId={2}

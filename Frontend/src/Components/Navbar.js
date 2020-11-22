@@ -2,7 +2,6 @@ import React from 'react';
 import "../Components/Navbar.css"
 import { useTranslation } from "react-i18next"
 import { Avatar } from '@material-ui/core';
-import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import unitedkingdom from "../Assets/unitedkingdom.png";
 import argentina from "../Assets/argentina.png";
@@ -11,7 +10,6 @@ import { currentLanguaje } from "../index";
 const Navbar = ({ refIntro, refProjects, refProjectsToEndSoon }) => {
 
     const [t, i18n] = useTranslation("global");
-    const history = useHistory();
     const { loginWithRedirect } = useAuth0();
 
     const translatePage = () => {

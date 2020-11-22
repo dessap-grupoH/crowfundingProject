@@ -74,17 +74,17 @@ const Project = () => {
           <DetailItem
             detailTitle={t("projects.city")}
             detail={projectDetail.placeToConnect.name}
-            icon={<img src={location} style={{ width: "40px", marginRight: "10px" }} />}
+            icon={<img alt="location" src={location} style={{ width: "40px", marginRight: "10px" }} />}
           />
           <DetailItem
             detailTitle={t("projects.start-date")}
             detail={projectDetail.startDate}
-            icon={<img src={schedule} style={{ width: "35px", marginRight: "10px" }} />}
+            icon={<img alt="schedule" src={schedule} style={{ width: "35px", marginRight: "10px" }} />}
           />
           <DetailItem
             detailTitle={t("projects.raised")}
             detail={projectDetail.moneyCollected}
-            icon={<img src={money} style={{ width: "40px", marginRight: "10px" }} />}
+            icon={<img alt="money" src={money} style={{ width: "40px", marginRight: "10px" }} />}
           />
           <DetailItem
             detailTitle={t("projects.state")}
@@ -94,7 +94,7 @@ const Project = () => {
           <DetailItem
             detailTitle={t("projects.price-per-habitant")}
             detail={projectDetail.pricePerInhabitant}
-            icon={<img src={cost} style={{ width: "40px", marginRight: "10px" }} />}
+            icon={<img alt="cost" src={cost} style={{ width: "40px", marginRight: "10px" }} />}
           />
           {false &&
             <DetailItem
