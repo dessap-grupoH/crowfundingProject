@@ -12,7 +12,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useTranslation } from "react-i18next"
 import DetailItem from "../Components/DetailItem";
 import DetailHeader from "../Components/DetailHeader";
-import { fetchProjectDetail } from "../Utils/Api";
+import { fetchProjectDetail, closeProject } from "../Utils/Api";
 import Navbar from "../Components/Navbar";
 import ParticlesBg from "particles-bg";
 import DetailProgressBar from "../Components/DetailProgressBar";
@@ -96,15 +96,26 @@ const Project = () => {
             detail={projectDetail.pricePerInhabitant}
             icon={<img src={cost} style={{ width: "40px", marginRight: "10px" }} />}
           />
-          <DetailItem
-            detail={t("projects.make-donation")}
-            isDonation
-            onClickItem={() => history.push({
-              pathname: "/donate",
-              state: projectDetail.id
-            })
-            }
-          />
+          {false &&
+            <DetailItem
+              detail={t("projects.make-donation")}
+              isDonation
+              onClickItem={() => history.push({
+                pathname: "/donate",
+                state: projectDetail.id
+              })
+              }
+            />}
+
+          {projectDetail.projectState === "Opened" &&
+            <DetailItem
+              detail={t("projects.close-project")}
+              isCloseProjectButton
+              onClickItem={
+                closeProject(projectId)
+                  .then(resp => console.log(resp))
+                  .catch(e => console.log(e))}
+            />}
 
           <DetailProgressBar
             progressBarTitle={t("projects.percentaje-completed")}

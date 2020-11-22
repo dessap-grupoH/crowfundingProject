@@ -29,7 +29,8 @@
     "donators-list": "Donor list",
     "make-donation": "Make donation",
     "donate-send": "Send donation",
-    "comment": "Comment"
+    "comment": "Comment",
+    "close-project": "Close this project"
   },
   "donation-form": {
     "amount-label": "Amount",

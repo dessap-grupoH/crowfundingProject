@@ -44,6 +44,23 @@
   white-space: nowrap;
 }
 
+.closeItem{
+  cursor: pointer;
+  text-align: center;
+  padding-top: 6px;
+  margin-left: 3%;
+  margin-top: 2%;
+  box-shadow: 2px 4px 8px rgb(0, 0, 0), 2px 4px 4px rgba(0, 0, 0);
+  border: white 1px solid;
+  border-radius: 8px;
+  background-color: #c30000b2;
+  height: 40px;
+  font-size: 1.3em;
+  font-family: 'opensans-bold', sans-serif;
+  font-weight: bold;
+  white-space: nowrap; 
+}
+
 .detailLabel{
   padding-left: 2%;
   margin-top: 2%;

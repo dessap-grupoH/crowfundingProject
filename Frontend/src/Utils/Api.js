@@ -28,6 +28,8 @@ const fetchProjectDetail = (proejctID) =>
 const postDonation = (donation) =>
   axios.post(`${HOST_URL}${DONATION_URL}`, donation);
 
+const closeProject = (projectId) =>
+  axios.post(`${HOST_URL}${PROJECT_URL}/close?id=${projectId}`);
 
 export {
   fetchUser,
@@ -36,5 +38,6 @@ export {
   fetchOpenProjects,
   fetchProjectDetail,
   postDonation,
-  fetchAboutEnd
+  fetchAboutEnd,
+  closeProject
 };

@@ -28,7 +28,8 @@
     "price-per-habitant": "Precio por habitante",
     "donators-list": "Lista de donantes",
     "make-donation": "Make donation",
-    "donate-send": "Enviar donacion"
+    "donate-send": "Enviar donacion",
+    "close-project": "Cerrar este proyecto"
   },
   "donation-form": {
     "amount-label": "Cantidad",
