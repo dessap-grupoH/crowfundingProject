@@ -1,6 +1,7 @@
 package ar.unq.edu.desapp.grupoH.service
 
 import ar.unq.edu.desapp.grupoH.Generated
+import ar.unq.edu.desapp.grupoH.model.Auth0LoginRequest
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidData
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidSignIn
 import ar.unq.edu.desapp.grupoH.model.errors.UserAlreadyExists
@@ -19,8 +20,18 @@ class UserService {
 
     @Throws(InvalidSignIn::class)
     fun loginUser(user: User) : User {
-        var usr: User? = repository.findByEmail(user.email) ?: throw InvalidSignIn("Usuario incorrecto")
+        val usr: User? = repository.findByEmail(user.email) ?: throw InvalidSignIn("Usuario incorrecto")
         usr!!.token = getJWTToken(usr.username, 86400000)
+        usr.password = null
+        return usr
+    }
+
+    @Throws(InvalidSignIn::class)
+    fun loginAuth0(auth0Req: Auth0LoginRequest) : User {
+        //if (!auth0ValidToken) throw InvalidSignIn("Token inválido")
+        var usr: User? = repository.findByEmail(auth0Req.email)
+        if (usr == null) usr = repository.save(DonorUser(auth0Req.username, auth0Req.token, auth0Req.email, auth0Req.nick))
+        usr.token = getJWTToken(usr.username, 86400000)
         usr.password = null
         return usr
     }

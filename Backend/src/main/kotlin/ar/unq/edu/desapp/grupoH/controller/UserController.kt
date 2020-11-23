@@ -2,6 +2,7 @@ package ar.unq.edu.desapp.grupoH.controller
 
 import ar.unq.edu.desapp.grupoH.Generated
 import ar.unq.edu.desapp.grupoH.aspects.LogWS
+import ar.unq.edu.desapp.grupoH.model.Auth0LoginRequest
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidData
 import ar.unq.edu.desapp.grupoH.model.errors.InvalidSignIn
 import ar.unq.edu.desapp.grupoH.model.errors.UserAlreadyExists
@@ -34,6 +35,20 @@ class UserController {
         var response: User
         try {
             response = service.loginUser(user)
+        } catch (e: InvalidSignIn) {
+            return ResponseEntity(HttpStatus.UNAUTHORIZED)
+        }
+        return ResponseEntity(response, HttpStatus.OK)
+    }
+
+
+    @LogWS
+    @PostMapping("/loginAuth0")
+    @Throws(Exception::class)
+    fun loginAuth0(@RequestBody auth0Req: Auth0LoginRequest): ResponseEntity<User> {
+        var response: User
+        try {
+            response = service.loginAuth0(auth0Req)
         } catch (e: InvalidSignIn) {
             return ResponseEntity(HttpStatus.UNAUTHORIZED)
         }

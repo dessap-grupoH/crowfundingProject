@@ -1,6 +1,6 @@
 import axios from "axios";
 //const HOST_URL = "https://crowdfunding-project.herokuapp.com/";
-const HOST_URL = "http://localHost:8080";
+const HOST_URL = "http://localhost:8080";
 const USER_URL = "/api/user";
 const TOWNS_URL = "/api/towns";
 const DONATION_URL = "/api/donation";
@@ -11,6 +11,9 @@ axios.interceptors.request.use((config) => {
   config.headers.Authorization = token ? token : '';
   return config
 });
+
+const loginUser = (email, password) =>
+  axios.post(`${HOST_URL}${USER_URL}/login`, {email: email, password: password})
 
 const fetchUser = (userID) =>
   axios.get(`${HOST_URL}${USER_URL}?id=${userID}`);
@@ -37,6 +40,7 @@ const closeProject = (projectId) =>
   axios.post(`${HOST_URL}${PROJECT_URL}/close?id=${projectId}`);
 
 export {
+  loginUser,
   fetchUser,
   fetchTowns,
   fetchProjects,
