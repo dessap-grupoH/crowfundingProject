@@ -32,6 +32,9 @@ class CrowdfundingProject {
     @OneToMany(mappedBy = "projectTo", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var donationList: MutableList<Donation> = emptyList<Donation>().toMutableList()
 
+    @JsonIgnore
+    var lastDonationDate : LocalDate? = null
+
     constructor()
 
     constructor(name: String, placeToConnect: Town, startDate: LocalDate, estimatedFinishDate: LocalDate) {
@@ -72,9 +75,13 @@ class CrowdfundingProject {
     @JsonIgnoreProperties("donationList")
     fun getDonors() : List<DonorResponse> = this.donationList.groupBy { e -> e.from.nick }.map { (k, v) -> DonorResponse(k, v.sumBy { s -> s.amount }) }
 
+    @JsonIgnoreProperties("donationList")
+    fun getDonorsEmails(): List<String> = this.donationList.groupBy { e -> e.from.email }.map { (k,_) -> k }
+
     fun receiveDonation(donation: Donation){
         this.donationList.add(donation)
         this.moneyCollected += donation.amount
+        this.lastDonationDate = donation.date
     }
 
     fun getActualPercentageCompleted(): Int{

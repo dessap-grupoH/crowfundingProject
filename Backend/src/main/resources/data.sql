@@ -10,6 +10,7 @@ INSERT INTO Town(`name`, province, population, connection_state) VALUES ('El Mal
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'ricardo@gmail.com', '123', 'ricardo', 250, 'ricX');
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'lucas@gmail.com', '123', 'lucas', 11500, 'randomize');
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'rodrigo@gmail.com', '123', 'rodrigo', 1250, 'rodx1');
+INSERT INTO `User`(DTYPE, email, password, username) VALUES ('AdminUser', 'crowdfunding.unq.grupoH@gmail.com', '123', 'Admin');
 
 
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,

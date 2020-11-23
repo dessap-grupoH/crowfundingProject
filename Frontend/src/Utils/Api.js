@@ -6,6 +6,11 @@ const TOWNS_URL = "/api/towns";
 const DONATION_URL = "/api/donation";
 const PROJECT_URL = "/api/projects";
 
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('accessToken');
+  config.headers.Authorization = token ? token : '';
+  return config
+});
 
 const fetchUser = (userID) =>
   axios.get(`${HOST_URL}${USER_URL}?id=${userID}`);

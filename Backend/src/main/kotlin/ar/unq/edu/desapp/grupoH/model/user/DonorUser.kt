@@ -20,6 +20,7 @@ class DonorUser : User {
 
     var actualPoints : Int = 0
 
+    @Transient
     var adminPermission = false
 
     lateinit var nick: String
@@ -44,5 +45,9 @@ class DonorUser : User {
     }
 
     fun willBeSecondMonthlyDonation(): Boolean = this.donationList.filter { it.date.monthValue == LocalDate.now().monthValue }.size == 1
+
+    override fun toString(): String {
+        return "DonorUser(username='$username', password, email='$email, nick='$nick')"
+    }
 
 }

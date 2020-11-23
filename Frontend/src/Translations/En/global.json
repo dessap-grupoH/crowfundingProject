@@ -56,8 +56,8 @@
     }
   },
   "projects-to-end-soon": {
-    "see-more": "See more",
+    "see-more": "More",
     "estimated-finish-date": "Estimated finish date: ",
-    "percentaje-completed": "From this project has completed: "
+    "percentaje-completed": "Completion percentage: "
   }
 }

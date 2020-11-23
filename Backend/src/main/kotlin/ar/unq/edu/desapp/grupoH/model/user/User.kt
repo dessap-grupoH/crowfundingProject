@@ -4,7 +4,7 @@ import javax.persistence.*
 
 @Entity(name = "User")
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
-abstract class User {
+open class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,9 +12,12 @@ abstract class User {
 
     open lateinit var username: String
 
-    open lateinit var password: String
+    open var password: String? = null
 
     open lateinit var email: String
+
+    @Transient
+    var token : String? = null
 
     constructor()
 
@@ -23,5 +26,10 @@ abstract class User {
         this.password = password
         this.email = email
     }
+
+    override fun toString(): String {
+        return "User(password, email='$email')"
+    }
+
 }
 

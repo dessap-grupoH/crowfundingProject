@@ -22,6 +22,9 @@ val staging: Configuration by configurations.creating
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-mail")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
 	implementation("com.h2database:h2:1.4.200")
 	implementation("org.hibernate:hibernate-core")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -34,6 +37,8 @@ dependencies {
 	testImplementation("junit:junit:4.12")
     testImplementation("org.mockito:mockito-inline:2.13.0")
 	testImplementation("com.h2database:h2:1.4.200")
+	testImplementation("com.tngtech.archunit:archunit:0.14.1")
+	testImplementation("com.tngtech.archunit:archunit-junit4:0.14.1")
 
 	// heroku app runner
 	staging("com.heroku:webapp-runner-main:9.0.36.1")

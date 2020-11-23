@@ -10,11 +10,11 @@ import Donate from "./Pages/Donate";
 const Routes = () => (
   <BrowserRouter>
     <Route component={Login} path="/login" />
-    <Route component={Home} exact path="/" />
     <Route component={Register} path="/register" />
     <Route component={Profile} path="/profile" />
     <Route component={Project} path="/project/:projectId" />
     <Route component={Donate} path="/donate" />
+    <Route component={Home} exact path="/" />
   </BrowserRouter>
 );
 

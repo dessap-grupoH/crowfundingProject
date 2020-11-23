@@ -1,6 +1,7 @@
 package ar.unq.edu.desapp.grupoH.controller
 
 import ar.unq.edu.desapp.grupoH.Generated
+import ar.unq.edu.desapp.grupoH.aspects.LogWS
 import ar.unq.edu.desapp.grupoH.model.CrowdfundingProject
 import ar.unq.edu.desapp.grupoH.model.DonationRequest
 import ar.unq.edu.desapp.grupoH.service.DonationService
@@ -18,6 +19,7 @@ class DonationController {
     @Autowired
     private lateinit var service: DonationService
 
+    @LogWS
     @PostMapping
     @Throws(Exception::class)
     fun donate(@RequestBody donationRequest: DonationRequest): ResponseEntity<CrowdfundingProject> {
