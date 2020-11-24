@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import LoginComponent from "../Components/LoginComponent";
 import BackNext from "../Components/Generics/BackNext";
+import Toast from "../Components/Generics/Toast";
 import { loginUser } from "../Utils/Api";
 import "./Login.css";
 
@@ -11,6 +12,9 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [succesToast, setSuccesToast] = useState(false);
+  const [errorToast, setErrorToast] = useState(false);
+  const [error, setError] = useState(null);
   const history = useHistory();
 
   const logUser = () => {
@@ -19,8 +23,12 @@ const Login = () => {
       localStorage.setItem("adminPermission", response.data.adminPermission);
       localStorage.setItem("nick", response.data.nick);
       localStorage.setItem("accessToken", response.data.token);
-      history.push("/")
-    });
+      setSuccesToast(true);
+      setTimeout(() => { history.push("/") }, 2000);
+    }).catch(() => {
+      setError("Usuario invalido");
+      setErrorToast(true);
+    })
   };
 
   return (
@@ -43,6 +51,19 @@ const Login = () => {
         width="35%"
         marginLeft="26%"
         onClickNext={logUser}
+      />
+
+      <Toast
+        open={succesToast}
+        handleClose={() => setSuccesToast(false)}
+        content={`Se logeo correctamente`}
+        succes
+      />
+
+      <Toast
+        open={errorToast}
+        handleClose={() => setErrorToast(false)}
+        content={error}
       />
 
     </div >

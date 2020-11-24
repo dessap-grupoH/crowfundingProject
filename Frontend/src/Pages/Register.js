@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 import RegisterComponent from "../Components/RegisterComponent";
 import BackNext from "../Components/Generics/BackNext";
 import { registerUser } from "../Utils/Api";
-
+import Toast from "../Components/Generics/Toast";
 
 import "./Register.css";
 
@@ -16,11 +16,18 @@ const Register = () => {
   const [email, setEmail] = useState(null);
   const [userName, setUserName] = useState(null);
   const [password, setPassword] = useState(null);
+  const [succesToast, setSuccesToast] = useState(false);
+  const [errorToast, setErrorToast] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSumbit = () => {
     registerUser(email, nick, userName, password).then(response => {
-      history.push("/login")
-    });
+      setSuccesToast(true);
+      setTimeout(() => { history.push("/login") }, 2000);
+    }).catch(() => {
+      setError("Hubo un error al registrar su usuario");
+      setErrorToast(true);
+    })
   };
 
   return (
@@ -49,7 +56,18 @@ const Register = () => {
         marginLeft="26%"
       />
 
+      <Toast
+        open={succesToast}
+        handleClose={() => setSuccesToast(false)}
+        content={`Se registro correctamente`}
+        succes
+      />
 
+      <Toast
+        open={errorToast}
+        handleClose={() => setErrorToast(false)}
+        content={error}
+      />
     </div>
   )
 };

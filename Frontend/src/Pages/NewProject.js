@@ -12,9 +12,7 @@ import "./NewProject.css";
 const NewProject = () => {
 
   const history = useHistory();
-  const [location, setLocation] = useState(null);
-  const [province, setProvince] = useState(null);
-  const [population, setPopulation] = useState(null);
+  const [selectedTown, setSelectedTown] = useState(null);
   const [projectName, setProjectName] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [finishDate, setFinishDate] = useState(null);
@@ -31,12 +29,14 @@ const NewProject = () => {
       <div className="newProjectContainer">
         <div className="newProject">
           <NewProjectComponent
-            onChangeLocation={e => setLocation(e.target.value)}
-            onChangeProvince={e => setProvince(e.target.value)}
-            onChangePopulation={e => setPopulation(e.target.value)}
+            onChangeTown={e => setSelectedTown(e.target.value)}
+            town={selectedTown}
             onChangeName={e => setProjectName(e.target.value)}
+            name={projectName}
             onChangeStartDate={e => setStartDate(e.target.value)}
+            startDate={startDate}
             onChangeEndDate={e => setFinishDate(e.target.value)}
+            endDate={finishDate}
           />
         </div>
       </div>

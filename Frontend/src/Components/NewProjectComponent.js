@@ -1,121 +1,130 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
-import { InputBase } from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import StreetviewIcon from '@material-ui/icons/Streetview';
-import PeopleIcon from '@material-ui/icons/People';
+import { InputBase, Select, MenuItem, LinearProgress } from '@material-ui/core';
 import FolderSpecialIcon from '@material-ui/icons/FolderSpecial';
 import TodayIcon from '@material-ui/icons/Today';
 import EventIcon from '@material-ui/icons/Event';
+import { fetchTownsWithoutProject } from "../Utils/Api";
 
 import "./NewProjectComponent.css";
 
-const RegisterComponent = ({ onChangeLocation, onChangeProvince,
-  onChangePopulation, onChangeName, onChangeStartDate, onChangeEndDate }) => {
+const RegisterComponent = ({ onChangeTown, town, onChangeName, name,
+  onChangeStartDate, startDate, onChangeEndDate, endDate,
+  onChangePercentaje, percentaje, onChangePricePerHabitant, price }) => {
 
   const [t] = useTranslation("global");
+  const [isLoading, setLoading] = useState(true);
+  const [towns, setTowns] = useState("Seleccione una ciudad");
 
-  return (
-    <div className="newPContainer">
-      <div className="displayInB">
-        <div className="floatL">
-          <LocationOnIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> {t("new-project.location")}</p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="locationid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeLocation}
-      />
-      <div className="displayInB">
-        <div className="floatL">
-          <StreetviewIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> {t("new-project.province")}</p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="provinceid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeProvince}
-      />
-      <div className="displayInB">
-        <div className="floatL">
-          <PeopleIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader">{t("new-project.population")}</p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="populationid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangePopulation}
-      />
-      <div className="displayInB">
-        <div className="floatL">
-          <FolderSpecialIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> {t("new-project.project-name")} </p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="nameid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeStartDate}
-      />
-      <div className="displayInB">
-        <div className="floatL">
-          <TodayIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> {t("new-project.start-date")} </p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="startdateid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeEndDate}
-      />
-      <div className="displayInB">
-        <div className="floatL">
-          <EventIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> {t("new-project.end-date")} </p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="endateid"
-        fullWidth
-        required
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeName}
-      />
+  const setApiTowns = () => {
+    fetchTownsWithoutProject().then(response => {
+      setTowns(response.data);
+      setLoading(false);
+    })
+  };
 
-    </div>
-  )
+  useEffect(() => { setApiTowns() }, []);
+
+  const townsMenu = () => towns.map(town => <MenuItem value={town.name}>{town.name}</MenuItem>);
+
+
+  return isLoading ? (
+    <LinearProgress variant="indeterminate" />
+  ) : (
+      <div className="newPContainer">
+        <div className="displayInB">
+          <div className="floatL">
+            <FolderSpecialIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
+          </div>
+          <div className="floatL">
+            <p className="inputHeader"> {t("new-project.project-name")} </p>
+          </div>
+        </div>
+        <InputBase
+          className="input"
+          id="nameid"
+          fullWidth
+          required
+          value={name}
+          inputProps={{ "aria-label": "naked" }}
+          onChange={onChangeStartDate}
+        />
+        <div className="displayInB">
+          <div className="floatL">
+            <TodayIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
+          </div>
+          <div className="floatL">
+            <p className="inputHeader"> {t("new-project.start-date")} </p>
+          </div>
+        </div>
+        <InputBase
+          className="input"
+          id="startdateid"
+          fullWidth
+          required
+          type="date"
+          value={startDate}
+          inputProps={{ "aria-label": "naked" }}
+          onChange={onChangeEndDate}
+        />
+        <div className="displayInB">
+          <div className="floatL">
+            <EventIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
+          </div>
+          <div className="floatL">
+            <p className="inputHeader"> {t("new-project.end-date")} </p>
+          </div>
+        </div>
+        <InputBase
+          className="input"
+          id="endateid"
+          fullWidth
+          required
+          type="date"
+          value={endDate}
+          inputProps={{ "aria-label": "naked" }}
+          onChange={onChangeName}
+        />
+        <Select
+          style={{ width: "100%", marginTop: "20px" }}
+          placeholder="Ciudad"
+          labelId="townslabelid"
+          id="townsid"
+          value={town}
+          onChange={onChangeTown}
+        >
+          {townsMenu()}
+        </Select>
+        <div className="displayInB">
+          <div className="floatL">
+            <p className="inputHeader"> Precio por habitante </p>
+          </div>
+        </div>
+        <InputBase
+          className="input"
+          id="endateid"
+          fullWidth
+          required
+          value={percentaje}
+          inputProps={{ "aria-label": "naked" }}
+          onChange={onChangePercentaje}
+        />
+        <div className="displayInB">
+          <div className="floatL">
+            <p className="inputHeader"> Porcentaje de completado </p>
+          </div>
+        </div>
+        <InputBase
+          className="input"
+          id="endateid"
+          fullWidth
+          required
+          value={price}
+          inputProps={{ "aria-label": "naked" }}
+          onChange={onChangePricePerHabitant}
+        />
+      </div>
+    )
 }
 
 export default RegisterComponent;
