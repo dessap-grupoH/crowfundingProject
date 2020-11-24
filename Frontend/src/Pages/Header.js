@@ -5,14 +5,13 @@ import "../Pages/Header.css";
 import Toast from "../Components/Generics/Toast";
 import { loginAuth0 } from "../Utils/Api";
 import { useTranslation } from "react-i18next";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import ParticlesBg from "particles-bg";
 
 const Header = () => {
 
    const [t] = useTranslation("global");
    const history = useHistory();
-   const location = useHistory();
    const [toast, setToast] = useState(false);
    const { user, isLoading, getAccessTokenSilently } = useAuth0();
 

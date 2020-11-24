@@ -4,12 +4,14 @@ import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
 import googleAuth from "../Assets/googleAuth.png";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useHistory } from "react-router-dom";
 
 import "./LoginComponent.css";
 
 const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) => {
 
   const { loginWithRedirect } = useAuth0();
+  const history = useHistory();
 
   return (
     <div>
@@ -47,11 +49,13 @@ const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) =>
           fullWidth
           value={password}
           required
+          type="password"
           inputProps={{ "aria-label": "naked" }}
           onChange={onChangePassword}
         />
+        <p onClick={() => history.push("/register")} className="goRegister"> Si aun no estas registrado, click aqui </p>
       </div>
-    </div>
+    </div >
   );
 };
 
