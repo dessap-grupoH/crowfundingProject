@@ -46,6 +46,10 @@ const registerUser = (email, nick, username, password) =>
   axios.post(`${HOST_URL}${USER_URL}/register`,
     { email: email, username: username, password: password, nick: nick });
 
+const fetchTownsWithoutProject = () =>
+  axios.get(`${HOST_URL}${TOWNS_URL}/noProject`);
+
+
 export {
   loginUser,
   fetchUser,
@@ -57,5 +61,6 @@ export {
   fetchAboutEnd,
   closeProject,
   loginAuth0,
-  registerUser
+  registerUser,
+  fetchTownsWithoutProject
 };
