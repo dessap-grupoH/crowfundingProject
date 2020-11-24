@@ -16,7 +16,6 @@ const Register = () => {
   const [email, setEmail] = useState(null);
   const [userName, setUserName] = useState(null);
   const [password, setPassword] = useState(null);
-  const [repeatPassword, setRepeatPassword] = useState(null);
 
   const handleSumbit = () => {
     registerUser(email, nick, userName, password).then(response => {
@@ -39,7 +38,6 @@ const Register = () => {
             onChangeEmail={e => setEmail(e.target.value)}
             onChangeNick={e => setNick(e.target.value)}
             onChangePassword={e => setPassword(e.target.value)}
-            onChangeRepeatPassword={e => setRepeatPassword(e.target.value)}
             onChangeUsername={e => setUserName(e.target.value)}
           />
         </div>

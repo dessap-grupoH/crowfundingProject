@@ -10,7 +10,8 @@
     "donate": "Donar",
     "profile": "Perfil",
     "projects-To-End-Soon": "Projectos a finalizar",
-    "close-sesion": "Cerrar sesion"
+    "close-sesion": "Cerrar sesion",
+    "create-project": "Crear proyecto"
   },
   "profile": {
     "name": "Nombre de usuario",
@@ -60,11 +61,19 @@
     "estimated-finish-date": "Fecha estimada de cierre: ",
     "percentaje-completed": "Porcentaje de finalizacion: "
   },
-  "login-register" : {
+  "login-register": {
     "email": "Correo",
     "password": "Contraseña",
     "registerLink": "Si aún no estas registrado, has click aquí",
     "username": "Nombre de usuario",
     "nickname": "Apodo"
+  },
+  "new-project": {
+    "location": "Localidad",
+    "province": "Provincia",
+    "population": "Poblacion",
+    "project-name": "Nombre del proyecto",
+    "start-date": "Fecha de inicio",
+    "end-date": "Fecha estimada de fin"
   }
 }

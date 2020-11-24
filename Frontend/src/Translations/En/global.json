@@ -10,7 +10,8 @@
     "donate": "Donate",
     "profile": "Profile",
     "projects-To-End-Soon": "Projects ending soon",
-    "close-sesion": "Logout"
+    "close-sesion": "Logout",
+    "create-project": "Create project"
   },
   "profile": {
     "name": "Username",
@@ -61,11 +62,19 @@
     "estimated-finish-date": "Estimated finish date: ",
     "percentaje-completed": "Completion percentage: "
   },
-  "login-register" : {
+  "login-register": {
     "email": "Email",
     "password": "Password",
     "registerLink": "Click here to register",
     "username": "Username",
     "nickname": "Nickname"
+  },
+  "new-project": {
+    "location": "Location",
+    "province": "Province",
+    "population": "Population",
+    "project-name": "Project name",
+    "start-date": "Start date",
+    "end-date": "End date"
   }
 }

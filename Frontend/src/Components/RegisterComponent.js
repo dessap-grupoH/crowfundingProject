@@ -8,11 +8,11 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import "./RegisterComponent.css";
 
 const RegisterComponent = ({ onChangeEmail, onChangeNick,
-  onChangePassword, onChangeRepeatPassword, onChangeUsername }) => {
+  onChangePassword, onChangeUsername }) => {
 
   const [t] = useTranslation("global");
 
-  return ( 
+  return (
     <div className="loginContainer">
       <div className="displayInB">
         <div className="floatL">
@@ -79,24 +79,7 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
         inputProps={{ "aria-label": "naked" }}
         onChange={onChangePassword}
       />
-     {/* <div className="displayInB">
-        <div className="floatL">
-          <LockOpenIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
-        </div>
-        <div className="floatL">
-          <p className="inputHeader"> Repita su contraseña </p>
-        </div>
-      </div>
-      <InputBase
-        className="input"
-        id="pwidrepeat"
-        fullWidth
-        required
-        type="password"
-        inputProps={{ "aria-label": "naked" }}
-        onChange={onChangeRepeatPassword}
-      />*/}
-  </div>
+    </div>
   )
 }
 

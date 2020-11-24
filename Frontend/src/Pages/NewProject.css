@@ -1,0 +1,11 @@
+.newProjectContainer {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.newProject {
+  width: 45%;
+  margin-top: 2%;
+  text-align: left;
+  display:inline-block;
+}

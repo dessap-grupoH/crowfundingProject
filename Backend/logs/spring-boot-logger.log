@@ -608,3 +608,25 @@ Using generated security password: 5ca3da3a-c461-4e79-b239-4fca802fe939
 2020-11-24 15:13:16,618 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-2] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [1] in 4 ms
 2020-11-24 15:13:16,949 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-4] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [1] in 16 ms
 2020-11-24 15:13:34,599 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-5] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [1] in 3 ms
+2020-11-24 15:13:38,253 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-3] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [1] in 17 ms
+2020-11-24 15:19:29,142 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-1] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 5 ms
+2020-11-24 15:19:29,169 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-10] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 21 ms
+2020-11-24 15:19:43,594 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-5] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [3] in 5 ms
+2020-11-24 15:19:43,674 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-3] CrowdFundingProjectController.findDetailsOf(..) executed by rodrigo with args [3] in 6 ms
+2020-11-24 15:19:57,771 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-7] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 4 ms
+2020-11-24 15:19:57,786 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-9] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 11 ms
+2020-11-24 15:27:11,318 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-2] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 60 ms
+2020-11-24 15:27:11,406 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-4] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 34 ms
+2020-11-24 15:28:20,581 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-3] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 11 ms
+2020-11-24 15:28:20,599 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-8] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 3 ms
+2020-11-24 15:28:49,281 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-1] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 9 ms
+2020-11-24 15:28:49,349 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-10] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 6 ms
+2020-11-24 15:30:21,386 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-5] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 15 ms
+2020-11-24 15:30:21,404 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-6] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 3 ms
+2020-11-24 15:32:04,522 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-9] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 2 ms
+2020-11-24 15:32:04,537 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-7] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 8 ms
+2020-11-24 15:33:26,744 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-4] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 26 ms
+2020-11-24 15:33:26,813 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-2] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 49 ms
+2020-11-24 15:34:37,959 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-3] UserController.loginUser(..) executed by anonymousUser with args [User(password, email='rodrigo@gmail.com')] in 18 ms
+2020-11-24 15:34:38,124 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-8] CrowdFundingProjectController.findAllOpen() executed by rodrigo with args [] in 19 ms
+2020-11-24 15:34:38,134 INFO ar.unq.edu.desapp.grupoH.aspects.LogWSAnnotation [http-nio-8080-exec-9] CrowdFundingProjectController.findAboutToend() executed by rodrigo with args [] in 2 ms
