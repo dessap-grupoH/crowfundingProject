@@ -1,7 +1,7 @@
 import React from 'react';
 import "../Components/Navbar.css"
 import { useTranslation } from "react-i18next"
-import { Avatar } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import unitedkingdom from "../Assets/unitedkingdom.png";
 import argentina from "../Assets/argentina.png";
@@ -11,6 +11,7 @@ const Navbar = ({ refIntro, refProjects, refProjectsToEndSoon }) => {
 
     const [t, i18n] = useTranslation("global");
     const { loginWithRedirect } = useAuth0();
+    const history = useHistory();
 
     const translatePage = () => {
         currentLanguaje().language === "es"
@@ -35,7 +36,13 @@ const Navbar = ({ refIntro, refProjects, refProjectsToEndSoon }) => {
                 <li><a className="smoothscroll" href={refProjectsToEndSoon}> {t("navbar.projects-To-End-Soon")} </a></li>
                 <li><a href="/profile"> {t("navbar.profile")} </a></li>
                 <li><a className="smoothscroll" href="#"> <img src={determinateImg()} onClick={translatePage} style={{ width: "50px", borderRadius: "10px" }} /> </a></li>
-                <li><a className="smoothscroll" href="#"> <Avatar onClick={() => loginWithRedirect()} /> </a></li>
+                <li><a className="smoothscroll" href="#" onClick={() => {
+                    localStorage.clear();
+                    document.cookie.split(";").forEach(function (c) {
+                        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                    });
+                    history.push("/");
+                }}>{t("navbar.close-sesion")} </a></li>
             </ul>
         </nav>
     );

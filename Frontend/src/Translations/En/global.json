@@ -9,7 +9,8 @@
     "projects": "Projects",
     "donate": "Donate",
     "profile": "Profile",
-    "projects-To-End-Soon": "Projects ending soon"
+    "projects-To-End-Soon": "Projects ending soon",
+    "close-sesion": "Logout"
   },
   "profile": {
     "name": "Username",
