@@ -3,7 +3,7 @@ import Button from "./Button";
 import back from "../../Assets/back.png";
 import next from "../../Assets/next.png";
 
-const BackNext = (onClickBack, onClickNext) => (
+const BackNext = ({ onClickBack, onClickNext }) => (
   <div style={{
     display: "inline-block",
     textAlign: "center",

@@ -13,7 +13,10 @@ axios.interceptors.request.use((config) => {
 });
 
 const loginUser = (email, password) =>
-  axios.post(`${HOST_URL}${USER_URL}/login`, {email: email, password: password})
+  axios.post(`${HOST_URL}${USER_URL}/login`, { email: email, password: password })
+
+const loginAuth0 = (nick, email, username, token) =>
+  axios.post(`${HOST_URL}${USER_URL}/loginAuth0`, { email: email, nick: nick, username: username, token: token });
 
 const fetchUser = (userID) =>
   axios.get(`${HOST_URL}${USER_URL}?id=${userID}`);
@@ -48,5 +51,6 @@ export {
   fetchProjectDetail,
   postDonation,
   fetchAboutEnd,
-  closeProject
+  closeProject,
+  loginAuth0
 };

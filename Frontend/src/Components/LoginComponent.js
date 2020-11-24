@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import "./LoginComponent.css";
 
-const LoginComponent = () => {
+const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) => {
 
   const { loginWithRedirect } = useAuth0();
 
@@ -27,8 +27,10 @@ const LoginComponent = () => {
           className="input"
           id="userId"
           fullWidth
+          value={email}
           required
           inputProps={{ "aria-label": "naked" }}
+          onChange={onChangeEmail}
         />
         <hr className="authSeparator"></hr>
         <div className="displayInB">
@@ -41,10 +43,12 @@ const LoginComponent = () => {
         </div>
         <InputBase
           className="input"
-          id="userId"
+          id="passid"
           fullWidth
+          value={password}
           required
           inputProps={{ "aria-label": "naked" }}
+          onChange={onChangePassword}
         />
       </div>
     </div>
