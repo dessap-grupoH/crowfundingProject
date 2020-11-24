@@ -38,4 +38,16 @@ class TownRestController {
         return ResponseEntity(response, HttpStatus.OK)
     }
 
+    @LogWS
+    @GetMapping("/noProject")
+    @Throws(Exception::class)
+    fun findTownsWithoutProject(): ResponseEntity<List<Town>> {
+        var response: List<Town>
+        try {
+            response = service.findTownsWithoutProject()
+        } catch (e: Exception) {
+            return ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+        return ResponseEntity(response, HttpStatus.OK)
+    }
 }

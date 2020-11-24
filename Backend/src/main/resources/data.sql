@@ -5,6 +5,8 @@ INSERT INTO Town(`name`, province, population, connection_state) VALUES ('Tres A
 INSERT INTO Town(`name`, province, population, connection_state) VALUES ('30 de agosto', 'Entre Rios', 1750, 'Disconnected');
 INSERT INTO Town(`name`, province, population, connection_state) VALUES ('Sierra Leona', 'Cordoba', 22000, 'Disconnected');
 INSERT INTO Town(`name`, province, population, connection_state) VALUES ('El Malantial', 'Chaco', 22000, 'Disconnected');
+INSERT INTO Town(`name`, province, population, connection_state) VALUES ('Bermejo', 'Chaco', 25052, 'Disconnected');
+INSERT INTO Town(`name`, province, population, connection_state) VALUES ('Tapenagá', 'Chaco', 4097, 'Disconnected');
 
 
 INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES ('DonorUser', 'ricardo@gmail.com', '123', 'ricardo', 250, 'ricX');
@@ -13,8 +15,6 @@ INSERT INTO `User`(DTYPE, email, password, username, actual_points, nick) VALUES
 INSERT INTO `User`(DTYPE, email, password, username) VALUES ('AdminUser', 'crowdfunding.unq.grupoH@gmail.com', '123', 'Admin');
 
 
-INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
-                                  price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-29', 0, 'Proyecto pergaminense', 80, 1500, 'Opened' , '2020-01-19',1);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,
                                   price_per_inhabitant, project_state,start_date, place_to_connect_id) VALUES ('2020-10-19', 10000, 'Proyecto patagonense', 79, 1500, 'Opened' , '2019-12-19',2);
 INSERT INTO Crowdfunding_Project(estimated_finish_date, money_collected, `name`, percentage_needed,

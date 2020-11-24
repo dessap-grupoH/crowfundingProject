@@ -13,5 +13,6 @@ class TownService {
     private lateinit var repository: TownRepository
 
    fun findAll() = repository.findAll().toList()
+   fun findTownsWithoutProject() = repository.findTownsWithoutProject()
 
 }
