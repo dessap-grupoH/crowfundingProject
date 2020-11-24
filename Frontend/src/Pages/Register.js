@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
 import RegisterComponent from "../Components/RegisterComponent";
 import BackNext from "../Components/Generics/BackNext";
+import { registerUser } from "../Utils/Api";
 
 import { useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 import "./Register.css";
 
 const Register = () => {
 
   const history = useHistory();
+  const [nick, setNick] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [userName, setUserName] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [repeatPassword, setRepeatPassword] = useState(null);
+
+  const handleSumbit = () => {
+    registerUser(email, nick, userName, password).then(response => {
+      history.push("/login")
+    });
+  };
 
   return (
     <div>
@@ -24,10 +35,18 @@ const Register = () => {
       />
       <div className="authsContainer">
         <div className="auths">
-          <RegisterComponent />
+          <RegisterComponent
+            onChangeEmail={e => setEmail(e.target.value)}
+            onChangeNick={e => setNick(e.target.value)}
+            onChangePassword={e => setPassword(e.target.value)}
+            onChangeRepeatPassword={e => setRepeatPassword(e.target.value)}
+            onChangeUsername={e => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <BackNext
+        onClickNext={handleSumbit}
+        onClickBack={() => history.goBack()}
         width="35%"
         marginLeft="26%"
       />

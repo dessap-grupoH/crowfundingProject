@@ -5,21 +5,18 @@ import "../Pages/Header.css";
 import Toast from "../Components/Generics/Toast";
 import { loginAuth0 } from "../Utils/Api";
 import { useTranslation } from "react-i18next";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import ParticlesBg from "particles-bg";
 
 const Header = () => {
 
    const [t] = useTranslation("global");
    const history = useHistory();
-   const location = useHistory();
    const [toast, setToast] = useState(false);
    const { user, isLoading, getAccessTokenSilently } = useAuth0();
 
    useEffect(() => {
       if (!isLoading) {
-         const test = getAccessTokenSilently();
-         console.log(test);
          actionInNotLoggedUser();
          actionInAuth0User();
       };
@@ -33,6 +30,7 @@ const Header = () => {
       if (!localStorage.getItem("accessToken") && user) {
          loginAuth0(user.nickname, user.email, user.given_name, "ndeahhh")
             .then(response => {
+               getAccessTokenSilently().then(r => console.log(r))
                localStorage.setItem("email", response.data.email);
                localStorage.setItem("userID", response.data.id);
                localStorage.setItem("nick", response.data.nick);

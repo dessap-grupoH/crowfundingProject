@@ -42,6 +42,10 @@ const postDonation = (donation) =>
 const closeProject = (projectId) =>
   axios.post(`${HOST_URL}${PROJECT_URL}/close?id=${projectId}`);
 
+const registerUser = (email, nick, username, password) =>
+  axios.post(`${HOST_URL}${USER_URL}/register`,
+    { email: email, username: username, password: password, nick: nick });
+
 export {
   loginUser,
   fetchUser,
@@ -52,5 +56,6 @@ export {
   postDonation,
   fetchAboutEnd,
   closeProject,
-  loginAuth0
+  loginAuth0,
+  registerUser
 };
