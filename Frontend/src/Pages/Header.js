@@ -18,8 +18,6 @@ const Header = () => {
 
    useEffect(() => {
       if (!isLoading) {
-         const test = getAccessTokenSilently();
-         console.log(test);
          actionInNotLoggedUser();
          actionInAuth0User();
       };
@@ -31,15 +29,17 @@ const Header = () => {
 
    const actionInAuth0User = () => {
       if (!localStorage.getItem("accessToken") && user) {
-         loginAuth0(user.nickname, user.email, user.given_name, "ndeahhh")
-            .then(response => {
-               localStorage.setItem("email", response.data.email);
-               localStorage.setItem("userID", response.data.id);
-               localStorage.setItem("nick", response.data.nick);
-               localStorage.setItem("accessToken", response.data.token);
-               setToast(true);
-               setTimeout(() => { window.location.reload() }, 2000)
-            });
+         getAccessTokenSilently().then(access_token => {
+            loginAuth0(user.nickname, user.email, user.given_name, access_token)
+               .then(response => {
+                  localStorage.setItem("email", response.data.email);
+                  localStorage.setItem("userID", response.data.id);
+                  localStorage.setItem("nick", response.data.nick);
+                  localStorage.setItem("accessToken", response.data.token);
+                  setToast(true);
+                  setTimeout(() => { window.location.reload() }, 2000)
+               });
+         });
       };
    };
 
