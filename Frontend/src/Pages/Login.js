@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import ParticlesBg from "particles-bg";
+import { useHistory } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import LoginComponent from "../Components/LoginComponent";
 import BackNext from "../Components/Generics/BackNext";
 import { loginUser } from "../Utils/Api";
-import { useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next"
 import "./Login.css";
 
 const Login = () => {

@@ -28,6 +28,7 @@ const Header = () => {
 
    const actionInAuth0User = () => {
       if (!localStorage.getItem("accessToken") && user) {
+<<<<<<< HEAD
          loginAuth0(user.nickname, user.email, user.given_name, "ndeahhh")
             .then(response => {
                getAccessTokenSilently().then(r => console.log(r))
@@ -39,6 +40,20 @@ const Header = () => {
                setToast(true);
                setTimeout(() => { window.location.reload() }, 2000)
             });
+=======
+         getAccessTokenSilently().then(access_token => {
+            loginAuth0(user.nickname, user.email, user.given_name, access_token)
+               .then(response => {
+                  localStorage.setItem("email", response.data.email);
+                  localStorage.setItem("userID", response.data.id);
+                  localStorage.setItem("nick", response.data.nick);
+                  localStorage.setItem("aPermission", response.data.adminPermission);
+                  localStorage.setItem("accessToken", response.data.token);
+                  setToast(true);
+                  setTimeout(() => { window.location.reload() }, 2000)
+               });
+         });
+>>>>>>> 70ce3c2b745a5d47c2d4d2b820e220fc4b9ee8fb
       };
    };
 

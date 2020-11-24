@@ -15,7 +15,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (isLoading) {
-      fetchUser(2).then((response) => {
+      fetchUser(localStorage.getItem("userID")).then((response) => {
         setUserDetails(response.data);
         setIsLoading(false);
       }).catch((error) => console.log(error));

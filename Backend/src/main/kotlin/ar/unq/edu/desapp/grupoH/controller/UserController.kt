@@ -90,8 +90,8 @@ class UserController {
     @Throws(Exception::class)
     fun testMail(): ResponseEntity<String> {
         try {
-            mailservice.sendDailyEmail()
-           // mailservice.sendClosedProjectMail(listOf("crowdfunding.unq.grupoH@gmail.com"), "test")
+            //mailservice.sendDailyEmail()
+            mailservice.sendClosedProjectMail(listOf("crowdfunding.unq.grupoH@gmail.com"), "test")
         } catch (e: NoSuchElementException) {
             return ResponseEntity(HttpStatus.NOT_FOUND)
         } catch (e: Exception) {

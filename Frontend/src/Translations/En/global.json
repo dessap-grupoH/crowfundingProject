@@ -60,5 +60,12 @@
     "see-more": "More",
     "estimated-finish-date": "Estimated finish date: ",
     "percentaje-completed": "Completion percentage: "
+  },
+  "login-register" : {
+    "email": "Email",
+    "password": "Password",
+    "registerLink": "Click here to register",
+    "username": "Username",
+    "nickname": "Nickname"
   }
 }

@@ -2,9 +2,10 @@ import React from 'react';
 import { InputBase } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
-import googleAuth from "../Assets/googleAuth.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next"
+import googleAuth from "../Assets/googleAuth.png";
 
 import "./LoginComponent.css";
 
@@ -12,6 +13,7 @@ const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) =>
 
   const { loginWithRedirect } = useAuth0();
   const history = useHistory();
+   const [t] = useTranslation("global");
 
   return (
     <div>
@@ -22,7 +24,7 @@ const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) =>
             <PersonIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
           </div>
           <div className="floatL">
-            <p className="inputHeader"> Email </p>
+            <p className="inputHeader"> {`${t("login-register.email")}`} </p>
           </div>
         </div>
         <InputBase
@@ -40,7 +42,7 @@ const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) =>
             <LockIcon style={{ fontSize: "45px", marginTop: "5px", marginLeft: "8px" }} />
           </div>
           <div className="floatL">
-            <p className="inputHeader"> Contraseña</p>
+            <p className="inputHeader"> {`${t("login-register.password")}`}</p>
           </div>
         </div>
         <InputBase
@@ -53,7 +55,7 @@ const LoginComponent = ({ email, password, onChangeEmail, onChangePassword }) =>
           inputProps={{ "aria-label": "naked" }}
           onChange={onChangePassword}
         />
-        <p onClick={() => history.push("/register")} className="goRegister"> Si aun no estas registrado, click aqui </p>
+        <p onClick={() => history.push("/register")} className="goRegister"> {`${t("login-register.registerLink")}`} </p>
       </div>
     </div >
   );
