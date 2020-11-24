@@ -48,7 +48,7 @@ const Projects = () => {
                      </Grid>
                      <Grid item xs={2}>
                         <div className="individualProject-text">
-                           {`$ ${project.moneyCollected}`}
+                           {`$ ${project.moneyCollected.toLocaleString(t("locale"))}`}
                         </div>
                      </Grid>
                      <Grid item xs={2}>

@@ -44,7 +44,7 @@ const Project = () => {
           <ListItem>
             <AccountCircleIcon style={{ marginRight: "5%" }} />
             <ListItemText primary={d.nick} />
-            <ListItemText primary={d.totalAmount} />
+            <ListItemText primary={`$ ${d.totalAmount.toLocaleString(t("locale"))}`} />
           </ListItem>
           <Divider />
         </div>
@@ -78,12 +78,12 @@ const Project = () => {
           />
           <DetailItem
             detailTitle={t("projects.start-date")}
-            detail={projectDetail.startDate}
+            detail={new Date(projectDetail.startDate).toLocaleDateString(t("locale"))}
             icon={<img alt="schedule" src={schedule} style={{ width: "35px", marginRight: "10px" }} />}
           />
           <DetailItem
             detailTitle={t("projects.raised")}
-            detail={projectDetail.moneyCollected}
+            detail={projectDetail.moneyCollected.toLocaleString(t("locale"))}
             icon={<img alt="money" src={money} style={{ width: "40px", marginRight: "10px" }} />}
           />
           <DetailItem
@@ -93,7 +93,7 @@ const Project = () => {
           />
           <DetailItem
             detailTitle={t("projects.price-per-habitant")}
-            detail={projectDetail.pricePerInhabitant}
+            detail={projectDetail.pricePerInhabitant.toLocaleString(t("locale"))}
             icon={<img alt="cost" src={cost} style={{ width: "40px", marginRight: "10px" }} />}
           />
           {false &&

@@ -21,7 +21,8 @@ class UserService {
     @Throws(InvalidSignIn::class)
     fun loginUser(user: User) : User {
         val usr: User? = repository.findByEmail(user.email) ?: throw InvalidSignIn("Usuario incorrecto")
-        usr!!.token = getJWTToken(usr.username, 86400000)
+        if (usr!!.password != user.password) throw InvalidSignIn("Password Incorrecta")
+        usr.token = getJWTToken(usr.username, 86400000)
         usr.password = null
         return usr
     }

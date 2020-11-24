@@ -41,7 +41,7 @@ const ProjectsToEndSoon = () => {
                            <Card className="card">
                               <CardContent>
                                  <Typography gutterBottom>
-                                    {`${t("projects-to-end-soon.estimated-finish-date")} ${p.estimatedFinishDate}`}
+                                    {`${t("projects-to-end-soon.estimated-finish-date")} ${new Date(p.estimatedFinishDate).toLocaleDateString(t("locale"))}`}
                                  </Typography>
                                  <hr></hr>
                                  <Typography variant="h5" component="h2">
