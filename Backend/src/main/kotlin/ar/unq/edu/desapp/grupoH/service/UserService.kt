@@ -47,6 +47,7 @@ class UserService {
     @Throws(InvalidData::class, UserAlreadyExists::class)
     fun registerUser(registerRequest: DonorUser) : DonorUser {
         if (registerRequest.password == null ||  registerRequest.password == "") throw InvalidData("Los datos no son válidos.")
+        if (repository.findByEmail(registerRequest.email) != null) throw UserAlreadyExists("Mail ya existente.")
         repository.save(registerRequest)
         registerRequest.token = getJWTToken(registerRequest.username, 86400000)
         registerRequest.password = null

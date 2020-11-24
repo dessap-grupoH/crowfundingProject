@@ -34,6 +34,7 @@ const Header = () => {
                   localStorage.setItem("email", response.data.email);
                   localStorage.setItem("userID", response.data.id);
                   localStorage.setItem("nick", response.data.nick);
+                  localStorage.setItem("aPermission", response.data.adminPermission);
                   localStorage.setItem("accessToken", response.data.token);
                   setToast(true);
                   setTimeout(() => { window.location.reload() }, 2000)

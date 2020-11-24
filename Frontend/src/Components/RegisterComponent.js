@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import "./RegisterComponent.css";
+import React from 'react';
+import { useTranslation } from "react-i18next";
 import { InputBase } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import "./RegisterComponent.css";
 
 const RegisterComponent = ({ onChangeEmail, onChangeNick,
   onChangePassword, onChangeRepeatPassword, onChangeUsername }) => {
 
-  return (
+  const [t] = useTranslation("global");
+
+  return ( 
     <div className="loginContainer">
       <div className="displayInB">
         <div className="floatL">
           <AlternateEmailIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
         </div>
         <div className="floatL">
-          <p className="inputHeader"> Elija un email </p>
+          <p className="inputHeader"> {`${t("login-register.email")}`}</p>
         </div>
       </div>
       <InputBase
@@ -32,7 +35,7 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
           <PermContactCalendarIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
         </div>
         <div className="floatL">
-          <p className="inputHeader"> Elija un nombre de usuario</p>
+          <p className="inputHeader"> {`${t("login-register.username")}`}</p>
         </div>
       </div>
       <InputBase
@@ -48,7 +51,7 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
           <PersonIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
         </div>
         <div className="floatL">
-          <p className="inputHeader"> Elija un nick </p>
+          <p className="inputHeader">{`${t("login-register.nickname")}`}</p>
         </div>
       </div>
       <InputBase
@@ -64,7 +67,7 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
           <LockOpenIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
         </div>
         <div className="floatL">
-          <p className="inputHeader"> Elija una constraseña </p>
+          <p className="inputHeader"> {`${t("login-register.password")}`} </p>
         </div>
       </div>
       <InputBase
@@ -76,7 +79,7 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
         inputProps={{ "aria-label": "naked" }}
         onChange={onChangePassword}
       />
-      <div className="displayInB">
+     {/* <div className="displayInB">
         <div className="floatL">
           <LockOpenIcon style={{ fontSize: "50px", marginTop: "5px", marginLeft: "8px" }} />
         </div>
@@ -92,8 +95,8 @@ const RegisterComponent = ({ onChangeEmail, onChangeNick,
         type="password"
         inputProps={{ "aria-label": "naked" }}
         onChange={onChangeRepeatPassword}
-      />
-    </div>
+      />*/}
+  </div>
   )
 }
 

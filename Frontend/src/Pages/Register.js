@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import ParticlesBg from "particles-bg";
 import Navbar from "../Components/Navbar";
 import RegisterComponent from "../Components/RegisterComponent";
 import BackNext from "../Components/Generics/BackNext";
 import { registerUser } from "../Utils/Api";
 
-import { useHistory } from "react-router-dom";
 
 import "./Register.css";
 
