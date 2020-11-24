@@ -19,9 +19,9 @@ const Donate = () => {
       <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
 
       <Navbar
-        refIntro="#intro"
-        refProjects="#currentProjects"
-        refProjectsToEndSoon="#projectsToEndSoon"
+        refIntro="/"
+        refProjects="/#currentProjects"
+        refProjectsToEndSoon="/#projectsToEndSoon"
       />
       <div className="donate">
         <div className="donateLabel">

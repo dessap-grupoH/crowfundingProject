@@ -24,10 +24,16 @@ class CrowdFundingProjectService {
     fun findById(id: Int) = repository.findById(id).get()
     fun findAboutToEnd() = repository.findAllByEstimatedFinishDateBetweenOrderByEstimatedFinishDateAsc(LocalDate.now(), LocalDate.now().plusDays(30))
 
+    @Transactional
     fun closeProject (id: Int){
         var projectToUpdate: CrowdfundingProject = repository.findById(id).get()
         projectToUpdate.changeToFinished()
         repository.save(projectToUpdate)
         mailService.sendClosedProjectMail(projectToUpdate.getDonorsEmails(), projectToUpdate.name!!)
+    }
+
+    @Transactional
+    fun openProject(project: CrowdfundingProject){
+        repository.save(project)
     }
 }

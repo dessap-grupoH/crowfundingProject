@@ -75,6 +75,19 @@ class CrowdFundingProjectController {
     }
 
     @LogWS
+    @PostMapping("/open")
+    @Throws(Exception::class)
+    fun openProject(@RequestBody project: CrowdfundingProject): ResponseEntity<String>{
+        try{
+            service.openProject(project)
+        } catch (e: Exception){
+            return ResponseEntity(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+        return ResponseEntity("Se inició el proyecto exitosamente", HttpStatus.OK)
+    }
+
+
+    @LogWS
     @PostMapping("/close")
     @Throws(Exception::class)
     fun closeProject(@RequestParam id: Int): ResponseEntity<String>{

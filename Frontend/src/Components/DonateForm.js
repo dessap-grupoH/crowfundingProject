@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next"
+import { useHistory } from "react-router-dom";
 import Toast from "../Components/Generics/Toast";
 import { postDonation } from "../Utils/Api";
 import "../Components/DonateForm.css";
@@ -13,6 +14,7 @@ const DonateForm = ({ userId, projectId }) => {
   const [successToast, setSuccessToast] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
   const [t] = useTranslation("global");
+  const history = useHistory();
 
   const onSumbit = () => {
     if (!isValidAmount()) {
@@ -25,7 +27,7 @@ const DonateForm = ({ userId, projectId }) => {
         projectId: projectId,
         amount: parseInt(amount, 10),
         comment: `${comment}`
-      }).then(() => setSuccessToast(true))
+      }).then(() => { setSuccessToast(true); setTimeout(()=>{history.goBack()}, 2000)})
         .catch(_ => {
           addError([...errors, { type: "send", error: "Hubo un error al enviar la donacion" }])
           setErrorToast(true);
