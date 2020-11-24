@@ -69,47 +69,48 @@ const Projects = () => {
 
 
 
-   return isLoading ? (
-      <LinearProgress variant="indeterminate" />
-   ) : (
-         <section id="currentProjects">
-            <div className="projects-container">
-               <Grid container direction="column" spacing={2}>
-                  <Grid item>
-                     <Grid container spacing={2}>
-                        <Grid item xs={1}></Grid>
-                        <Grid item xs={2}>
-                           <div className="headerProject-container">
-                              {t("projects.name")}
-                           </div>
-                        </Grid>
-                        <Grid item xs={2}>
-                           <div className="headerProject-container">
-                              {t("projects.city")}
-                           </div>
-                        </Grid>
-                        <Grid item xs={2}>
-                           <div className="headerProject-container">
-                              {t("projects.raised")}
-                           </div>
-                        </Grid>
-                        <Grid item xs={2}>
-                           <div className="headerProject-container">
-                              {t("projects.percentaje-completed")}
-                           </div>
-                        </Grid>
-                        <Grid item xs={2}>
-                           <div className="headerProject-container">
-                              {t("projects.number-of-contributors")}
-                           </div>
+   return !localStorage.getItem("accessToken") ? "" :
+      isLoading ? (
+         <LinearProgress variant="indeterminate" />
+      ) : (
+            <section id="currentProjects">
+               <div className="projects-container">
+                  <Grid container direction="column" spacing={2}>
+                     <Grid item>
+                        <Grid container spacing={2}>
+                           <Grid item xs={1}></Grid>
+                           <Grid item xs={2}>
+                              <div className="headerProject-container">
+                                 {t("projects.name")}
+                              </div>
+                           </Grid>
+                           <Grid item xs={2}>
+                              <div className="headerProject-container">
+                                 {t("projects.city")}
+                              </div>
+                           </Grid>
+                           <Grid item xs={2}>
+                              <div className="headerProject-container">
+                                 {t("projects.raised")}
+                              </div>
+                           </Grid>
+                           <Grid item xs={2}>
+                              <div className="headerProject-container">
+                                 {t("projects.percentaje-completed")}
+                              </div>
+                           </Grid>
+                           <Grid item xs={2}>
+                              <div className="headerProject-container">
+                                 {t("projects.number-of-contributors")}
+                              </div>
+                           </Grid>
                         </Grid>
                      </Grid>
+                     {projectsItem}
                   </Grid>
-                  {projectsItem}
-               </Grid>
-            </div>
-         </section>
-      );
+               </div>
+            </section>
+         );
 }
 
 

@@ -26,12 +26,13 @@ const ProjectsToEndSoon = () => {
    }, []);
 
 
-   return isLoading ? (
-      <LinearProgress variant="indeterminate" />
-   ) : (
-         <section id="projectsToEndSoon">
+   return !localStorage.getItem("accessToken") ? "" :
+      isLoading ? (
+         <LinearProgress variant="indeterminate" />
+      ) : (
+            <section id="projectsToEndSoon">
 
-            <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
+               <ParticlesBg color="#83adf181" type="cobweb" bg={true} />
 
             <Grid container direction="row">
                {
@@ -62,12 +63,12 @@ const ProjectsToEndSoon = () => {
                            </Card>
                         </Grid>
 
-                     );
-                  })
-               }
-            </Grid>
-         </section>
-      )
+                        );
+                     })
+                  }
+               </Grid>
+            </section>
+         )
 };
 
 
