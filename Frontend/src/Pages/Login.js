@@ -17,6 +17,7 @@ const Login = () => {
   const logUser = () => {
     loginUser(email, password).then(response => {
       localStorage.setItem("userID", response.data.id);
+      localStorage.setItem("adminPermission", response.data.adminPermission);
       localStorage.setItem("nick", response.data.nick);
       localStorage.setItem("accessToken", response.data.token);
       history.push("/")
