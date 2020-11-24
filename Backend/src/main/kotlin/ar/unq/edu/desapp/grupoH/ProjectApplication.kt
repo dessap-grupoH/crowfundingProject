@@ -26,7 +26,7 @@ internal class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 				.and().csrf().disable()
 				.addFilterAfter(JWTAuthFilter(), UsernamePasswordAuthenticationFilter::class.java)
 				.authorizeRequests()
-				.antMatchers("/api/user/login", "/api/user/register", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
+				.antMatchers("/api/user/login", "/api/user/loginAuth0", "/api/user/register", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
 				.anyRequest().authenticated()
 	}
 }
