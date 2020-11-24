@@ -96,7 +96,7 @@ const Project = () => {
             detail={projectDetail.pricePerInhabitant.toLocaleString(t("locale"))}
             icon={<img alt="cost" src={cost} style={{ width: "40px", marginRight: "10px" }} />}
           />
-          {false &&
+          {projectDetail.projectState === "Opened" && localStorage.getItem("adminPermission") === "false" &&
             <DetailItem
               detail={t("projects.make-donation")}
               isDonation
@@ -107,11 +107,11 @@ const Project = () => {
               }
             />}
 
-          {projectDetail.projectState === "Opened" &&
+          {projectDetail.projectState === "Opened" && localStorage.getItem("adminPermission") === "true" &&
             <DetailItem
               detail={t("projects.close-project")}
               isCloseProjectButton
-              onClickItem={
+              onClickItem={() =>
                 closeProject(projectId)
                   .then(resp => console.log(resp))
                   .catch(e => console.log(e))}

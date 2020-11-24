@@ -31,6 +31,7 @@ const Header = () => {
          getAccessTokenSilently().then(access_token => {
             loginAuth0(user.nickname, user.email, user.given_name, access_token)
                .then(response => {
+                  localStorage.setItem("adminPermission", response.data.adminPermission);
                   localStorage.setItem("email", response.data.email);
                   localStorage.setItem("userID", response.data.id);
                   localStorage.setItem("nick", response.data.nick);
